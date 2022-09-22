@@ -17,10 +17,13 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {   
+        $roles = Role::pluck('name','name')->all();
         $data = User::orderBy('id','DESC')->paginate(5);
-        return view('users.index',compact('data'))
+
+        return view('users.index',compact('data','roles'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+
     }
 
     /**
