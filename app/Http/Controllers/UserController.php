@@ -71,7 +71,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show',compact('user'));
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+        $user = User::find($id);
+
+        return view('users.show',compact('user','roles','userRole'));
     }
 
     /**
