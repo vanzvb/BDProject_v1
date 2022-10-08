@@ -17,6 +17,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.min.css') }}">
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="{{ asset('/plugins/sweetalert2/bootstrap-4.min.css') }}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -28,12 +32,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li> --}}
     </ul>
 
     <!-- Right navbar links -->
@@ -177,11 +181,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
               @endcan
             </ul>
           </li>
+          {{-- 2nd ROW --}}
+          <li class="nav-item {{ (request()->is('users') || request()->is('roles') || request()->is('events')) ? 'menu-open' : '' }}">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Schedule 
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+                
+              <a href="{{ route('users.index') }}" class="nav-link {{ (request()->is('users')) ? 'active' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Calendar</p>
+              </a>
+            </li>
+          </ul>
+          </li>
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Simple Link
+                Simple Link is here
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
@@ -237,5 +261,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
 <!-- Script for dropdown (logout)-->
 <script src="{{ asset('js/app.js') }}" defer></script>
+
+<!-- DataTables  & Plugins -->
+<script src="{{ asset('/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('/plugins/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('/plugins/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('/plugins/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
+
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 </body>
 </html>

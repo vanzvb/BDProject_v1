@@ -2,6 +2,8 @@
 
 
 @section('content')
+
+
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -40,4 +42,5 @@
     {{-- <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#ModalEdit{{$user->id}}">{{ __('Edit') }}</a>
     @include('Users.modal.edit') --}}
 </div>
+
 @endsection

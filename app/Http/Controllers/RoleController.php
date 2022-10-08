@@ -24,7 +24,14 @@ class RoleController extends Controller
     public function index(Request $request)
     {
         $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('roles.index',compact('roles'))
+
+        //Added for Modal Create
+        $permission = Permission::get();
+
+        //Added for Modal Show
+
+
+        return view('roles.index',compact('roles','permission'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -67,11 +74,12 @@ class RoleController extends Controller
      */
     public function show($id)
     {
+        
         $role = Role::find($id);
         $rolePermissions = Permission::join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")
             ->where("role_has_permissions.role_id",$id)
             ->get();
-    
+        
         return view('roles.show',compact('role','rolePermissions'));
     }
 
