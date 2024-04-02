@@ -51,7 +51,7 @@
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create">
                         <b>Create New event</b>
                     </button>
-                    @include('event.modal.create')
+                    @include('Event.modal.create')
                     @endcan
 
                     <div class="mt-2 col-md-12">

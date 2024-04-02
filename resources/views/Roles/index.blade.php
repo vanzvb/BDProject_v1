@@ -87,7 +87,7 @@
                                     <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">View</a>
                                 @endcan
                                 @can('role-delete')
-                                @include('roles.modal.delete')
+                                @include('Roles.modal.delete')
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete{{ $role->id }}">
                                     Delete
                                 </button>

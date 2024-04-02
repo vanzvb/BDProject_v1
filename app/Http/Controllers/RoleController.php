@@ -31,7 +31,7 @@ class RoleController extends Controller
         //Added for Modal Show
 
 
-        return view('roles.index',compact('roles','permission'))
+        return view('Roles.index',compact('roles','permission'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -43,7 +43,7 @@ class RoleController extends Controller
     public function create()
     {
         $permission = Permission::get();
-        return view('roles.create',compact('permission'));
+        return view('Roles.create',compact('permission'));
     }
 
     /**
@@ -80,7 +80,7 @@ class RoleController extends Controller
             ->where("role_has_permissions.role_id",$id)
             ->get();
         
-        return view('roles.show',compact('role','rolePermissions'));
+        return view('Roles.show',compact('role','rolePermissions'));
     }
 
     /**
@@ -97,7 +97,7 @@ class RoleController extends Controller
             ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
             ->all();
     
-        return view('roles.edit',compact('role','permission','rolePermissions'));
+        return view('Roles.edit',compact('role','permission','rolePermissions'));
     }
 
     /**
