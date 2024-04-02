@@ -24,7 +24,14 @@ class RoleController extends Controller
     public function index(Request $request)
     {
         $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('roles.index',compact('roles'))
+
+        //Added for Modal Create
+        $permission = Permission::get();
+
+        //Added for Modal Show
+
+
+        return view('Roles.index',compact('roles','permission'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -36,7 +43,7 @@ class RoleController extends Controller
     public function create()
     {
         $permission = Permission::get();
-        return view('roles.create',compact('permission'));
+        return view('Roles.create',compact('permission'));
     }
 
     /**
@@ -67,12 +74,13 @@ class RoleController extends Controller
      */
     public function show($id)
     {
+        
         $role = Role::find($id);
         $rolePermissions = Permission::join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")
             ->where("role_has_permissions.role_id",$id)
             ->get();
-    
-        return view('roles.show',compact('role','rolePermissions'));
+        
+        return view('Roles.show',compact('role','rolePermissions'));
     }
 
     /**
@@ -89,7 +97,7 @@ class RoleController extends Controller
             ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
             ->all();
     
-        return view('roles.edit',compact('role','permission','rolePermissions'));
+        return view('Roles.edit',compact('role','permission','rolePermissions'));
     }
 
     /**

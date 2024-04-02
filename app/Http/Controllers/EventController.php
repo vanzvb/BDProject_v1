@@ -22,7 +22,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::latest()->paginate(5);
-        return view('event.index',compact('events'))
+        return view('Event.index',compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -33,7 +33,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('event.create');
+        return view('Event.create');
     }
 
     /**
@@ -63,7 +63,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        return view('event.show',compact('event'));
+        return view('Event.show',compact('event'));
     }
 
     /**
@@ -74,7 +74,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('event.edit',compact('event'));
+        return view('Event.edit',compact('event'));
     }
 
     /**

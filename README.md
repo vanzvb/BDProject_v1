@@ -7,3 +7,7 @@ Added ACL from https://www.itsolutionstuff.com/post/laravel-8-user-roles-and-per
 Added AdminLTE in home https://adminlte.io/blog/free-admin-panels/
 
 1.2
+Admin->users Create and Show added to modal
+
+1.3
+Added admintlte print tables, data table template
