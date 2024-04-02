@@ -51,7 +51,7 @@ class EventController extends Controller
     
         Event::create($request->all());
     
-        return redirect()->route('event.index')
+        return redirect()->route('events.index')
                         ->with('success','Event created successfully.');
     }
 
@@ -74,7 +74,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('events.edit',compact('event'));
+        return view('event.edit',compact('event'));
     }
 
     /**

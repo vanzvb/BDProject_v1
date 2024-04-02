@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.adminlte')
 
 
 @section('content')
@@ -37,5 +37,7 @@
             @endif
         </div>
     </div>
+    {{-- <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#ModalEdit{{$user->id}}">{{ __('Edit') }}</a>
+    @include('Users.modal.edit') --}}
 </div>
 @endsection
