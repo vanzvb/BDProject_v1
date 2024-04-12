@@ -175,7 +175,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="{{ route('events.index') }}" class="nav-link {{ (request()->is('events')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Events</p>
+                  <p>Donors</p>
                 </a>
               </li>
               @endcan

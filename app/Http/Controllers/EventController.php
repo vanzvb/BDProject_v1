@@ -36,6 +36,7 @@ class EventController extends Controller
         return view('Event.create');
     }
 
+    
     /**
      * Store a newly created resource in storage.
      *

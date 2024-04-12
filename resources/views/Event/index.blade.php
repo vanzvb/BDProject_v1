@@ -14,12 +14,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Events Management</h1>
+                    <h1 class="m-0">Donor Management</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Events</a></li>
+                        <li class="breadcrumb-item"><a href="#">Donors</a></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -40,7 +40,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h2>Events Management</h2>
+                    <h2>Donor Management</h2>
                 </div>
                 <!-- /.card-header -->
                 
@@ -49,7 +49,7 @@
 
                     @can('event-create')
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create">
-                        <b>Create New event</b>
+                        <b>Create New Donor</b>
                     </button>
                     @include('Event.modal.create')
                     @endcan
