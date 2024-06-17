@@ -4,10 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class CreateAdminUserSeeder extends Seeder
+class NurseAccountSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,17 +15,17 @@ class CreateAdminUserSeeder extends Seeder
      */
     public function run()
     {
-        // Create the admin user
+        // Create the nurse user
         $user = User::create([
-            'name' => 'Hardik Savani', 
-            'email' => 'admin@gmail.com',
+            'name' => 'Nurse1',
+            'email' => 'nurse1@gmail.com',
             'password' => bcrypt('123456')
         ]);
 
-        // Retrieve the admin role
-        $role = Role::where('name', 'Admin')->first();
+        // Retrieve the nurse role
+        $role = Role::where('name', 'Nurse')->first();
 
-        // Assign the admin role to the user
+        // Assign the nurse role to the user if it exists
         if ($role) {
             $user->assignRole($role);
         }

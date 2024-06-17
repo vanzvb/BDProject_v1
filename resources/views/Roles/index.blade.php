@@ -83,9 +83,9 @@
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-show{{ $role->id }}">
                                     Show
                                 </button> --}}
-                                @can('role-edit')
+                                {{-- @can('role-edit') --}}
                                     <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">View</a>
-                                @endcan
+                                {{-- @endcan --}}
                                 @can('role-delete')
                                 @include('Roles.modal.delete')
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete{{ $role->id }}">
