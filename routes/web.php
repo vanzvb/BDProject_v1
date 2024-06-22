@@ -26,4 +26,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', App\Http\Controllers\RoleController::class);
     Route::resource('users', App\Http\Controllers\UserController::class);
     Route::resource('events', App\Http\Controllers\EventController::class);
+    
 });
+Route::get('forms', [App\Http\Controllers\Auth\CustomRedirectController::class, 'redirectToBlade'])->name('auth.form');
