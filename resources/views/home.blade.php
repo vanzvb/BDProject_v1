@@ -80,7 +80,7 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><strong>Profile</strong></h3>
+                <h3 class="card-title"><strong>Donor Profile</strong></h3>
             </div>
             <div class="card-body profile-card">
               <div class="profile-img">

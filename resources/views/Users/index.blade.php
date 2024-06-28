@@ -69,7 +69,15 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
+                            <th >Name</th>
+                            <th>Blood Type</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Civil Status</th>
+                            <th>Nationality</th>
+                            <th>Occupation</th>
+                            <th>Address</th>
+                            <th>Contact Information</th>
                             <th>Email</th>
                             <th>Roles</th>
                             <th width="280px">Action</th>
@@ -80,7 +88,15 @@
                         @foreach ($data as $key => $user)
                         <tr>
                             <td>{{ ++$i }}</td>
-                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->full_name }}</td>
+                            <td>{{ $user->blood_type }}</td>
+                            <td>{{ $user->age }}</td>
+                            <td>{{ $user->gender }}</td>
+                            <td>{{ $user->civil_status }}</td>
+                            <td>{{ $user->occupation }}</td>
+                            <td>{{ $user->nationality }}</td>
+                            <td>{{ $user->address }}</td>
+                            <td>{{ $user->contact_info }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if (!empty($user->getRoleNames()))
@@ -114,7 +130,15 @@
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
+                            <th width="280px">Name</th>
+                            <th>Blood Type</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Civil Status</th>
+                            <th>Nationality</th>
+                            <th>Occupation</th>
+                            <th>Address</th>
+                            <th>Contact Information</th>
                             <th>Email</th>
                             <th>Roles</th>
                             <th width="280px">Action</th>

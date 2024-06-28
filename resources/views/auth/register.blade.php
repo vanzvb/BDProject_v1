@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        {{-- <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -23,7 +23,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="row mb-3">
                             <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
@@ -130,6 +130,7 @@
                                     <option value="" disabled selected>Select your civil status</option>
                                     <option value="Single">Single</option>
                                     <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
                                     <option value="Widowed">Widowed</option>
                                     <option value="Legally Separated">Legally Separated</option>
                                 </select>

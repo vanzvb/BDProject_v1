@@ -61,11 +61,86 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Name:</strong>
-                                        {!! Form::text('name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                        <strong>First Name:</strong>
+                                        {!! Form::text('first_name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
                                     </div>
-
                                 </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Middle Name:</strong>
+                                        {!! Form::text('middle_name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Last Name:</strong>
+                                        {!! Form::text('last_name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Blood Type:</strong>
+                                        {!! Form::select('blood_type', [
+                                            'A+' => 'A+',
+                                            'A-' => 'A-',
+                                            'B+' => 'B+',
+                                            'B-' => 'B-',
+                                            'AB+' => 'AB+',
+                                            'AB-' => 'AB-',
+                                            'O+' => 'O+',
+                                            'O-' => 'O-',
+                                        ], null, ['placeholder' => 'Select Blood Type', 'class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Age:</strong>
+                                        {!! Form::text('age', null, ['placeholder' => 'Age', 'class' => 'form-control', 'oninput' => 'this.value = this.value.replace(/[^0-9]/g, "")']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Gender:</strong>
+                                        {!! Form::select('gender', ['Male' => 'Male', 'Female' => 'Female'], null, ['placeholder' => 'Select Gender', 'class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Civil Status:</strong>
+                                        {!! Form::select('civil_status', [
+                                            'Single' => 'Single',
+                                            'Married' => 'Married',
+                                            'Divorced' => 'Divorced',
+                                            'Legally Separated' => 'Legally Separated',
+                                            'Widowed' => 'Widowed',
+                                        ], null, ['placeholder' => 'Select Civil Status', 'class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Nationality:</strong>
+                                        {!! Form::text('nationality', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Occupation:</strong>
+                                        {!! Form::text('occupation', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Address:</strong>
+                                        {!! Form::text('address', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Contact Information:</strong>
+                                        {!! Form::text('contact_info', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Email address:</strong>

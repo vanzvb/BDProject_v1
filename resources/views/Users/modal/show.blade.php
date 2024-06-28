@@ -19,13 +19,61 @@
                 </div>
             @endif
 
-            <div class="modal-body">
+            <div class="col modal-body">
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Name:</strong>
-                            {{ $user->name }}
+                            {{ $user->full_name }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Blood Type:</strong>
+                            {{ $user->blood_type }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Age:</strong>
+                            {{ $user->age }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Gender:</strong>
+                            {{ $user->gender }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Civil Status:</strong>
+                            {{ $user->civil_status }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Nationality:</strong>
+                            {{ $user->nationality }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Occupation:</strong>
+                            {{ $user->occupation }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Address:</strong>
+                            {{ $user->address }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Contact Information:</strong>
+                            {{ $user->contact_info }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -45,7 +93,11 @@
                         </div>
                     </div>
                 </div>
+                {{-- NEW COLUMN IN USER SHOW --}}
+                
             </div>
+
+          
         </div>
         <!-- /.modal-content -->
     </div>

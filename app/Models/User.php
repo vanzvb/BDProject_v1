@@ -67,4 +67,9 @@ class User extends Authenticatable
         
         return $this->belongsTo('Spatie\Permission\Models\Role', 'id', 'id');
     }
+
+    public function getFullNameAttribute()
+    {
+        return trim("{$this->first_name} {$this->middle_name} {$this->last_name}");
+    }
 }
