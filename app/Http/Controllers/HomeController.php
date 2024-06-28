@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        $email = Auth::user()->email;
+        return view('home', ['user' => $user, 
+        'email' => $email,
+        'firstName' => $user->first_name,
+        'middleName' => $user->middle_name,
+        'lastName' => $user->last_name,
+        'bloodType' => $user->blood_type,
+        'age' => $user->age,
+        'gender' => $user->gender,
+        'civilStatus' => $user->civil_status,
+        'nationality' => $user->nationality,
+        'occupation' => $user->occupation,
+        'address' => $user->address,
+        'contactInfo' => $user->contact_info,]);
     }
 }
