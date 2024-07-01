@@ -93,10 +93,10 @@
                 
                         <div class="row mb-3">
                             <label for="age" class="col-md-4 col-form-label text-md-end">{{ __('Age') }}</label>
-                
+                        
                             <div class="col-md-6">
-                                <input id="age" type="number" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age">
-                
+                                <input id="age" type="number" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" step="1" oninput="this.value = this.value.replace(/[^0-9]/g, ''); if (this.value.length > 3) this.value = this.value.slice(0, 3);" maxlength="3">
+                            
                                 @error('age')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -104,6 +104,7 @@
                                 @enderror
                             </div>
                         </div>
+
                 
                         <div class="row mb-3">
                             <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
@@ -182,10 +183,10 @@
                 
                         <div class="row mb-3">
                             <label for="contact_info" class="col-md-4 col-form-label text-md-end">{{ __('Contact Number') }}</label>
-                
+                        
                             <div class="col-md-6">
-                                <input id="contact_info" type="number" class="form-control @error('contact_info') is-invalid @enderror" name="contact_info" value="{{ old('contact_info') }}" required autocomplete="contact_info">
-                
+                                <input id="contact_info" type="number" class="form-control @error('contact_info') is-invalid @enderror" name="contact_info" value="{{ old('contact_info') }}" required autocomplete="contact_info" step="1" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            
                                 @error('contact_info')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -193,6 +194,8 @@
                                 @enderror
                             </div>
                         </div>
+                        
+                        
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>

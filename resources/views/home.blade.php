@@ -94,6 +94,7 @@
                           <p><strong>Age :</strong> {{ $age }}</p>
                           <p><strong>Gender :</strong> {{ $gender }}</p>
                           <p><strong>Donor Status :</strong> </p>
+                          <p><strong>Donation History :</strong>  </p>
                       </div>
                       <div class="col-md-6">
                           <p><strong>Civil Status :</strong> {{ $civilStatus }}</p>
@@ -110,6 +111,7 @@
                           <a href="#" class="btn btn-secondary">Another Action</a>
                       </div>
                   </div> --}}
+                
               </div>
             
         </div>

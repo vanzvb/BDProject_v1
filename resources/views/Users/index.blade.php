@@ -9,8 +9,6 @@
 </div>
 
 
-
-
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -46,6 +44,7 @@
 
 <!-- Main content -->
 <div class="content">
+    
     <div class="container-fluid">
 
         <div class="card">
@@ -64,7 +63,7 @@
                 <div class="mt-2 col-md-12">
                     {{-- IM JUST A SPACE --}}
                 </div>
-
+                
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -85,7 +84,7 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($data as $key => $user)
+                        @foreach ($data as $key => $user ) 
                         <tr>
                             <td>{{ ++$i }}</td>
                             <td>{{ $user->full_name }}</td>
@@ -121,11 +120,11 @@
                                 {{-- <a class="btn btn-danger" href="{{ route('users.destroy', $user->id) }}">Delete</a> --}}
                                 {{-- {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
                                 {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                {!! Form::close() !!} --}}
+                                {!! Form::close() !!}  --}}
                             </td>
                         </tr>
                     @endforeach
-                        
+                   
                     </tbody>
                     <tfoot>
                         <tr>
@@ -145,7 +144,13 @@
                         </tr>
                     </tfoot>
                 </table>
+                <div class="d-flex justify-content-center">
+                    {{ $data->links() }}
+                </div>
+                
+              
             </div>
+            
             <!-- /.card-body -->
         </div>
 

@@ -48,12 +48,12 @@
             
             <div class="card-body">
                 
-                @can('role-create')
+                {{-- @can('role-create') --}}
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create">
                     <b>Create New Role</b>
                 </button>
                 @include('Roles.modal.create')
-                @endcan
+                {{-- @endcan --}}
 
                 
                 {{-- <a class="btn btn-success" href="{{ route('roles.create') }}"> Create New Role</a> --}}
@@ -83,10 +83,10 @@
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-show{{ $role->id }}">
                                     Show
                                 </button> --}}
-                                @can('role-edit')
+                                {{-- @can('role-edit') --}}
                                     <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">View</a>
-                                @endcan
-                                @can('role-delete')
+                                {{-- @endcan --}}
+                                {{-- @can('role-delete') --}}
                                 @include('Roles.modal.delete')
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete{{ $role->id }}">
                                     Delete
@@ -94,7 +94,7 @@
                                     {{-- {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
                                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                     {!! Form::close() !!} --}}
-                                @endcan
+                                {{-- @endcan --}}
                             </td>
                         </tr>
                         @endforeach
