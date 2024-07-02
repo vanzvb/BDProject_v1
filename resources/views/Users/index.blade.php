@@ -144,9 +144,9 @@
                         </tr>
                     </tfoot>
                 </table>
-                <div class="d-flex justify-content-center">
+                {{-- <div class="d-flex justify-content-center">
                     {{ $data->links() }}
-                </div>
+                </div> --}}
                 
               
             </div>

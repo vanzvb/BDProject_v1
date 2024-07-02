@@ -5,14 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
+
+
 class EventController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:event-list|event-create|event-edit|event-delete', ['only' => ['index','show']]);
-         $this->middleware('permission:event-create', ['only' => ['create','store']]);
-         $this->middleware('permission:event-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:event-delete', ['only' => ['destroy']]);
+         $this->middleware('role:Admin');
+        //  $this->middleware('permission:event-list|event-create|event-edit|event-delete', ['only' => ['index','show']]);
+        //  $this->middleware('permission:event-create', ['only' => ['create','store']]);
+        //  $this->middleware('permission:event-edit', ['only' => ['edit','update']]);
+        //  $this->middleware('permission:event-delete', ['only' => ['destroy']]);
+        
+         
     }
     /**
      * Display a listing of the resource.
@@ -22,6 +27,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::latest()->paginate(5);
+        
         return view('Event.index',compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

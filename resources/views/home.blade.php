@@ -60,17 +60,7 @@
          .profile-info p {
              font-size: 1.3em; /* Enlarging the text */
          }
-         .profile-img {
-             width: 150px;
-             height: 150px;
-             background-color: #f8f9fa;
-             border-radius: 50%;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             font-size: 5em;
-             color: #6c757d;
-         }
+         
          .card-title {
              font-size: 2em;
          }
@@ -83,9 +73,7 @@
                 <h3 class="card-title"><strong>Donor Profile</strong></h3>
             </div>
             <div class="card-body profile-card">
-              <div class="profile-img">
-                  <i class="fas fa-user"></i> <!-- FontAwesome user icon -->
-              </div>
+              
               <div class="profile-info">
                   <div class="row">
                       <div class="col-md-6">
@@ -94,7 +82,6 @@
                           <p><strong>Age :</strong> {{ $age }}</p>
                           <p><strong>Gender :</strong> {{ $gender }}</p>
                           <p><strong>Donor Status :</strong> </p>
-                          <p><strong>Donation History :</strong>  </p>
                       </div>
                       <div class="col-md-6">
                           <p><strong>Civil Status :</strong> {{ $civilStatus }}</p>
@@ -102,20 +89,62 @@
                           <p><strong>Occupation :</strong> {{ $occupation }}</p>
                           <p><strong>Address :</strong> {{ $address }}</p>
                           <p><strong>Contact Info :</strong> {{ $contactInfo }}</p>
-
                       </div>
                   </div>
                   {{-- <div class="row mt-4">
                       <div class="col-md-12">
-                          <a href="#" class="btn btn-primary">Edit Profile</a>
-                          <a href="#" class="btn btn-secondary">Another Action</a>
+                          <a href="#" class="btn btn-primary">Donation History</a>                 
                       </div>
                   </div> --}}
                 
               </div>
             
-        </div>
+            </div>
+
+            <div class="card-header">
+              <h3 class="card-title"><strong>Donation History</strong></h3>
+            </div>
+    
+                  <div class="row mt-4">
+                    <div class="col-md-12 px-4">
+                        <table id="donationHistoryTable" class="display table table-bordered table-striped w-100">
+                            <thead>
+                                <tr>
+                                  
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @foreach ($donationHistory as $donation) --}}
+                                <tr>
+                                    
+                                    <td>Blood Donation Event 1</td>
+                                    <td>TEST DATE</td>
+                                </tr>
+                                {{-- @endforeach --}}
+                            </tbody>
+                        </table>
+                    </div>  
+                  </div>
+            
     </div>
+{{-- SCRIPTS --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+    
+    <script>
+      $(document).ready(function() {
+      $('#donationHistoryTable').DataTable();
+      });
+    </script>
 
     <!-- Include Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
