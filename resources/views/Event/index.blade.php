@@ -47,12 +47,12 @@
                 <div class="card-body">
     
 
-                    @can('event-create')
+                    {{-- @can('event-create') --}}
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create">
                         <b>Create New Event</b>
                     </button>
                     @include('Event.modal.create')
-                    @endcan
+                    {{-- @endcan --}}
 
                     <div class="mt-2 col-md-12">
                         {{-- IM JUST A SPACE --}}
@@ -76,11 +76,11 @@
                                 <td>{{ $event->detail }}</td>
                                 <td>
                                     <form action="{{ route('events.destroy',$event->id) }}" method="POST">
-                                        {{-- <a class="btn btn-info" href="{{ route('events.show',$event->id) }}">Show</a> --}}
-                                        @can('event-edit')
-                                        {{-- <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a> --}}
-                                        <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">View</a>
-                                        @endcan
+                                        <a class="btn btn-info" href="{{ route('events.show',$event->id) }}">Show</a>
+                                        {{-- @can('event-edit') --}}
+                                        <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a>
+                                        {{-- <a class="btn btn-primary" href="{{ route('events.view',$event->id) }}">View</a> --}}
+                                        {{-- @endcan --}}
                                             {{-- {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!} --}}
@@ -89,9 +89,9 @@
                     
                                         @csrf
                                         @method('DELETE')
-                                        @can('event-delete')
+                                        {{-- @can('event-delete') --}}
                                         <button type="submit" class="btn btn-danger">Delete</button>
-                                        @endcan
+                                        {{-- @endcan --}}
                                     </form>
                                 </td>
                             </tr>

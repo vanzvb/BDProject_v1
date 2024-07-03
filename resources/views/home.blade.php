@@ -116,13 +116,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($donationHistory as $donation) --}}
+                                @foreach ($events as $event)
                                 <tr>
                                     
-                                    <td>Blood Donation Event 1</td>
-                                    <td>TEST DATE</td>
+                                    <td>{{ $event->name }}</td>
+                                    <td>{{ $event->detail }}</td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>  

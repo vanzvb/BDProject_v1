@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $donationHistorys = Event::all();
+
+        // dd($donationHistorys);
         $user = Auth::user();
         $email = Auth::user()->email;
         return view('home', ['user' => $user, 
@@ -39,6 +45,7 @@ class HomeController extends Controller
         'nationality' => $user->nationality,
         'occupation' => $user->occupation,
         'address' => $user->address,
-        'contactInfo' => $user->contact_info,]);
+        'contactInfo' => $user->contact_info,
+        'events' => $donationHistorys]);
     }
 }

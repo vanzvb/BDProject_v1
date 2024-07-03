@@ -11,11 +11,13 @@
                         <div class="row mb-3">
                             <label for="event" class="col-md-4 col-form-label text-md-end">{{ __('Select Event') }}</label>
                             <div class="col-md-6">
+
                                 <select id="event" class="form-control" required>
                                     <option value="" disabled selected>Select an event</option>
-                                    <option value="Blood Donation Area 1">Blood Donation Area 1</option>
-                                    <option value="Blood Donation Area 2">Blood Donation Area 2</option>
-                                    <option value="Blood Donation Area 3">Blood Donation Area 3</option>
+
+                                    @foreach ($events as $event)
+                                    <option>{{ $event->name }} - {{ $event->detail }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
