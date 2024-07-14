@@ -6,17 +6,16 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Event Selection') }}</div>
+                
                 <div class="card-body">
                     <form id="eventForm">
                         <div class="row mb-3">
                             <label for="event" class="col-md-4 col-form-label text-md-end">{{ __('Select Event') }}</label>
                             <div class="col-md-6">
-
                                 <select id="event" class="form-control" required>
                                     <option value="" disabled selected>Select an event</option>
-
                                     @foreach ($events as $event)
-                                    <option>{{ $event->name }} - {{ $event->detail }}</option>
+                                    <option value="{{ $event->id }}">{{ $event->name }} - {{ $event->detail }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -30,7 +29,7 @@
                     </form>
                 </div>
             </div>
-            
+
             <div class="card mt-4 d-none" id="questionnaireCard">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     {{ __('Yes/No Questionnaire') }}
@@ -72,6 +71,9 @@
                             </div>
                         @endforeach
 
+                        <!-- Hidden Input for Event ID -->
+                        <input type="hidden" id="selected_event_id" name="selected_event_id">
+
                         <!-- Confirmation Statement -->
                         <div class="card mb-3">
                             <div class="card-body">
@@ -100,6 +102,10 @@
 document.getElementById('proceedButton').addEventListener('click', function() {
     var eventSelect = document.getElementById('event');
     if (eventSelect.value) {
+        // Update hidden input with selected event ID
+        document.getElementById('selected_event_id').value = eventSelect.value;
+
+        // Show questionnaire card and handle UI changes
         document.getElementById('questionnaireCard').classList.remove('d-none');
         eventSelect.setAttribute('disabled', 'disabled');
         document.getElementById('proceedButton').classList.add('d-none');
@@ -132,13 +138,16 @@ document.getElementById('questionnaireForm').addEventListener('submit', function
     });
 
     if (allAnswersAreYes) {
+        // If confirmed, proceed to registration form with event ID
         if (confirm('You will be redirected to the registration form. Do you want to proceed?')) {
-            window.location.href = "{{ route('register') }}";
+            // Add event ID to the form submission
+            var eventID = document.getElementById('selected_event_id').value;
+            window.location.href = "{{ route('register') }}?event_id=" + encodeURIComponent(eventID);
         }
     } else {
         // Reset form and show alert
         document.getElementById('questionnaireForm').reset();
-        alert('You are not eligible to donate blood.');
+        alert('You are not eligible to proceed.');
     }
 });
 </script>

@@ -17,4 +17,9 @@ class Event extends Model
     protected $fillable = [
         'name', 'detail'
     ];
+
+    public function eventDetails()
+    {
+        return $this->hasMany(EventDetail::class, 'eventID', 'id');
+    }
 }

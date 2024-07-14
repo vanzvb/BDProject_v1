@@ -115,7 +115,17 @@
                                     <th>Date</th>
                                 </tr>
                             </thead>
+
                             <tbody>
+                              @foreach ($myEvents as $myEvent)
+                              <tr>
+                                    
+                                <td>{{ $myEvent->event->name }}</td>
+                                <td>{{ $myEvent->event->detail }}</td>
+                            </tr>
+                              @endforeach
+                            </tbody>
+                            {{-- <tbody>
                                 @foreach ($events as $event)
                                 <tr>
                                     
@@ -123,7 +133,7 @@
                                     <td>{{ $event->detail }}</td>
                                 </tr>
                                 @endforeach
-                            </tbody>
+                            </tbody> --}}
                         </table>
                     </div>  
                   </div>
