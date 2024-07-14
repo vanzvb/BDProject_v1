@@ -17,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/testing-area-home', function () {
+    return view('dumpArea.homeDump');
+});
+
+Route::get('/testing-area-welcome', function () {
+    return view('dumpArea.welcomeDump');
+});
 
 Auth::routes();
 
