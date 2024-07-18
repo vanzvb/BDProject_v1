@@ -1,5 +1,6 @@
 @extends('layouts.adminlte')
 
+
 @section('content')
 {{-- <div class="container">
     <div class="row justify-content-center">
@@ -26,11 +27,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Welcome {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</h1>
-          </div><!-- /.col -->
+            <h1 class="m-0">Welcome <strong> {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}</strong></h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              {{-- <li class="breadcrumb-item"><a href="#">Home</a></li> --}}
               <li class="breadcrumb-item active"></li>
             </ol>
           </div><!-- /.col -->
@@ -138,7 +139,56 @@
                     </div>  
                   </div>
             
-    </div>
+                  
+    
+                
+                
+
+
+              </div>
+
+              {{-- DONATION EVENTS --}}
+
+              <div class="card">
+
+                <div class="card-header">
+                  <h3 class="card-title"><strong>Donation Events</strong></h3>
+                </div>
+        
+                      <div class="row mt-4">
+                        <div class="col-md-12 px-4">
+                            <table id="donationHistoryTable" class="display table table-bordered table-striped w-100">
+                                <thead>
+                                    <tr>
+                                      
+                                        <th>Name</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+    
+                                {{-- <tbody>
+                                  @foreach ($myEvents as $myEvent)
+                                  <tr>
+                                        
+                                    <td>{{ $myEvent->event->name }}</td>
+                                    <td>{{ $myEvent->event->detail }}</td>
+                                </tr>
+                                  @endforeach
+                                </tbody> --}}
+                                <tbody>
+                                    @foreach ($events as $event)
+                                    <tr>
+                                        
+                                        <td>{{ $event->name }}</td>
+                                        <td>{{ $event->detail }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>  
+                      </div>
+              </div>
+      </div>
 {{-- SCRIPTS --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

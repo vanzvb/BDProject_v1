@@ -21,27 +21,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
-
-
-    <link rel="stylesheet" href="{{ asset('/plugins/bootstrap/css/bootstrap.min.css') }}">
-    <style>
-      .vertical-divider {
-      border-left: 2.5px solid grey; /* Color of the vertical line */
-      height: 40px; /* Fixed height to ensure visibility */
-      margin: 0 50px; /* Add spacing around the line */
-      border-color: #6c757d; /* Muted grey color */
-      border-radius: 5px; /* Rounded edges */
-      opacity: 0.6; /* Muted effect */
-  }
-  
-  .navbar-nav .nav-item {
-      display: flex;
-      align-items: center; /* Center content vertically within nav items */
-  }
-      </style>
-
-
-
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -51,17 +30,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-
-      <li class="nav-item d-none d-sm-inline-block text-center" style="margin-top: -5px;"> <!-- Adjusted margin-top to move it upward -->
-        <a class="nav-link" href="/" style="padding: 6px;"> <!-- Added padding-top for additional spacing -->
-            <span style="display: inline-block; width: 5em; text-align: center;"> <!-- Adjusted width and text-align -->
-                <i class="fas fa-home" style="font-size: 2.5em;"></i> <!-- Adjusted font-size -->
-            </span>
-        </a>
-    </li>
-  </ul>
+      {{-- <li class="nav-item d-none d-sm-inline-block">
+        <a href="index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li> --}}
+    </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -78,14 +55,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
         @endif
     @else
+        {{-- NOTIFICATION --}}
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-bell"></i>
+                {{-- NOTIFICATION COUNT -VANZ --}}
+                <span class="badge badge-warning navbar-badge">15</span> 
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <span class="dropdown-header">15 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-file mr-2"></i> 3 new reports
+                  <span class="float-right text-muted text-sm">2 days</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            </div>
+        </li>
+        {{-- END NOTIFICATION --}}
     
-
-        
-
-        <!-- Vertical divider -->
-        <li class="nav-item vertical-divider"></li>
-        <!-- End vertical divider -->
-
+        {{-- FULL SCREEN --}}
+          <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+          </li>
+        {{-- END FULL SCREEN --}}
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->full_name }}
@@ -93,10 +89,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-               <!-- Link to redirect to /home -->
-               <a class="dropdown-item" href="{{ url('/home') }}">
-                Profile
-            </a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">

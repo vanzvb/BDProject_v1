@@ -62,16 +62,17 @@
 </head>
 
 
-@extends('layouts.welcometest')
+{{-- @include('layouts.app') --}}
 
 
 <body>
 
     
-    <div>
+    <div class="wrapper">
+        @include('layouts._navbar') <!-- Include the navbar partial -->
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            
+            @yield('content')
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
@@ -166,15 +167,15 @@
                                     <div class="accordion" id="faqAccordion">
                                         <div class="card">
                                             <div class="card-header" id="headingOne">
-                                                <div class="accordion-header" data-toggle="collapse"
-                                                    data-target="#collapseOne" aria-expanded="true"
-                                                    aria-controls="collapseOne">
+                                                <div class="accordion-header" data-bs-toggle="collapse"
+                                                     data-bs-target="#collapseOne" aria-expanded="false"
+                                                     aria-controls="collapseOne">
                                                     <span class="accordion-title">How often can I donate blood?</span>
                                                     <i class="fas fa-plus accordion-icon"></i>
                                                 </div>
                                             </div>
                                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                                                data-parent="#faqAccordion">
+                                                 data-bs-parent="#faqAccordion">
                                                 <div class="card-body">
                                                     You must wait at least 56 days between donations of whole blood and
                                                     112 days between Power Red donations.
@@ -183,15 +184,15 @@
                                         </div>
                                         <div class="card">
                                             <div class="card-header" id="headingTwo">
-                                                <div class="accordion-header collapsed" data-toggle="collapse"
-                                                    data-target="#collapseTwo" aria-expanded="false"
-                                                    aria-controls="collapseTwo">
+                                                <div class="accordion-header collapsed" data-bs-toggle="collapse"
+                                                     data-bs-target="#collapseTwo" aria-expanded="false"
+                                                     aria-controls="collapseTwo">
                                                     <span class="accordion-title">Who can donate blood?</span>
                                                     <i class="fas fa-plus accordion-icon"></i>
                                                 </div>
                                             </div>
                                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                                data-parent="#faqAccordion">
+                                                 data-bs-parent="#faqAccordion">
                                                 <div class="card-body">
                                                     Most people can donate blood if they are in good health. Age,
                                                     weight, and other factors may affect eligibility.
@@ -200,15 +201,15 @@
                                         </div>
                                         <div class="card">
                                             <div class="card-header" id="headingThree">
-                                                <div class="accordion-header collapsed" data-toggle="collapse"
-                                                    data-target="#collapseThree" aria-expanded="false"
-                                                    aria-controls="collapseThree">
+                                                <div class="accordion-header collapsed" data-bs-toggle="collapse"
+                                                     data-bs-target="#collapseThree" aria-expanded="false"
+                                                     aria-controls="collapseThree">
                                                     <span class="accordion-title">Does donating blood hurt?</span>
                                                     <i class="fas fa-plus accordion-icon"></i>
                                                 </div>
                                             </div>
                                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                                data-parent="#faqAccordion">
+                                                 data-bs-parent="#faqAccordion">
                                                 <div class="card-body">
                                                     Donating blood is usually painless. You may feel a slight pinch when
                                                     the needle is inserted, but discomfort is minimal.
@@ -217,15 +218,15 @@
                                         </div>
                                         <div class="card">
                                             <div class="card-header" id="headingFour">
-                                                <div class="accordion-header collapsed" data-toggle="collapse"
-                                                    data-target="#collapseFour" aria-expanded="false"
-                                                    aria-controls="collapseFour">
+                                                <div class="accordion-header collapsed" data-bs-toggle="collapse"
+                                                     data-bs-target="#collapseFour" aria-expanded="false"
+                                                     aria-controls="collapseFour">
                                                     <span class="accordion-title">Can I donate if I have a cold?</span>
                                                     <i class="fas fa-plus accordion-icon"></i>
                                                 </div>
                                             </div>
                                             <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                                                data-parent="#faqAccordion">
+                                                 data-bs-parent="#faqAccordion">
                                                 <div class="card-body">
                                                     If you have cold or flu symptoms, it is best to wait until you are
                                                     feeling better before donating blood.
@@ -234,16 +235,15 @@
                                         </div>
                                         <div class="card">
                                             <div class="card-header" id="headingFive">
-                                                <div class="accordion-header collapsed" data-toggle="collapse"
-                                                    data-target="#collapseFive" aria-expanded="false"
-                                                    aria-controls="collapseFive">
-                                                    <span class="accordion-title">How long does the donation process
-                                                        take?</span>
+                                                <div class="accordion-header collapsed" data-bs-toggle="collapse"
+                                                     data-bs-target="#collapseFive" aria-expanded="false"
+                                                     aria-controls="collapseFive">
+                                                    <span class="accordion-title">How long does the donation process take?</span>
                                                     <i class="fas fa-plus accordion-icon"></i>
                                                 </div>
                                             </div>
                                             <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                                                data-parent="#faqAccordion">
+                                                 data-bs-parent="#faqAccordion">
                                                 <div class="card-body">
                                                     The entire donation process typically takes about an hour, including
                                                     registration, medical history, donation, and refreshments.
@@ -276,7 +276,87 @@
                                 <div class="card-body">
                                     <div id="analyticsAccordion">
 
-                                        <div class="row">
+                                        <div class="container mt-5">
+                                            <div class="row">
+                                                <!-- Summary Cards -->
+                                                <div class="col-md-4 mb-4">
+                                                    <div class="card text-white bg-info">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Total Donations</h5>
+                                                            <p class="card-text" id="total-donations">0</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 mb-4">
+                                                    <div class="card text-white bg-success">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Most Common Blood Type</h5>
+                                                            <p class="card-text" id="common-blood-type">N/A</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 mb-4">
+                                                    <div class="card text-white bg-warning">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Gender Distribution</h5>
+                                                            <p class="card-text" id="gender-distribution">Male: 0, Female: 0</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!-- Blood Type Chart -->
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="card">
+                                                        <div class="card-header bg-primary text-white">
+                                                            Blood Types Donated
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <canvas id="bloodTypeChart"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Gender Chart -->
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="card">
+                                                        <div class="card-header bg-primary text-white">
+                                                            Donor Genders
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <canvas id="genderChart"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!-- Detailed Table -->
+                                                <div class="col-12 mb-4">
+                                                    <div class="card">
+                                                        <div class="card-header bg-primary text-white">
+                                                            Detailed Donor Report
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <table class="table table-bordered">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Blood Type</th>
+                                                                        <th>Male</th>
+                                                                        <th>Female</th>
+                                                                        <th>Total</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="donor-table-body">
+                                                                    <!-- Dynamic rows will be added here -->
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                        {{-- <div class="row">
                                             <!-- Mabolo Card -->
                                             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                                                 <div class="card bg-primary text-white">
@@ -620,7 +700,7 @@
                                                 </div>
                                             </div>
 
-                                        </div>
+                                        </div> --}}
                                         <!-- BARANGAYS ROW -->
                                     </div>
                                     <!-- /.accordion -->
@@ -655,14 +735,139 @@
 </body>
 
 
+     <!-- REQUIRED SCRIPTS -->
 
-<footer class="main-footer p-3">
-    <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
-</footer>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+$(document).ready(function () {
+    // Sample data, replace with your dynamic data
+    var bloodTypeData = {
+        'A+': { male: 10, female: 15 },
+        'A-': { male: 5, female: 7 },
+        'B+': { male: 12, female: 18 },
+        'B-': { male: 4, female: 6 },
+        'AB+': { male: 3, female: 8 },
+        'AB-': { male: 2, female: 3 },
+        'O+': { male: 20, female: 25 },
+        'O-': { male: 6, female: 8 }
+    };
+
+    // Calculate totals
+    var totalDonations = 0;
+    var genderDistribution = { male: 0, female: 0 };
+    var commonBloodType = { type: '', count: 0 };
+
+    var bloodTypeLabels = Object.keys(bloodTypeData);
+    var bloodTypeCounts = [];
+    var genderCounts = { male: [], female: [] };
+
+    bloodTypeLabels.forEach(function (type) {
+        var maleCount = bloodTypeData[type].male;
+        var femaleCount = bloodTypeData[type].female;
+        var totalCount = maleCount + femaleCount;
+
+        bloodTypeCounts.push(totalCount);
+        genderCounts.male.push(maleCount);
+        genderCounts.female.push(femaleCount);
+
+        totalDonations += totalCount;
+        genderDistribution.male += maleCount;
+        genderDistribution.female += femaleCount;
+
+        if (totalCount > commonBloodType.count) {
+            commonBloodType.type = type;
+            commonBloodType.count = totalCount;
+        }
+    });
+
+    // Update summary section
+    $('#total-donations').text(totalDonations);
+    $('#common-blood-type').text(commonBloodType.type);
+    $('#gender-distribution').text(`Male: ${genderDistribution.male}, Female: ${genderDistribution.female}`);
+
+    // Create Blood Type Chart
+    var ctxBloodType = document.getElementById('bloodTypeChart').getContext('2d');
+    new Chart(ctxBloodType, {
+        type: 'pie',
+        data: {
+            labels: bloodTypeLabels,
+            datasets: [{
+                data: bloodTypeCounts,
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#FF6384', '#36A2EB']
+            }]
+        }
+    });
+
+    // Create Gender Chart
+    var ctxGender = document.getElementById('genderChart').getContext('2d');
+    new Chart(ctxGender, {
+        type: 'bar',
+        data: {
+            labels: bloodTypeLabels,
+            datasets: [
+                {
+                    label: 'Male',
+                    data: genderCounts.male,
+                    backgroundColor: '#36A2EB'
+                },
+                {
+                    label: 'Female',
+                    data: genderCounts.female,
+                    backgroundColor: '#FF6384'
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Populate Detailed Table
+    var $tableBody = $('#donor-table-body');
+    bloodTypeLabels.forEach(function (type) {
+        var row = `<tr>
+            <td>${type}</td>
+            <td>${bloodTypeData[type].male}</td>
+            <td>${bloodTypeData[type].female}</td>
+            <td>${bloodTypeData[type].male + bloodTypeData[type].female}</td>
+        </tr>`;
+        $tableBody.append(row);
+    });
+});
+</script>
+
+
+  
+    {{-- <!-- Script for dropdown (logout)-->
+    <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery, Popper.js, and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 
 
     <!-- jQuery -->
@@ -747,19 +952,26 @@
     {{-- SCRIPT FOR FAQ section --}}
     <script>
         $(document).ready(function() {
-            $('.accordion-header').click(function() {
-                // Toggle accordion body
-                $(this).next('.collapse').collapse('toggle');
+    $('.accordion-header').click(function() {
+        // Toggle accordion body
+        $(this).next('.collapse').collapse('toggle');
 
-                // Rotate accordion icon
-                $(this).find('.accordion-icon').toggleClass('fa-plus fa-minus');
-            });
-        });
+        // Rotate accordion icon
+        $(this).find('.accordion-icon').toggleClass('fa-plus fa-minus');
+    });
+});
+
     </script>
 
 
 
-
+<footer class="main-footer p-3">
+    <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.2.0
+    </div>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+</footer>
 
 
 

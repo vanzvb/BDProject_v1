@@ -1,5 +1,7 @@
-@yield('content') <!-- This will inject content from child templates -->
+@extends('layouts.app')
 
+@section('content')
+{{-- @include('layouts._navbar') <!-- Include the navbar partial --> --}}
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -79,7 +81,7 @@
 </nav>
 <!-- /.navbar -->
 
-
+@endsection
 
 
 
