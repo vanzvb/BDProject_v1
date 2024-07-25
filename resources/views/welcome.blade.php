@@ -25,6 +25,12 @@
 
     {{-- Bootstrap 4 --}}
     <link rel="stylesheet" href="{{ asset('../plugins/bootstrap/css/bootstrap.min.css') }}">
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     {{-- Custom CSS for FAQ section --}}
     <style>
@@ -57,6 +63,35 @@
             border-top: 1px solid #dee2e6;
             display: none;
         }
+        .table-container {
+            max-height: 300px; /* Adjust height as needed */
+            overflow-y: auto; /* Enable vertical scrolling */
+            margin-bottom: 20px; /* Space between tables */
+        }
+        .table {
+            margin-bottom: 0; /* Remove margin at the bottom of the table */
+        }
+        .barangay-btn {
+            width: 100%;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .summary-table th, .summary-table td {
+            text-align: center;
+        }
+        .section-header {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .card {
+            margin-bottom: 1.5rem; /* Space between cards */
+        }
+        .card-title {
+            font-weight: bold;
+        }
+        .card-body {
+            text-align: center;
+        }
     </style>
 
 </head>
@@ -78,10 +113,43 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>DataTables</h1>
+                            <h1><strong>Rural Health Unit</strong></h1>
                         </div>
                         <div class="col-sm-6">
-
+                            <!-- Empty for potential future content -->
+                        </div>
+                    </div>
+                    <!-- Cards Row -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 1</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 2</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 3</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -276,85 +344,152 @@
                                 <div class="card-body">
                                     <div id="analyticsAccordion">
 
-                                        <div class="container mt-5">
-                                            <div class="row">
-                                                <!-- Summary Cards -->
-                                                <div class="col-md-4 mb-4">
-                                                    <div class="card text-white bg-info">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">Total Donations</h5>
-                                                            <p class="card-text" id="total-donations">0</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 mb-4">
-                                                    <div class="card text-white bg-success">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">Most Common Blood Type</h5>
-                                                            <p class="card-text" id="common-blood-type">N/A</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 mb-4">
-                                                    <div class="card text-white bg-warning">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">Gender Distribution</h5>
-                                                            <p class="card-text" id="gender-distribution">Male: 0, Female: 0</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <!-- Blood Type Chart -->
-                                                <div class="col-md-6 mb-4">
-                                                    <div class="card">
-                                                        <div class="card-header bg-primary text-white">
-                                                            Blood Types Donated
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <canvas id="bloodTypeChart"></canvas>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Gender Chart -->
-                                                <div class="col-md-6 mb-4">
-                                                    <div class="card">
-                                                        <div class="card-header bg-primary text-white">
-                                                            Donor Genders
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <canvas id="genderChart"></canvas>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <!-- Detailed Table -->
-                                                <div class="col-12 mb-4">
-                                                    <div class="card">
-                                                        <div class="card-header bg-primary text-white">
-                                                            Detailed Donor Report
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Blood Type</th>
-                                                                        <th>Male</th>
-                                                                        <th>Female</th>
-                                                                        <th>Total</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody id="donor-table-body">
-                                                                    <!-- Dynamic rows will be added here -->
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        
+                                           
+                                           <!-- Bagong Kalsada Section -->
+                                        <div class="my-4">
+                                            <h2 class="section-header">
+                                                <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('bagongKalsada')">
+                                                    Bagong Kalsada
+                                                </button>
+                                            </h2>
+                                            <div class="table-container" id="bagongKalsada" style="display: none;">
+                                                <table class="table table-bordered summary-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Blood Type</th>
+                                                            <th>Male Donors</th>
+                                                            <th>Female Donors</th>
+                                                            <th>Total Donors</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>A+</td>
+                                                            <td>...</td> <!-- A+ male donors -->
+                                                            <td>...</td> <!-- A+ female donors -->
+                                                            <td>...</td> <!-- Total donors for A+ -->
+                                                        </tr>
+                                                        <tr>
+                                                            <td>A-</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>B+</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>B-</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>AB+</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>AB-</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>O+</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>O-</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
+
+                                        <!-- Balsahan Section -->
+                                        <div class="my-4">
+                                            <h2 class="section-header">
+                                                <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('balsahan')">
+                                                    Balsahan
+                                                </button>
+                                            </h2>
+                                            <div class="table-container" id="balsahan" style="display: none;">
+                                                <table class="table table-bordered summary-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Blood Type</th>
+                                                            <th>Male Donors</th>
+                                                            <th>Female Donors</th>
+                                                            <th>Total Donors</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>A+</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>A-</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>B+</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>B-</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>AB+</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>AB-</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>O+</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>O-</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                            <td>...</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
                                         
+
 
                                         {{-- <div class="row">
                                             <!-- Mabolo Card -->
@@ -735,110 +870,15 @@
 </body>
 
 
-     <!-- REQUIRED SCRIPTS -->
-
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-$(document).ready(function () {
-    // Sample data, replace with your dynamic data
-    var bloodTypeData = {
-        'A+': { male: 10, female: 15 },
-        'A-': { male: 5, female: 7 },
-        'B+': { male: 12, female: 18 },
-        'B-': { male: 4, female: 6 },
-        'AB+': { male: 3, female: 8 },
-        'AB-': { male: 2, female: 3 },
-        'O+': { male: 20, female: 25 },
-        'O-': { male: 6, female: 8 }
-    };
-
-    // Calculate totals
-    var totalDonations = 0;
-    var genderDistribution = { male: 0, female: 0 };
-    var commonBloodType = { type: '', count: 0 };
-
-    var bloodTypeLabels = Object.keys(bloodTypeData);
-    var bloodTypeCounts = [];
-    var genderCounts = { male: [], female: [] };
-
-    bloodTypeLabels.forEach(function (type) {
-        var maleCount = bloodTypeData[type].male;
-        var femaleCount = bloodTypeData[type].female;
-        var totalCount = maleCount + femaleCount;
-
-        bloodTypeCounts.push(totalCount);
-        genderCounts.male.push(maleCount);
-        genderCounts.female.push(femaleCount);
-
-        totalDonations += totalCount;
-        genderDistribution.male += maleCount;
-        genderDistribution.female += femaleCount;
-
-        if (totalCount > commonBloodType.count) {
-            commonBloodType.type = type;
-            commonBloodType.count = totalCount;
+    function toggleTable(id) {
+        var table = document.getElementById(id);
+        if (table.style.display === 'none') {
+            table.style.display = 'block';
+        } else {
+            table.style.display = 'none';
         }
-    });
-
-    // Update summary section
-    $('#total-donations').text(totalDonations);
-    $('#common-blood-type').text(commonBloodType.type);
-    $('#gender-distribution').text(`Male: ${genderDistribution.male}, Female: ${genderDistribution.female}`);
-
-    // Create Blood Type Chart
-    var ctxBloodType = document.getElementById('bloodTypeChart').getContext('2d');
-    new Chart(ctxBloodType, {
-        type: 'pie',
-        data: {
-            labels: bloodTypeLabels,
-            datasets: [{
-                data: bloodTypeCounts,
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#FF6384', '#36A2EB']
-            }]
-        }
-    });
-
-    // Create Gender Chart
-    var ctxGender = document.getElementById('genderChart').getContext('2d');
-    new Chart(ctxGender, {
-        type: 'bar',
-        data: {
-            labels: bloodTypeLabels,
-            datasets: [
-                {
-                    label: 'Male',
-                    data: genderCounts.male,
-                    backgroundColor: '#36A2EB'
-                },
-                {
-                    label: 'Female',
-                    data: genderCounts.female,
-                    backgroundColor: '#FF6384'
-                }
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    // Populate Detailed Table
-    var $tableBody = $('#donor-table-body');
-    bloodTypeLabels.forEach(function (type) {
-        var row = `<tr>
-            <td>${type}</td>
-            <td>${bloodTypeData[type].male}</td>
-            <td>${bloodTypeData[type].female}</td>
-            <td>${bloodTypeData[type].male + bloodTypeData[type].female}</td>
-        </tr>`;
-        $tableBody.append(row);
-    });
-});
+    }
 </script>
 
 

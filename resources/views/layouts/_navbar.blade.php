@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <link rel="stylesheet" href="{{ asset('/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
+  
 
     <style>
     .vertical-divider {
@@ -27,6 +29,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <!-- Left navbar links -->
+    
     <ul class="navbar-nav">
         <li class="nav-item d-none d-sm-inline-block text-center" style="margin-top: -5px;"> <!-- Adjusted margin-top to move it upward -->
             <a class="nav-link" href="/" style="padding: 6px;"> <!-- Added padding-top for additional spacing -->
@@ -36,6 +39,12 @@
             </a>
         </li>
     </ul>
+    
+  
+
+    <h1 style="font-family: Montserrat, sans-serif; color: #004b7e;">
+        <strong>NAIC Rural Health Unit</strong>
+    </h1>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto ">

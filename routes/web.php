@@ -36,3 +36,4 @@ Route::group(['middleware' => ['auth']], function() {
     
 });
 Route::get('forms', [App\Http\Controllers\Auth\CustomRedirectController::class, 'redirectToBlade'])->name('auth.form');
+
