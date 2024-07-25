@@ -92,6 +92,16 @@
         .card-body {
             text-align: center;
         }
+        .wrapper {
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+        .card-img-top {
+            width: 100%;  /* Full width of the card */
+            height: 450px; /* Fixed height */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+        }
+
     </style>
 
 </head>
@@ -113,7 +123,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1><strong>Rural Health Unit</strong></h1>
+                            <h1><strong></strong></h1>
                         </div>
                         <div class="col-sm-6">
                             <!-- Empty for potential future content -->
@@ -122,32 +132,32 @@
                     <!-- Cards Row -->
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image 1">
+                            <div class="card shadow">
+                                <img src="{{ asset('images/welcome_img/blood_donate1.jpg') }}" class="card-img-top" alt="Card Image 1">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card Title 1</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title"> Guide to Blood Donation</h5>
+                                    <p class="card-text">Blood donation is a simple yet impactful way to save lives. This guide provides essential information on how to prepare for donating blood, what to expect during the process, and post-donation care.</p>
+                                    <a href="#guideblood" class="btn btn-primary">Take me there</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image 2">
+                            <div class="card shadow">
+                                <img src="images\welcome_img\doctor_guide.jpg" class="card-img-top" alt="Card Image 2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card Title 2</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">Frequently Asked Questions</h5>
+                                    <p class="card-text">Discover key information about blood donation with answers to common questions on eligibility, safety, and preparation. This guide ensures you’re well-informed for a smooth and impactful donation experience.</p>
+                                    <a href="#faqblood" class="btn btn-primary">Take me there</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image 3">
+                            <div class="card shadow">
+                                <img src="images\welcome_img\analytic_report.jpg" class="card-img-top" alt="Card Image 3">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card Title 3</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">Blood Donation Analytics </h5>
+                                    <p class="card-text">Explore insights into blood donation patterns across different barangays. This analysis helps understand local donation trends and supports targeted efforts to meet community needs.</p>
+                                    <a href="#bloodanalytic" class="btn btn-primary">Take me there</a>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +173,7 @@
                         <div class="col-12">
                             {{-- NEW BLOOD DONATION SECTION --}}
                             <div class="card shadow">
-                                <div class="card-header bg-primary text-white">
+                                <div id="guideblood" class="card-header bg-primary text-white">
                                     <h3 class="card-title"><i class="fas fa-hand-holding-heart"></i> Guide to Blood
                                         Donation</h3>
                                 </div>
@@ -224,10 +234,10 @@
                         <!-- /.col do's and dont's -->
 
 
-                        <div class="col-lg-6 offset-lg-0">
+                        <div  class="col-lg-6 offset-lg-0">
                             <!-- FAQ SECTION -->
                             <div class="card shadow mt-4">
-                                <div class="card-header bg-info text-white">
+                                <div id="faqblood" class="card-header bg-info text-white">
                                     <h3 class="card-title"><i class="fas fa-question-circle"></i> Frequently Asked
                                         Questions</h3>
                                 </div>
@@ -336,7 +346,7 @@
                             <!-- ANALYTIC REPORTS -->
                             <div class="card shadow mt-4">
                                 <!-- /.card-header -->
-                                <div class="card-header bg-info text-white">
+                                <div id="bloodanalytic" class="card-header bg-info text-white">
                                     <h3 class="card-title"><i class="fas fa-chart-bar"></i> Blood Donation Analytics
                                     </h3>
                                 </div>
@@ -885,6 +895,9 @@
   
     {{-- <!-- Script for dropdown (logout)-->
     <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 
     <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
