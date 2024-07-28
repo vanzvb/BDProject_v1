@@ -29,6 +29,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm(Request $request)
     {
+        // dd('Im here');
         // dd($request);
         // $events = Event::all(); // Fetch all events (adjust this query as per your application's needs)
         // dd($request->event_id);
