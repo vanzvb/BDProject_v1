@@ -107,6 +107,7 @@
 </head>
 
 
+
 {{-- @include('layouts.app') --}}
 
 
@@ -115,6 +116,7 @@
     
     <div class="wrapper">
         @include('layouts._navbar') <!-- Include the navbar partial -->
+        
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')

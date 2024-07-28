@@ -8,27 +8,28 @@
     </div>
 </div>
 
-
+{{-- 
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                {{-- <h1 class="m-0">Users Management</h1> --}}
+                <h1 class="m-0">Users Management</h1>
                 <ol class="breadcrumb float-sm">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="#"></a>Users</li>
                 </ol>
             </div><!-- /.col -->
             <div class="col-sm-6">
-                {{-- <ol class="breadcrumb float-sm-right">
+                <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Users</a></li> --}}
+                    <li class="breadcrumb-item"><a href="#">Users</a></li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
+ --}}
 
 @if ($message = Session::get('success'))
     {{-- <div class="alert alert-success">
@@ -54,12 +55,12 @@
             <!-- /.card-header -->
             
             <div class="card-body">
-
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create">
-                    <b>Create New User</b>
-                </button>
-                @include('Users.modal.create')
-
+                @canany(['Admin-view', 'Admin-add'])
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create">
+                        <b>Create New User</b>
+                    </button>
+                    @include('Users.modal.create')
+                @endcan
                 <div class="mt-2 col-md-12">
                     {{-- IM JUST A SPACE --}}
                 </div>
@@ -68,7 +69,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th >Name</th>
+                            <th>Name</th>
                             <th>Blood Type</th>
                             <th>Age</th>
                             <th>Gender</th>

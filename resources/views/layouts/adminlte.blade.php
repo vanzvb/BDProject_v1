@@ -22,7 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
     <link rel="stylesheet" href="{{ asset('/plugins/bootstrap/css/bootstrap.min.css') }}">
     <style>
       .vertical-divider {
@@ -54,13 +54,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
 
-      <li class="nav-item d-none d-sm-inline-block text-center" style="margin-top: -5px;"> <!-- Adjusted margin-top to move it upward -->
+      {{-- <li class="nav-item d-none d-sm-inline-block text-center" style="margin-top: -5px;"> <!-- Adjusted margin-top to move it upward -->
         <a class="nav-link" href="/" style="padding: 6px;"> <!-- Added padding-top for additional spacing -->
             <span style="display: inline-block; width: 5em; text-align: center;"> <!-- Adjusted width and text-align -->
                 <i class="fas fa-home" style="font-size: 2.5em;"></i> <!-- Adjusted font-size -->
             </span>
         </a>
-    </li>
+    </li> --}}
   </ul>
 
     <!-- Right navbar links -->
@@ -119,11 +119,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-0">
     <!-- Brand Logo -->
-    <a href="{{ route('register') }}" class="brand-link">
+    
       
-      <img src="{{ asset('/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
+      {{-- <img src="{{ asset('/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">AdminLTE 3</span> --}}
+
+      <ul class="navbar-nav">
+        <li class="nav-item d-none d-sm-inline-block text-center" style="margin-top: -5px;"> <!-- Adjusted margin-top to move it upward -->
+            <a class="brand-link" href="/"> <!-- Added padding-top for additional spacing -->
+                <span style="text-align: left;"> <!-- Adjusted width and text-align -->
+                    <i class="fas fa-home" style="font-size: 2.5em;"></i> <!-- Adjusted font-size -->
+                </span>
+                <span class="brand-text font-weight-light" style="font-family: Montserrat, sans-serif; font-size: 14px;">NAIC Rural Health Unit</span> 
+            </a>
+        </li>
+    </ul>
+
+    
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -131,15 +143,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           
-          <img src="{{ asset('/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+          {{-- <img src="{{ asset('/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image"> --}}
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"><h5><strong> {{ Auth::user()->full_name }}</strong></h5></a>
         </div>
       </div>
 
+      @canany(['Admin-view', 'Nurse-view'])
+        
+     
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      {{-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -148,7 +163,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </button>
           </div>
         </div>
-      </div>
+      </div> --}}
+      @endcan
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -156,15 +172,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library 
               menu-open -->
+
           <li class="nav-item {{ (request()->is('users') || request()->is('roles') || request()->is('events')) ? 'menu-open' : '' }}">
              
+            @canany(['Admin-view', 'Nurse-view'])
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Admin 
+                Management
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            @endcan
+
+            @canany(['Admin-view', 'Nurse-view'])
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 
@@ -173,13 +194,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Users</p>
                 </a>
               </li>
-              <li class="nav-item">
-                
-                <a href="{{ route('roles.index') }}" class="nav-link {{ (request()->is('roles')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Roles</p>
-                </a>
-              </li>
+            
               {{-- @can('event-list') --}}
               <li class="nav-item">
                 <a href="{{ route('events.index') }}" class="nav-link {{ (request()->is('events')) ? 'active' : '' }}">
@@ -188,11 +203,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               {{-- @endcan --}}
+              @endcan
+
+              @can('Admin-view')
+                
+              
+              <li class="nav-item">
+                
+                <a href="{{ route('roles.index') }}" class="nav-link {{ (request()->is('roles')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Roles</p>
+                </a>
+              </li>
+              @endcan
             </ul>
+            
           </li>
           {{-- 2nd ROW --}}
           <li class="nav-item {{ (request()->is('users') || request()->is('roles') || request()->is('events')) ? 'menu-open' : '' }}">
-          <a href="#" class="nav-link">
+          {{-- <a href="#" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Schedule 
@@ -218,7 +247,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

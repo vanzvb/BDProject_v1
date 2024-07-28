@@ -30,7 +30,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <!-- Left navbar links -->
     
-    <ul class="navbar-nav">
+    {{-- <ul class="navbar-nav">
         <li class="nav-item d-none d-sm-inline-block text-center" style="margin-top: -5px;"> <!-- Adjusted margin-top to move it upward -->
             <a class="nav-link" href="/" style="padding: 6px;"> <!-- Added padding-top for additional spacing -->
                 <span style="display: inline-block; width: 5em; text-align: center;"> <!-- Adjusted width and text-align -->
@@ -38,14 +38,14 @@
                 </span>
             </a>
         </li>
-    </ul>
+    </ul> --}}
     
   
-
+<a class="nav-link" href="/">
     <h1 style="font-family: Montserrat, sans-serif; color: #004b7e;">
         <strong>NAIC Rural Health Unit</strong>
     </h1>
-
+</a>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto ">
         @guest
@@ -62,11 +62,15 @@
             @endif
         @else
 
-        
+        @canany(['Admin-view', 'Nurse-view'])
         <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
-        <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
         <li><a class="nav-link" href="{{ route('events.index') }}">Manage Events</a></li>
-            
+        @endcanany
+        @can('Admin-view')
+        <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
+        @endcan
+        
+      
 
          <!-- Vertical divider -->
          <li class="nav-item vertical-divider"></li>
