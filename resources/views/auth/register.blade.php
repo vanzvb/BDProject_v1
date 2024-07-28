@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -11,9 +14,16 @@
                 <div class="card">
                     <div class="card-header">{{ __('Registration Details') }}</div>
                     <div class="card-body">
-                        <p>Selected Event: {{ $event->name }}</p>
+                        <p>
+                            Selected Event: <br>
+                            <strong>Name:</strong> {{ $event->name }} <br>
+                            <strong>Start Date:</strong> {{ \Carbon\Carbon::parse($event->start_date)->format('F j, Y') }} <br>
+                            <strong>End Date:</strong> {{ \Carbon\Carbon::parse($event->end_date)->format('F j, Y') }} <br>
+                            <strong>Detail:</strong> {{ $event->detail }}
+                        </p>
                     </div>
                 </div>
+                
 
 
                 <div class="card-header">{{ __('Register') }}</div>
@@ -225,25 +235,38 @@
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="input-group">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="toggle-password" style="cursor: pointer;">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
-
+                        
                         <div class="row mb-3">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <div class="input-group">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="toggle-password-confirm" style="cursor: pointer;">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        
+                        
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -258,4 +281,30 @@
         </div>
     </div>
 </div>
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    var togglePassword = document.getElementById('toggle-password');
+    var password = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+        var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+
+    var togglePasswordConfirm = document.getElementById('toggle-password-confirm');
+    var passwordConfirm = document.getElementById('password-confirm');
+
+    togglePasswordConfirm.addEventListener('click', function () {
+        var type = passwordConfirm.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordConfirm.setAttribute('type', type);
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+});
+
+
+</script>
 @endsection

@@ -113,7 +113,10 @@
                                 <tr>
                                   
                                     <th>Name</th>
-                                    <th>Date</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th> Details </th>
+
                                 </tr>
                             </thead>
 
@@ -122,6 +125,8 @@
                               <tr>
                                     
                                 <td>{{ $myEvent->event->name }}</td>
+                                <td>{{ $myEvent->event->start_date }}</td>
+                                <td>{{ $myEvent->event->end_date }}</td>
                                 <td>{{ $myEvent->event->detail }}</td>
                             </tr>
                               @endforeach
@@ -158,7 +163,9 @@
                                     <tr>
                                       
                                         <th>Name</th>
-                                        <th>Date</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Details</th>
                                     </tr>
                                 </thead>
     
@@ -176,6 +183,8 @@
                                     <tr>
                                         
                                         <td>{{ $event->name }}</td>
+                                        <td>{{ $event->start_date }}</td>
+                                        <td>{{ $event->end_date }}</td>
                                         <td>{{ $event->detail }}</td>
                                     </tr>
                                     @endforeach

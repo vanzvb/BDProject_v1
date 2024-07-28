@@ -55,6 +55,8 @@ class EventController extends Controller
         request()->validate([
             'name' => 'required',
             'detail' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
         ]);
     
         Event::create($request->all());
@@ -97,6 +99,8 @@ class EventController extends Controller
         request()->validate([
             'name' => 'required',
             'detail' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
         ]);
     
         $event->update($request->all());

@@ -65,30 +65,27 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
+                                <th>Start Date</th> <!-- New header for Start Date -->
+                                <th>End Date</th> <!-- New header for End Date -->
                                 <th>Details</th>
                                 <th width="280px">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-    
+                    
                             @foreach ($events as $event)
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $event->name }}</td>
+                                <td>{{ \Carbon\Carbon::parse($event->start_date)->format('F d, Y') }}</td> <!-- New cell displaying formatted Start Date -->
+                                <td>{{ \Carbon\Carbon::parse($event->end_date)->format('F d, Y') }}</td> <!-- New cell displaying formatted End Date -->
                                 <td>{{ $event->detail }}</td>
                                 <td>
-                                    <form action="{{ route('events.destroy',$event->id) }}" method="POST">
-                                        <a class="btn btn-info" href="{{ route('events.show',$event->id) }}">Show</a>
+                                    <form action="{{ route('events.destroy', $event->id) }}" method="POST">
+                                        <a class="btn btn-info" href="{{ route('events.show', $event->id) }}">Show</a>
                                         {{-- @can('event-edit') --}}
-                                        <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a>
-                                        {{-- <a class="btn btn-primary" href="{{ route('events.view',$event->id) }}">View</a> --}}
+                                        <a class="btn btn-primary" href="{{ route('events.edit', $event->id) }}">Edit</a>
                                         {{-- @endcan --}}
-                                            {{-- {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
-                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                            {!! Form::close() !!} --}}
-                                        
-                    
-                    
                                         @csrf
                                         @method('DELETE')
                                         {{-- @can('event-delete') --}}
@@ -98,17 +95,22 @@
                                 </td>
                             </tr>
                             @endforeach
-                            
+                    
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
+                                <th>Start Date</th> <!-- New footer for Start Date -->
+                                <th>End Date</th> <!-- New footer for End Date -->
                                 <th>Details</th>
                                 <th width="280px">Action</th>
                             </tr>
                         </tfoot>
                     </table>
+                    
+                    
+                    
                 </div>
                 <!-- /.card-body -->
             </div>

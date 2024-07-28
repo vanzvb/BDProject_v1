@@ -20,14 +20,26 @@
             @endif
 
             <div class="modal-body">
-
                 <form action="{{ route('events.store') }}" method="POST">
                     @csrf
-                     <div class="row">
+                    <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Name:</strong>
                                 <input type="text" name="name" class="form-control" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Dates:</strong>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="date" name="start_date" class="form-control" placeholder="Start Date">
+                                    </div>
+                                    <div class="col">
+                                        <input type="date" name="end_date" class="form-control" placeholder="End Date">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -37,12 +49,14 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </form>
-
             </div>
+            >
+            
+            
         </div>
         <!-- /.modal-content -->
     </div>

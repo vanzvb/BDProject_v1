@@ -15,9 +15,16 @@
                                 <select id="event" class="form-control" required>
                                     <option value="" disabled selected>Select an event</option>
                                     @foreach ($events as $event)
-                                    <option value="{{ $event->id }}">{{ $event->name }} - {{ $event->detail }}</option>
+                                        @php
+                                            $startDate = \Carbon\Carbon::parse($event->start_date)->format('F j, Y');
+                                            $endDate = \Carbon\Carbon::parse($event->end_date)->format('F j, Y');
+                                        @endphp
+                                        <option value="{{ $event->id }}">
+                                            {{ $event->name }} - Start Date: {{ $startDate }} - End Date: {{ $endDate }} - Detail: {{ $event->detail }}
+                                        </option>
                                     @endforeach
                                 </select>
+               
                             </div>
                         </div>
 
@@ -146,8 +153,9 @@ document.getElementById('questionnaireForm').addEventListener('submit', function
         }
     } else {
         // Reset form and show alert
-        document.getElementById('questionnaireForm').reset();
+        // document.getElementById('questionnaireForm').reset();
         alert('You are not eligible to proceed.');
+        location.reload();
     }
 });
 </script>
