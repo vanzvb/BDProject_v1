@@ -17,7 +17,9 @@ class DonorAccountSeeder extends Seeder
     {
         // Create the donor user
         $user = User::create([
-            'name' => 'Donor1',
+            'first_name' => 'Juan', 
+            'middle_name' => 'Jose', 
+            'last_name' => 'Dela Cruz', 
             'email' => 'donor1@gmail.com',
             'password' => bcrypt('123456')
         ]);

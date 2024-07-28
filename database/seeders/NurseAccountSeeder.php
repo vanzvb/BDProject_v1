@@ -17,7 +17,9 @@ class NurseAccountSeeder extends Seeder
     {
         // Create the nurse user
         $user = User::create([
-            'name' => 'Nurse1',
+            'first_name' => 'Joselita', 
+            'middle_name' => 'Joana', 
+            'last_name' => 'Dela Cruz',
             'email' => 'nurse1@gmail.com',
             'password' => bcrypt('123456')
         ]);
