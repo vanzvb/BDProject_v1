@@ -190,11 +190,45 @@
                         </div>
                 
                         <div class="row mb-3">
-                            <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
-                
+                            <label for="barangay" class="col-md-4 col-form-label text-md-end">{{ __('Select a Barangay') }}</label>
+                        
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
-                
+                                <select id="barangay" class="form-control @error('address') is-invalid @enderror" name="barangay_select" required onchange="toggleOtherAddressField()">
+                                    <option value="">{{ __('Select a barangay') }}</option>
+                                    <option value="Bagong Kalsada">Bagong Kalsada</option>
+                                    <option value="Balsahan">Balsahan</option>
+                                    <option value="Bancaan">Bancaan</option>
+                                    <option value="Bucana Malaki">Bucana Malaki</option>
+                                    <option value="Bucana Sasahan">Bucana Sasahan</option>
+                                    <option value="Calubcob">Calubcob</option>
+                                    <option value="Capt. C. Nazareno (Poblacion)">Capt. C. Nazareno (Poblacion)</option>
+                                    <option value="Gombalza(Poblacion)">Gombalza (Poblacion)</option>
+                                    <option value="Halang">Halang</option>
+                                    <option value="Humbac">Humbac</option>
+                                    <option value="Ibayo Estacion">Ibayo Estacion</option>
+                                    <option value="Ibayo Silangan">Ibayo Silangan</option>
+                                    <option value="Kanluran Rizal">Kanluran Rizal</option>
+                                    <option value="Latoria">Latoria</option>
+                                    <option value="Labac">Labac</option>
+                                    <option value="Mabolo">Mabolo</option>
+                                    <option value="Malainen Bago">Malainen Bago</option>
+                                    <option value="Malainen Luma">Malainen Luma</option>
+                                    <option value="Maquina">Maquina</option>
+                                    <option value="Molino">Molino</option>
+                                    <option value="Munting Mapino">Munting Mapino</option>
+                                    <option value="Muzon">Muzon</option>
+                                    <option value="Palangue 2">Palangue 2</option>
+                                    <option value="Palangue 3">Palangue 3</option>
+                                    <option value="Palangue Central">Palangue Central</option>
+                                    <option value="Sabang">Sabang</option>
+                                    <option value="San Roque">San Roque</option>
+                                    <option value="Santulan">Santulan</option>
+                                    <option value="Sapa">Sapa</option>
+                                    <option value="Timalan Balsahan">Timalan Balsahan</option>
+                                    <option value="Timalan Concepcion">Timalan Concepcion</option>
+                                    <option value="Other">Other (Please Specify)</option>
+                                </select>
+                        
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -202,6 +236,25 @@
                                 @enderror
                             </div>
                         </div>
+                        
+                        <div class="row mb-3" id="otherAddressField" style="display: none;">
+                            <label for="other_address" class="col-md-4 col-form-label text-md-end">{{ __('Other Address') }}</label>
+                        
+                            <div class="col-md-6">
+                                <input id="other_address" type="text" class="form-control @error('other_address') is-invalid @enderror" name="other_address" value="{{ old('other_address') }}" autocomplete="other_address">
+                        
+                                @error('other_address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        <!-- Hidden input to store the actual address -->
+                        <input type="hidden" name="address" id="address" value="{{ old('address') }}">
+                        
+                        
                 
                         <div class="row mb-3">
                             <label for="contact_info" class="col-md-4 col-form-label text-md-end">{{ __('Contact Number') }}</label>
@@ -305,6 +358,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Address Script
 
+function toggleOtherAddressField() {
+        var barangaySelect = document.getElementById('barangay');
+        var otherAddressField = document.getElementById('otherAddressField');
+        var addressInput = document.getElementById('address');
+
+        if (barangaySelect.value === 'Other') {
+            otherAddressField.style.display = 'flex';
+        } else {
+            otherAddressField.style.display = 'none';
+            addressInput.value = barangaySelect.value;
+        }
+    }
+
+    // Update the hidden address input when the other address field changes
+    document.getElementById('other_address').addEventListener('input', function() {
+        var addressInput = document.getElementById('address');
+        var barangaySelect = document.getElementById('barangay');
+
+        if (barangaySelect.value === 'Other') {
+            addressInput.value = this.value;
+        }
+    });
+
+    // Call the function on page load to set the initial state
+    document.addEventListener('DOMContentLoaded', function () {
+        toggleOtherAddressField();
+    });
+    
 </script>
 @endsection

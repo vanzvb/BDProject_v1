@@ -125,8 +125,9 @@
                               <tr>
                                     
                                 <td>{{ $myEvent->event->name }}</td>
-                                <td>{{ $myEvent->event->start_date }}</td>
-                                <td>{{ $myEvent->event->end_date }}</td>
+                                <td>{{ \Carbon\Carbon::parse($myEvent->event->start_date)->format('F j, Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($myEvent->event->end_date)->format('F j, Y') }}</td>
+                                
                                 <td>{{ $myEvent->event->detail }}</td>
                             </tr>
                               @endforeach
@@ -183,8 +184,8 @@
                                     <tr>
                                         
                                         <td>{{ $event->name }}</td>
-                                        <td>{{ $event->start_date }}</td>
-                                        <td>{{ $event->end_date }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($event->start_date)->format('F j, Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($event->end_date)->format('F j, Y') }}</td>
                                         <td>{{ $event->detail }}</td>
                                     </tr>
                                     @endforeach
