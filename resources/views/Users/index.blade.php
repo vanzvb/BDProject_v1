@@ -55,7 +55,7 @@
             <!-- /.card-header -->
             
             <div class="card-body">
-                @canany(['Admin-view', 'Admin-add'])
+                @canany(['Admin-view', 'Admin-add','Nurse-view', 'Nurse-add'])
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create">
                         <b>Create New User</b>
                     </button>
