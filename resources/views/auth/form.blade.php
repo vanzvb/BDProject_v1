@@ -155,6 +155,7 @@ document.getElementById('questionnaireForm').addEventListener('submit', function
         // Reset form and show alert
         // document.getElementById('questionnaireForm').reset();
         alert('You are not eligible to proceed.');
+        document.getElementById('questionnaireForm').reset();
         location.reload();
     }
 });

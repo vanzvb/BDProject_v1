@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 
 
@@ -72,9 +73,18 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Event $event)
-    {
-        return view('Event.show',compact('event'));
-    }
+{
+    // Load related event details and users
+    $eventDetails = $event->eventDetails;
+    
+    // Optionally, if you need to show a specific user related to the event
+    $users = User::all(); // Fetch all users or filter as needed
+
+    return view('Event.show', compact('event', 'eventDetails', 'users'));
+}
+
+
+
 
     /**
      * Show the form for editing the specified resource.

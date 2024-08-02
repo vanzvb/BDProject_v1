@@ -22,4 +22,5 @@ class Event extends Model
     {
         return $this->hasMany(EventDetail::class, 'eventID', 'id');
     }
+
 }

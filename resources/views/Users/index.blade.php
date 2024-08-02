@@ -80,7 +80,7 @@
                             <th>Contact Information</th>
                             <th>Email</th>
                             <th>Roles</th>
-                            <th width="280px">Action</th>
+                            <th width="300px">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -141,7 +141,7 @@
                             <th>Contact Information</th>
                             <th>Email</th>
                             <th>Roles</th>
-                            <th width="280px">Action</th>
+                            <th width="300px">Action</th>
                         </tr>
                     </tfoot>
                 </table>
