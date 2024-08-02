@@ -1235,6 +1235,288 @@
                                                         </table>
                                                     </div>
                                                 </div>
+
+
+                                                 <!-- Ibayo Silangan Section -->
+                                                <div class="m-2">
+                                                    <h2 class="section-header">
+                                                        <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('ibayoSilangan')">
+                                                            <strong>Ibayo Silangan</strong>
+                                                        </button>
+                                                    </h2>
+                                                    <div class="table-container" id="ibayoSilangan" style="display: none;">
+                                                        <table class="table table-bordered summary-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Blood Type</th>
+                                                                    <th>Male Donors</th>
+                                                                    <th>Female Donors</th>
+                                                                    <th>Total Donors</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr><td>A+</td><td>...</td><!-- A+ male donors --><td>...</td> <!-- A+ female donors --><td>...</td></tr> <!-- Total donors for A+ -->
+                                                                <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+
+                                                 <!-- Kanluran Rizal Section -->
+                                                    <div class="m-2">
+                                                        <h2 class="section-header">
+                                                            <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('kanluranRizal')">
+                                                                <strong>Kanluran Rizal</strong>
+                                                            </button>
+                                                        </h2>
+                                                        <div class="table-container" id="kanluranRizal" style="display: none;">
+                                                            <table class="table table-bordered summary-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Blood Type</th>
+                                                                        <th>Male Donors</th>
+                                                                        <th>Female Donors</th>
+                                                                        <th>Total Donors</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Latoria Section -->
+                                                    <div class="m-2">
+                                                        <h2 class="section-header">
+                                                            <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('latoria')">
+                                                                <strong>Latoria</strong>
+                                                            </button>
+                                                        </h2>
+                                                        <div class="table-container" id="latoria" style="display: none;">
+                                                            <table class="table table-bordered summary-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Blood Type</th>
+                                                                        <th>Male Donors</th>
+                                                                        <th>Female Donors</th>
+                                                                        <th>Total Donors</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Labac Section -->
+                                                    <div class="m-2">
+                                                        <h2 class="section-header">
+                                                            <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('labac')">
+                                                                <strong>Labac</strong>
+                                                            </button>
+                                                        </h2>
+                                                        <div class="table-container" id="labac" style="display: none;">
+                                                            <table class="table table-bordered summary-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Blood Type</th>
+                                                                        <th>Male Donors</th>
+                                                                        <th>Female Donors</th>
+                                                                        <th>Total Donors</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Mabolo Section -->
+                                                    <div class="m-2">
+                                                        <h2 class="section-header">
+                                                            <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('mabolo')">
+                                                                <strong>Mabolo</strong>
+                                                            </button>
+                                                        </h2>
+                                                        <div class="table-container" id="mabolo" style="display: none;">
+                                                            <table class="table table-bordered summary-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Blood Type</th>
+                                                                        <th>Male Donors</th>
+                                                                        <th>Female Donors</th>
+                                                                        <th>Total Donors</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Malainen Bago Section -->
+                                                    <div class="m-2">
+                                                        <h2 class="section-header">
+                                                            <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('malainenBago')">
+                                                                <strong>Malainen Bago</strong>
+                                                            </button>
+                                                        </h2>
+                                                        <div class="table-container" id="malainenBago" style="display: none;">
+                                                            <table class="table table-bordered summary-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Blood Type</th>
+                                                                        <th>Male Donors</th>
+                                                                        <th>Female Donors</th>
+                                                                        <th>Total Donors</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Malainen Luma Section -->
+                                                    <div class="m-2">
+                                                        <h2 class="section-header">
+                                                            <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('malainenLuma')">
+                                                                <strong>Malainen Luma</strong>
+                                                            </button>
+                                                        </h2>
+                                                        <div class="table-container" id="malainenLuma" style="display: none;">
+                                                            <table class="table table-bordered summary-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Blood Type</th>
+                                                                        <th>Male Donors</th>
+                                                                        <th>Female Donors</th>
+                                                                        <th>Total Donors</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Maquina Section -->
+                                                    <div class="m-2">
+                                                        <h2 class="section-header">
+                                                            <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('maquina')">
+                                                                <strong>Maquina</strong>
+                                                            </button>
+                                                        </h2>
+                                                        <div class="table-container" id="maquina" style="display: none;">
+                                                            <table class="table table-bordered summary-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Blood Type</th>
+                                                                        <th>Male Donors</th>
+                                                                        <th>Female Donors</th>
+                                                                        <th>Total Donors</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Molino Section -->
+                                                    <div class="m-2">
+                                                        <h2 class="section-header">
+                                                            <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('molino')">
+                                                                <strong>Molino</strong>
+                                                            </button>
+                                                        </h2>
+                                                        <div class="table-container" id="molino" style="display: none;">
+                                                            <table class="table table-bordered summary-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Blood Type</th>
+                                                                        <th>Male Donors</th>
+                                                                        <th>Female Donors</th>
+                                                                        <th>Total Donors</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                    <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
                                     
                                                 <!-- Add more barangays here in the same pattern, up to 10 in this column -->
                                             </div>
@@ -1311,6 +1593,318 @@
                                                         </table>
                                                     </div>
                                                 </div>
+
+                                                
+                                            <!-- Muzon Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('muzon')">
+                                                        <strong>Muzon</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="muzon" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Palangue 2 Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('palangue2')">
+                                                        <strong>Palangue 2</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="palangue2" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Palangue 3 Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('palangue3')">
+                                                        <strong>Palangue 3</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="palangue3" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Palangue Central Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('palanguecentral')">
+                                                        <strong>Palangue Central</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="palanguecentral" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Sabang Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('sabang')">
+                                                        <strong>Sabang</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="sabang" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- San Roque Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('sanroque')">
+                                                        <strong>San Roque</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="sanroque" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Santulan Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('santulan')">
+                                                        <strong>Santulan</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="santulan" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Sapa Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('sapa')">
+                                                        <strong>Sapa</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="sapa" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Timalan Balsahan Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('timalanbalsahan')">
+                                                        <strong>Timalan Balsahan</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="timalanbalsahan" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Timalan Concepcion Section -->
+                                            <div class="m-2">
+                                                <h2 class="section-header">
+                                                    <button class="btn btn-primary barangay-btn" type="button" onclick="toggleTable('timalanconcepcion')">
+                                                        <strong>Timalan Concepcion</strong>
+                                                    </button>
+                                                </h2>
+                                                <div class="table-container" id="timalanconcepcion" style="display: none;">
+                                                    <table class="table table-bordered summary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Blood Type</th>
+                                                                <th>Male Donors</th>
+                                                                <th>Female Donors</th>
+                                                                <th>Total Donors</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>A+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>A-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>B-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>AB-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O+</td><td>...</td><td>...</td><td>...</td></tr>
+                                                            <tr><td>O-</td><td>...</td><td>...</td><td>...</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
 
                                                 <!-- Add more barangays here in the same pattern, up to 10 in this column -->
                                             </div>
