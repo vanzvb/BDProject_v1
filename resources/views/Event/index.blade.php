@@ -60,10 +60,13 @@
                         {{-- IM JUST A SPACE --}}
                     </div>
     
+                    
+
+
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                {{-- <th>No</th> --}}
                                 <th>Name</th>
                                 <th>Start Date</th> <!-- New header for Start Date -->
                                 <th>End Date</th> <!-- New header for End Date -->
@@ -72,10 +75,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                    
                             @foreach ($events as $event)
                             <tr>
-                                <td>{{ ++$i }}</td>
+                                {{-- <td>{{ ++$i }}</td> --}}
                                 <td>{{ $event->name }}</td>
                                 <td>{{ \Carbon\Carbon::parse($event->start_date)->format('F d, Y') }}</td> <!-- New cell displaying formatted Start Date -->
                                 <td>{{ \Carbon\Carbon::parse($event->end_date)->format('F d, Y') }}</td> <!-- New cell displaying formatted End Date -->
@@ -95,11 +97,10 @@
                                 </td>
                             </tr>
                             @endforeach
-                    
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>No</th>
+                                {{-- <th>No</th> --}}
                                 <th>Name</th>
                                 <th>Start Date</th> <!-- New footer for Start Date -->
                                 <th>End Date</th> <!-- New footer for End Date -->
@@ -108,6 +109,13 @@
                             </tr>
                         </tfoot>
                     </table>
+
+
+                   
+
+
+
+                    
                     
                     
                     

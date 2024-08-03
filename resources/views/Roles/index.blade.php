@@ -64,6 +64,8 @@
                     {{-- IM JUST A SPACE --}}
                 </div>
 
+                
+            
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -73,7 +75,6 @@
                          </tr>
                     </thead>
                     <tbody>
-
                         @foreach ($roles as $key => $role)
                         <tr>
                             <td>{{ ++$i }}</td>
@@ -99,18 +100,13 @@
                             </td>
                         </tr>
                         @endforeach
-                        
                     </tbody>
                     <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
-                         </tr>
                     </tfoot>
                 </table>
+
             </div>
-            <!-- /.card-body -->
+
         </div>
 
 

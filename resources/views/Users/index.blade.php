@@ -44,19 +44,13 @@
                     </div>
 
 
-
-
-                
-
-                    
-                    
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     {{-- <th>No</th> --}}
-                                    <th>Name</th>
+                                    <th width="200px">Name</th>
                                     <th>Blood Type</th>
                                     <th>Age</th>
                                     <th>Gender</th>
@@ -115,12 +109,24 @@
                                 @endforeach 
                             </tbody>
                             <tfoot>
+                                <tr>
+                                    {{-- <th>No</th> --}}
+                                    <th width="200px">Name</th>
+                                    <th>Blood Type</th>
+                                    <th>Age</th>
+                                    <th>Gender</th>
+                                    <th>Civil Status</th>
+                                    <th>Nationality</th>
+                                    <th>Occupation</th>
+                                    <th>Address</th>
+                                    <th>Contact Information</th>
+                                    <th>Email</th>
+                                    <th>Roles</th>
+                                    <th width="200px">Action</th>
+                                </tr>
                             </tfoot>
                         </table>
-{{-- 
-                            <div>
-                                {!! $data->links() !!}
-                            </div> --}}
+
                     </div>
                     <!-- /.card-body -->
                 </div>

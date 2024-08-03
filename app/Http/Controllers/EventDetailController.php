@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EventDetail;
+use App\Models\User;
 
 
 class EventDetailController extends Controller
@@ -16,8 +17,13 @@ class EventDetailController extends Controller
      */
     public function index()
     {
-        //
+        // Fetch event details with users
+        // $eventDetails = EventDetail::with('user')->get();
+        // $users = User::all(); // Fetch all users to access them by ID
+
+        // return view('Event.show', compact('eventDetails', 'users'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -47,17 +53,18 @@ class EventDetailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-{
-    try {
-        // Fetch event detail along with related event and user
-        $eventDetail = EventDetail::with('event', 'user')->findOrFail($id);
-    } catch (\Exception $e) {
-        return redirect()->route('events.index')->with('error', 'EventDetail not found.');
+    {
+        // $eventDetails = EventDetail::with('user')->get();
+        // $users = User::all(); // Fetch all users to access them by ID
+
+        // return view('Event.show', compact('eventDetails', 'users'));
     }
 
-    // Pass eventDetail to the view
-    return view('eventdetail.show', compact('eventDetail'));
-}
+
+
+
+
+    
 
 
 

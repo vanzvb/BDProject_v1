@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\EventDetail;
 
 
 class EventController extends Controller
@@ -28,10 +28,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::latest()->paginate(5);
-        
-        return view('Event.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $events = Event::latest()->get();
+         
+        // return view('Event.index',compact('events'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('Event.index',compact('events')); 
     }
 
     /**
@@ -76,6 +77,7 @@ class EventController extends Controller
 {
     // Load related event details and users
     $eventDetails = $event->eventDetails;
+    
     
     // Optionally, if you need to show a specific user related to the event
     $users = User::all(); // Fetch all users or filter as needed

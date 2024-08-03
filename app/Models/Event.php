@@ -9,11 +9,6 @@ class Event extends Model
 {
     use HasFactory;
 
-        /**
-     * The attributes that are mass assignable.
-     *	
-     * @var array
-     */
     protected $fillable = [
         'name', 'detail', 'start_date', 'end_date'
     ];
@@ -22,5 +17,4 @@ class Event extends Model
     {
         return $this->hasMany(EventDetail::class, 'eventID', 'id');
     }
-
 }
