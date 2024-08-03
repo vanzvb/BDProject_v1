@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-show{{ isset($user->id) ? $user->id : null }}">
+<div class="modal fade" id="modal-show{{ isset($users->id) ? $users->id : null }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -25,68 +25,68 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Name:</strong>
-                            {{ $user->full_name }}
+                            {{ $users->full_name }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Blood Type:</strong>
-                            {{ $user->blood_type }}
+                            {{ $users->blood_type }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Age:</strong>
-                            {{ $user->age }}
+                            {{ $users->age }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Gender:</strong>
-                            {{ $user->gender }}
+                            {{ $users->gender }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Civil Status:</strong>
-                            {{ $user->civil_status }}
+                            {{ $users->civil_status }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Nationality:</strong>
-                            {{ $user->nationality }}
+                            {{ $users->nationality }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Occupation:</strong>
-                            {{ $user->occupation }}
+                            {{ $users->occupation }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Address:</strong>
-                            {{ $user->address }}
+                            {{ $users->address }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Contact Information:</strong>
-                            {{ $user->contact_info }}
+                            {{ $users->contact_info }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Email:</strong>
-                            {{ $user->email }}
+                            {{ $users->email }}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Roles:</strong>
-                            @if(!empty($user->getRoleNames()))
-                                @foreach($user->getRoleNames() as $v)
+                            @if(!empty($users->getRoleNames()))
+                                @foreach($users->getRoleNames() as $v)
                                     <label class="badge badge-success">{{ $v }}</label>
                                 @endforeach
                             @endif
