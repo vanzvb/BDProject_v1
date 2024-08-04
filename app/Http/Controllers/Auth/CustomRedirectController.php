@@ -13,7 +13,7 @@ class   CustomRedirectController extends Controller
         $events = Event::all(); // Fetch all events
         return view('auth.form', compact('events')); // Pass events to the view
         // You can change 'your-blade-file-name' to the actual blade file name you want to redirect to
-        return view('auth.form');
+        // return view('auth.form');
     }
 
     

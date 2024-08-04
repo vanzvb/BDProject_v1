@@ -18,10 +18,10 @@ class EventDetailController extends Controller
     public function index()
     {
         // Fetch event details with users
-        // $eventDetails = EventDetail::with('user')->get();
-        // $users = User::all(); // Fetch all users to access them by ID
+        $eventDetails = EventDetail::with('user')->get();
+        $users = User::all(); // Fetch all users to access them by ID
 
-        // return view('Event.show', compact('eventDetails', 'users'));
+        return view('Event.show', compact('eventDetails', 'users'));
     }
 
 
@@ -54,10 +54,10 @@ class EventDetailController extends Controller
      */
     public function show($id)
     {
-        // $eventDetails = EventDetail::with('user')->get();
-        // $users = User::all(); // Fetch all users to access them by ID
+        $eventDetails = EventDetail::with('user')->get();
+        $users = User::all(); // Fetch all users to access them by ID
 
-        // return view('Event.show', compact('eventDetails', 'users'));
+        return view('Event.show', compact('eventDetails', 'users'));
     }
 
 

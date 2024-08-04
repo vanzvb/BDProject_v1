@@ -16,7 +16,7 @@
         </div>
     </div>
 
-   
+
 
 
     <div class="card">
@@ -27,13 +27,13 @@
             <p><strong>Start Date:</strong> {{ Carbon::parse($event->start_date)->format('F j, Y') }}</p>
             <p><strong>End Date:</strong> {{ Carbon::parse($event->end_date)->format('F j, Y') }}</p>
             {{-- will remove --}}
-            <p><strong>Event ID:</strong> {{ $event->id }}</p> 
-    
+            <p><strong>Event ID:</strong> {{ $event->id }}</p>
+
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th width="200px">Name</th>
-                        <th>Blood Type</th>
+                        {{-- <th>Blood Type</th>
                         <th>Age</th>
                         <th>Gender</th>
                         <th>Civil Status</th>
@@ -43,77 +43,36 @@
                         <th>Contact Information</th>
                         <th>Email</th>
                         <th>Roles</th>
-                        <th width="200px">Action</th>
+                        <th width="200px">Action</th> --}}
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($eventDetails as $eventDetail)
-                        @php
-                            $user = $users->find($eventDetail->userID);
-                        @endphp
-                        @if ($user)
+                    @foreach ($event->eventDetails as $eventDetail)
+                        @if ($eventDetail->user)
                             <tr>
-                                <td>{{ $user->getFullNameAttribute() }}</td>
-                                <td>{{ $user->blood_type }}</td>
-                                <td>{{ $user->age }}</td>
-                                <td>{{ $user->gender }}</td>
-                                <td>{{ $user->civil_status }}</td>
-                                <td>{{ $user->occupation }}</td>
-                                <td>{{ $user->nationality }}</td>
-                                <td>{{ $user->address }}</td>
-                                <td>{{ $user->contact_info }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>
-                                    @if (!empty($user->getRoleNames()))
-                                        @foreach ($user->getRoleNames() as $v)
-                                            <label class="badge bg-success">{{ $v }}</label>
-                                        @endforeach
-                                    @endif
-                                </td>
-                                <td>
-                                    {{-- @include('Users.modal.show') --}}
-                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-show{{ $user->id }}">
-                                        Show
-                                    </button>
-                                    {{-- <a class="btn btn-info" href="{{ route('users.show', $user->id) }}">Show</a> --}}
-                                    
-                                    <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">Edit</a>
-    
-                                    {{-- @include('Users.modal.delete') --}}
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete{{ $user->id }}">
-                                        Delete
-                                    </button>
-                                    {{-- <a class="btn btn-danger" href="{{ route('users.destroy', $user->id) }}">Delete</a> --}}
-                                    {{-- {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
-                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                    {!! Form::close() !!}  --}}
-                                </td>
+                                <td>{{ $eventDetail->user->full_name }}</td>
                             </tr>
                         @else
                             <tr>
-                                <td colspan="2">No user information available for Event Detail ID: {{ $eventDetail->id }}
-                                </td>
+                                <td>No user associated</td>
                             </tr>
                         @endif
-                    @empty
-                        <tr>
-                            <td colspan="2">No event details found.</td>
-                        </tr>
-                    @endforelse
+                    @endforeach
+
                 </tbody>
                 <tfoot>
-    
+
                 </tfoot>
             </table>
-            
-            
+
+
         </div>
-    
+
     </div>
 
 
 
-    
+
 
     {{-- <div class="row mt-4">
         <div class="col-md-12">
@@ -156,15 +115,4 @@
             @endif
         </div>
     </div> --}}
-
-
-
-
-
-
-
-
-
 @endsection
-
-

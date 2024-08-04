@@ -28,7 +28,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::latest()->get();
+        $events = Event::all();
          
         // return view('Event.index',compact('events'))
         //     ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -75,14 +75,17 @@ class EventController extends Controller
      */
     public function show(Event $event)
 {
-    // Load related event details and users
-    $eventDetails = $event->eventDetails;
-    
-    
-    // Optionally, if you need to show a specific user related to the event
-    $users = User::all(); // Fetch all users or filter as needed
+    // dd($event->id);
+    $event = Event::where('id', $event->id)->first();
 
-    return view('Event.show', compact('event', 'eventDetails', 'users'));
+    // Load related event details and users
+    // $eventDetails = $event->eventDetails;
+    
+    // dd($event);
+    // Optionally, if you need to show a specific user related to the event
+    // $users = User::all(); 
+
+    return view('Event.show', compact('event'));
 }
 
 
