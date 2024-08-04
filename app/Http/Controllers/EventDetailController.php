@@ -60,15 +60,6 @@ class EventDetailController extends Controller
         return view('Event.show', compact('eventDetails', 'users'));
     }
 
-
-
-
-
-    
-
-
-
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -101,5 +92,33 @@ class EventDetailController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function changeStatus($id)
+    {
+
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'permission' => 'required',
+        // ]);
+
+        // $role = Role::find($id);
+        // $role->name = $request->input('name');
+        // $role->save();
+
+        // $role->syncPermissions($request->input('permission'));
+
+        // return redirect()->route('event.show')
+        //                 ->with('success','Donor status updated successfully');
+        $eventDetail = EventDetail::find($id);
+        $eventDetail->donor_status = 'Active';
+        $eventDetail->save();
+
+        // return redirect()->route('event.show')
+        //                 ->with('success','Donor status updated successfully');
+
+        return redirect()->back()->with('status', 'Status updated successfully!');
+
+        // dd($eventDetail);
     }
 }

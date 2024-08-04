@@ -33,6 +33,7 @@
                 <thead>
                     <tr>
                         <th width="200px">Name</th>
+                        <th>Status</th>
                         {{-- <th>Blood Type</th>
                         <th>Age</th>
                         <th>Gender</th>
@@ -42,8 +43,8 @@
                         <th>Address</th>
                         <th>Contact Information</th>
                         <th>Email</th>
-                        <th>Roles</th>
-                        <th width="200px">Action</th> --}}
+                        <th>Roles</th> --}}
+                        <th width="200px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,6 +52,13 @@
                         @if ($eventDetail->user)
                             <tr>
                                 <td>{{ $eventDetail->user->full_name }}</td>
+                                <td>{{ $eventDetail->donor_status }}</td>
+                                <td>
+                                    <form action="{{ route('event-details.changeStatus', $eventDetail->id) }}" method="GET">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary">Change Status</button>
+                                    </form>
+                                </td>
                             </tr>
                         @else
                             <tr>

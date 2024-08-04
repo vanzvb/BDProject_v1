@@ -15,6 +15,7 @@ class EventDetail extends Model
     protected $fillable = [
         'eventID',
         'userID',
+        'donor_status',
     ];
 
     public function event()

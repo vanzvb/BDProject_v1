@@ -472,7 +472,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <h4>Total Donors</h4>
-                                                    <p>...</p> <!-- Total Donors -->
+                                                    <p>{{ $totalActiveDonors }}</p> <!-- Total Donors -->
                                                 </div>
                                             </div>
                                         </div>

@@ -17,6 +17,7 @@ class CreateEventDetailsTable extends Migration
             $table->id();
             $table->unsignedMediumInteger('eventID'); // mediumint for eventID
             $table->unsignedMediumInteger('userID'); // mediumint for userID
+            $table->text('donor_status')->nullable();
             $table->timestamps();
         });
     }
