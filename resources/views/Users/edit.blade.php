@@ -138,26 +138,26 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Nationality:</strong>
-                                        {!! Form::text('nationality', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                        {!! Form::text('nationality', null, ['placeholder' => 'Nationality', 'class' => 'form-control']) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Occupation:</strong>
-                                        {!! Form::text('occupation', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                        {!! Form::text('occupation', null, ['placeholder' => 'Occupation', 'class' => 'form-control']) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Address:</strong>
-                                        {!! Form::text('address', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                        {!! Form::text('address', null, ['placeholder' => 'Address', 'class' => 'form-control']) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Contact Information:</strong>
                                         {!! Form::text('contact_info', null, [
-                                            'placeholder' => 'Name',
+                                            'placeholder' => 'Contact Information',
                                             'class' => 'form-control',
                                             'id' => 'contact_info_input',
                                         ]) !!}

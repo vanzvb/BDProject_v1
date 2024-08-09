@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        /* Add this to your CSS file */
+        .disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    </style>
     <div class="container">
+
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -40,6 +48,11 @@
                             </div>
                         </form>
                     </div>
+                </div>
+
+                <!-- Cooldown Section -->
+                <div id="cooldownSection" class="d-none">
+                    <p id="cooldownMessage"></p>
                 </div>
 
                 <div class="card mt-4 d-none" id="questionnaireCard">
@@ -112,12 +125,12 @@
                                         <button type="submit" class="btn btn-primary">Apply</button>
                                     </form>
                                 @else --}}
-                                    <div class="col-md-6 offset-md-3">
-                                        <button type="submit" class="btn btn-primary w-100"
-                                            id="submitButton">{{ __('Submit') }}</button>
-                                    </div>
+                                <div class="col-md-6 offset-md-3">
+                                    <button type="submit" class="btn btn-primary w-100"
+                                        id="submitButton">{{ __('Submit') }}</button>
+                                </div>
                                 {{-- @endif --}}
-                                
+
                             </div>
                         </form>
                     </div>
@@ -127,6 +140,53 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var cooldownTimestamp = localStorage.getItem('cooldownTimestamp');
+            var now = new Date().getTime();
+
+            if (cooldownTimestamp) {
+                var remainingTime = Math.max(0, Math.ceil((10 * 1000 - (now - cooldownTimestamp)) /
+                1000)); // 10 seconds cooldown for testing
+
+                if (remainingTime > 0) {
+                    // Show cooldown message and disable form
+                    document.getElementById('cooldownSection').classList.remove('d-none');
+                    document.getElementById('questionnaireForm').classList.add(
+                    'disabled'); // Add a class to disable form elements
+                    updateCooldownMessage(remainingTime);
+                    setTimeout(updateCooldownTimer, 1000);
+                } else {
+                    // Cooldown expired
+                    localStorage.removeItem('cooldownTimestamp');
+                    document.getElementById('cooldownSection').classList.add('d-none');
+                    document.getElementById('questionnaireForm').classList.remove(
+                    'disabled'); // Remove the class to re-enable form elements
+                }
+            }
+        });
+
+        function updateCooldownMessage(remainingTime) {
+            var seconds = remainingTime;
+            var message = `You need to wait ${seconds} seconds before trying again.`;
+            document.getElementById('cooldownMessage').textContent = message;
+        }
+
+        function updateCooldownTimer() {
+            var cooldownTimestamp = localStorage.getItem('cooldownTimestamp');
+            var now = new Date().getTime();
+            var remainingTime = Math.max(0, Math.ceil((10 * 1000 - (now - cooldownTimestamp)) /
+            1000)); // 10 seconds cooldown for testing
+
+            if (remainingTime > 0) {
+                updateCooldownMessage(remainingTime);
+                setTimeout(updateCooldownTimer, 1000);
+            } else {
+                localStorage.removeItem('cooldownTimestamp');
+                document.getElementById('cooldownSection').classList.add('d-none');
+                document.getElementById('questionnaireForm').classList.remove('disabled');
+            }
+        }
+
         document.getElementById('proceedButton').addEventListener('click', function() {
             var eventSelect = document.getElementById('event');
             if (eventSelect.value) {
@@ -144,11 +204,17 @@
         });
 
         document.getElementById('changeEventButton').addEventListener('click', function() {
-            var eventSelect = document.getElementById('event');
-            eventSelect.removeAttribute('disabled');
-            document.getElementById('questionnaireCard').classList.add('d-none');
-            document.getElementById('proceedButton').classList.remove('d-none');
-            document.getElementById('changeEventButton').classList.add('d-none');
+            if (confirm('Your answers will be cleared when you change the event. Proceed?')) {
+                // Reset the form
+                document.getElementById('questionnaireForm').reset();
+                document.getElementById('selected_event_id').value = '';
+
+                // Show event selection and hide questionnaire card
+                document.getElementById('event').removeAttribute('disabled');
+                document.getElementById('questionnaireCard').classList.add('d-none');
+                document.getElementById('proceedButton').classList.remove('d-none');
+                document.getElementById('changeEventButton').classList.add('d-none');
+            }
         });
 
         document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
@@ -165,19 +231,26 @@
                 }
             });
 
-            if (allAnswersAreYes) {
-                // If confirmed, proceed to registration form with event ID
-                if (confirm('You will be redirected to the registration form. Do you want to proceed?')) {
-                    // Add event ID to the form submission
-                    var eventID = document.getElementById('selected_event_id').value;
-                    window.location.href = "{{ route('register') }}?event_id=" + encodeURIComponent(eventID);
+            var cooldownTimestamp = localStorage.getItem('cooldownTimestamp');
+            var now = new Date().getTime();
+
+            if (!allAnswersAreYes) {
+                // Set cooldown if not eligible
+                if (!cooldownTimestamp || now - cooldownTimestamp >= 10 * 1000) { // 10 seconds for testing
+                    // User is not eligible, apply cooldown
+                    alert('You are not eligible to proceed. Please wait 10 seconds before trying again.');
+                    localStorage.setItem('cooldownTimestamp', now); // Set cooldown timestamp
+                    document.getElementById('questionnaireForm').reset();
+                    location.reload(); // Reload the page to show the cooldown message
+                } else {
+                    var remainingTime = Math.ceil((10 * 1000 - (now - cooldownTimestamp)) / 1000);
+                    alert(`You need to wait ${remainingTime} seconds before trying again.`);
                 }
             } else {
-                // Reset form and show alert
-                // document.getElementById('questionnaireForm').reset();
-                alert('You are not eligible to proceed.');
-                document.getElementById('questionnaireForm').reset();
-                location.reload();
+                // If confirmed, proceed to registration form with event ID
+                var eventID = document.getElementById('selected_event_id').value;
+                var registrationUrl = "{{ route('register') }}";
+                window.location.href = registrationUrl + "?event_id=" + encodeURIComponent(eventID);
             }
         });
     </script>
