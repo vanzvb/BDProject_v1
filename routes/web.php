@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +22,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+
+
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
+
+
+
 
 Route::get('/testing-area-home', function () {
     return view('dumpArea.homeDump');
@@ -32,6 +39,7 @@ Route::get('/testing-area-welcome', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
@@ -40,8 +48,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('events', App\Http\Controllers\EventController::class);
 });
 
+
+
 // Change EventDetail Status (for users)
 Route::get('event-details/change-status/{id}', [EventDetailController::class, 'changeStatus'])->name('event-details.changeStatus');
 
+
 Route::get('forms', [App\Http\Controllers\Auth\CustomRedirectController::class, 'redirectToBlade'])->name('auth.form');
+
+
+
+
+
 

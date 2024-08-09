@@ -44,40 +44,58 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Blood Type:</strong>
-                            {!! Form::select('blood_type', [
-                                'A+' => 'A+',
-                                'A-' => 'A-',
-                                'B+' => 'B+',
-                                'B-' => 'B-',
-                                'AB+' => 'AB+',
-                                'AB-' => 'AB-',
-                                'O+' => 'O+',
-                                'O-' => 'O-',
-                            ], null, ['placeholder' => 'Select Blood Type', 'class' => 'form-control']) !!}
+                            {!! Form::select(
+                                'blood_type',
+                                [
+                                    'A+' => 'A+',
+                                    'A-' => 'A-',
+                                    'B+' => 'B+',
+                                    'B-' => 'B-',
+                                    'AB+' => 'AB+',
+                                    'AB-' => 'AB-',
+                                    'O+' => 'O+',
+                                    'O-' => 'O-',
+                                ],
+                                null,
+                                ['placeholder' => 'Select Blood Type', 'class' => 'form-control'],
+                            ) !!}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Age:</strong>
-                            {!! Form::text('age', null, ['placeholder' => 'Age', 'class' => 'form-control', 'maxlength' => '3', 'oninput' => 'this.value = this.value.replace(/[^0-9]/g, "")']) !!}
+                            {!! Form::text('age', null, [
+                                'placeholder' => 'Age',
+                                'class' => 'form-control',
+                                'maxlength' => '3',
+                                'oninput' => 'this.value = this.value.replace(/[^0-9]/g, "")',
+                            ]) !!}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Gender:</strong>
-                            {!! Form::select('gender', ['Male' => 'Male', 'Female' => 'Female'], null, ['placeholder' => 'Select Gender', 'class' => 'form-control']) !!}
+                            {!! Form::select('gender', ['Male' => 'Male', 'Female' => 'Female'], null, [
+                                'placeholder' => 'Select Gender',
+                                'class' => 'form-control',
+                            ]) !!}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Civil Status:</strong>
-                            {!! Form::select('civil_status', [
-                                'Single' => 'Single',
-                                'Married' => 'Married',
-                                'Divorced' => 'Divorced',
-                                'Legally Separated' => 'Legally Separated',
-                                'Widowed' => 'Widowed',
-                            ], null, ['placeholder' => 'Select Civil Status', 'class' => 'form-control']) !!}
+                            {!! Form::select(
+                                'civil_status',
+                                [
+                                    'Single' => 'Single',
+                                    'Married' => 'Married',
+                                    'Divorced' => 'Divorced',
+                                    'Legally Separated' => 'Legally Separated',
+                                    'Widowed' => 'Widowed',
+                                ],
+                                null,
+                                ['placeholder' => 'Select Civil Status', 'class' => 'form-control'],
+                            ) !!}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -102,7 +120,11 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Contact Information:</strong>
-                            {!! Form::text('contact_info', null, ['placeholder' => 'Contact Information', 'class' => 'form-control', 'id' => 'contact_info_input']) !!}
+                            {!! Form::text('contact_info', null, [
+                                'placeholder' => 'Contact Information',
+                                'class' => 'form-control',
+                                'id' => 'contact_info_input',
+                            ]) !!}
                         </div>
                     </div>
 
@@ -138,7 +160,9 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Role:</strong>
-                            {!! Form::select('roles[]', $roles, [], ['class' => 'form-control', 'multiple']) !!}
+                            {!! Form::select('roles[]', ['' => 'Select Role'] + $roles, ['class' => 'form-control', 'multiple']) !!}
+                            <small class="form-text text-muted">Select a role to assign. Select "Select Role" to
+                                unassign.</small>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">

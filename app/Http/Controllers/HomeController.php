@@ -38,6 +38,7 @@ class HomeController extends Controller
         $myEvents = EventDetail::where('userID', $user->id)->get();
         // dd($myEvents);
         $email = Auth::user()->email;
+        $donorStatus = EventDetail::where('userID', $user->id)->pluck('donor_status')->first();
         return view('home', [
             'user' => $user,
             'email' => $email,
@@ -54,6 +55,7 @@ class HomeController extends Controller
             'contactInfo' => $user->contact_info,
             'events' => $donationHistorys,
             'myEvents' => $myEvents,
+            'donorStatus' => $donorStatus,
         ]);
     }
 }

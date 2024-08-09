@@ -82,7 +82,7 @@
                           <p><strong>Blood Type :</strong> {{ $bloodType }}</p>
                           <p><strong>Age :</strong> {{ $age }}</p>
                           <p><strong>Gender :</strong> {{ $gender }}</p>
-                          <p><strong>Donor Status :</strong> </p>
+                          <p><strong>Donor Status :</strong> {{ $donorStatus }} </p>
                       </div>
                       <div class="col-md-6">
                           <p><strong>Civil Status :</strong> {{ $civilStatus }}</p>
@@ -108,10 +108,10 @@
     
                   <div class="row mt-4">
                     <div class="col-md-12 px-4">
-                        <table id="donationHistoryTable" class="display table table-bordered table-striped w-100">
+                        <table id="example2" class="display table table-bordered table-striped w-100">
                             <thead>
                                 <tr>
-                                  
+                                    <th> Status </th>
                                     <th>Name</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
@@ -123,7 +123,7 @@
                             <tbody>
                               @foreach ($myEvents as $myEvent)
                               <tr>
-                                    
+                                <td> {{ $donorStatus }}</td>
                                 <td>{{ $myEvent->event->name }}</td>
                                 <td>{{ \Carbon\Carbon::parse($myEvent->event->start_date)->format('F j, Y') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($myEvent->event->end_date)->format('F j, Y') }}</td>
@@ -132,15 +132,7 @@
                             </tr>
                               @endforeach
                             </tbody>
-                            {{-- <tbody>
-                                @foreach ($events as $event)
-                                <tr>
-                                    
-                                    <td>{{ $event->name }}</td>
-                                    <td>{{ $event->detail }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody> --}}
+                            
                         </table>
                     </div>  
                   </div>
@@ -159,7 +151,7 @@
         
                       <div class="row mt-4">
                         <div class="col-md-12 px-4">
-                            <table id="donationHistoryTable" class="display table table-bordered table-striped w-100">
+                            <table id="example2" class="display table table-bordered table-striped w-100">
                                 <thead>
                                     <tr>
                                       
@@ -167,18 +159,11 @@
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Details</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
     
-                                {{-- <tbody>
-                                  @foreach ($myEvents as $myEvent)
-                                  <tr>
-                                        
-                                    <td>{{ $myEvent->event->name }}</td>
-                                    <td>{{ $myEvent->event->detail }}</td>
-                                </tr>
-                                  @endforeach
-                                </tbody> --}}
+                               
                                 <tbody>
                                     @foreach ($events as $event)
                                     <tr>
@@ -187,6 +172,10 @@
                                         <td>{{ \Carbon\Carbon::parse($event->start_date)->format('F j, Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($event->end_date)->format('F j, Y') }}</td>
                                         <td>{{ $event->detail }}</td>
+                                        <td>
+                                          <a href="{{ route('auth.form', ['event_id' => $event->id]) }}" class="btn btn-primary">Go to Form</a>
+                                      </td>
+                                      
                                     </tr>
                                     @endforeach
                                 </tbody>
