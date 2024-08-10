@@ -482,10 +482,11 @@
                                             <div class="card">
                                                 <div class="card-header">
                                                     <h3>Total Male Donors</h3>
+                                                    
                                                 </div>
                                                 <div class="card-body">
                                                     <h4>Total Male Donors</h4>
-                                                    <p>...</p> <!-- Total Male Donors -->
+                                                    <p> {{ $totalMaleDonors }}</p>  <!-- Total Male Donors Card -->
                                                 </div>
                                             </div>
                                         </div>
@@ -495,10 +496,11 @@
                                             <div class="card">
                                                 <div class="card-header">
                                                     <h3>Total Female Donors</h3>
+                                                    
                                                 </div>
                                                 <div class="card-body">
                                                     <h4>Total Female Donors</h4>
-                                                    <p>...</p> <!-- Total Female Donors -->
+                                                    <p> {{ $totalFemaleDonors }}</p> <!-- Total Female Donors -->
                                                 </div>
                                             </div>
                                         </div>
@@ -1473,11 +1475,11 @@
 <!-- BARANGAY DROPDOWN SCRIPT -->
 
 <script>
-    $(document).ready(function() {
+      $(document).ready(function() {
         $('#barangaySearch').on('keyup', function() {
             var value = $(this).val().toLowerCase();
             $('#barangayDropdown option').filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
             });
         });
 
@@ -1489,15 +1491,6 @@
             }
         });
     });
-
-    function toggleTable(id) {
-        var table = document.getElementById(id);
-        if (table.style.display === "none") {
-            table.style.display = "block";
-        } else {
-            table.style.display = "none";
-        }
-    }
 </script>
 
 
@@ -1570,10 +1563,10 @@
         new Chart(bloodTypeCtx, {
             type: 'bar',
             data: {
-                labels: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+                labels: @json(array_keys($bloodTypeCounts)),
                 datasets: [{
                     label: 'Number of Donors',
-                    data: [120, 90, 130, 80, 300, 30, 23, 2], // Replace with actual data
+                    data: @json(array_values($bloodTypeCounts)), // Replace with actual data
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
@@ -1593,10 +1586,10 @@
         new Chart(ageDistributionCtx, {
             type: 'bar',
             data: {
-                labels: ['18-25', '26-35', '36-45', '46-55', '56-65', '65+'],
+                labels: @json(array_keys($ageGroupCounts)),
                 datasets: [{
                     label: 'Number of Donors',
-                    data: [50, 80, 100, 70, 60, 30], // Replace with actual data
+                    data: @json(array_values($ageGroupCounts)), // Replace with actual data
                     backgroundColor: 'rgba(153, 102, 255, 0.2)',
                     borderColor: 'rgba(153, 102, 255, 1)',
                     borderWidth: 1
