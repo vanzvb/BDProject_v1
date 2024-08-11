@@ -230,6 +230,213 @@
 
                 <div class="container-fluid">
                     <div class="row">
+
+                        <!-- ANALYTIC REPORTS -->
+                        <div class="col-lg-10 offset-lg-1">
+                            <!-- ANALYTIC REPORTS -->
+
+                            <div class="card shadow mt-4">
+                                <!-- /.card-header -->
+                                <div id="bloodanalytic" class="card-header bg-info text-white">
+                                    <h3 class="card-title"><i class="fas fa-chart-bar"></i> Blood Donation Analytics
+                                    </h3>
+                                </div>
+
+
+
+
+
+                                <div class="container mt-4">
+                                    <div class="row">
+                                        <h1 class="text-center mby-4"><strong>Barangay Analytics</strong></h1>
+                                        <div class="form-group">
+                                            <label for="barangayDropdown">Select Barangay:</label>
+                                            <form action="{{ route('welcome') }}" method="GET">
+                                                <select class="form-control" id="barangayDropdown" name="barangay">
+                                                    <option value="">All</option>
+                                                    <option value="Bagong Kalsada"
+                                                        {{ old('barangay', request('barangay')) == 'Bagong Kalsada' ? 'selected' : '' }}>
+                                                        Bagong Kalsada</option>
+                                                    <option value="Balsahan"
+                                                        {{ old('barangay', request('barangay')) == 'Balsahan' ? 'selected' : '' }}>
+                                                        Balsahan</option>
+                                                    <option value="Bancaan"
+                                                        {{ old('barangay', request('barangay')) == 'Bancaan' ? 'selected' : '' }}>
+                                                        Bancaan</option>
+                                                    <option value="Bucana Malaki"
+                                                        {{ old('barangay', request('barangay')) == 'Bucana Malaki' ? 'selected' : '' }}>
+                                                        Bucana Malaki</option>
+                                                    <option value="Bucana Sasahan"
+                                                        {{ old('barangay', request('barangay')) == 'Bucana Sasahan' ? 'selected' : '' }}>
+                                                        Bucana Sasahan</option>
+                                                    <option value="Calubcob"
+                                                        {{ old('barangay', request('barangay')) == 'Calubcob' ? 'selected' : '' }}>
+                                                        Calubcob</option>
+                                                    <option value="Capt. C. Nazareno (Poblacion)"
+                                                        {{ old('barangay', request('barangay')) == 'Capt. C. Nazareno (Poblacion)' ? 'selected' : '' }}>
+                                                        Capt. C. Nazareno (Poblacion)</option>
+                                                    <option value="Gombalza (Poblacion)"
+                                                        {{ old('barangay', request('barangay')) == 'Gombalza (Poblacion)' ? 'selected' : '' }}>
+                                                        Gombalza (Poblacion)</option>
+                                                    <option value="Halang"
+                                                        {{ old('barangay', request('barangay')) == 'Halang' ? 'selected' : '' }}>
+                                                        Halang</option>
+                                                    <option value="Humbac"
+                                                        {{ old('barangay', request('barangay')) == 'Humbac' ? 'selected' : '' }}>
+                                                        Humbac</option>
+                                                    <option value="Ibayo Estacion"
+                                                        {{ old('barangay', request('barangay')) == 'Ibayo Estacion' ? 'selected' : '' }}>
+                                                        Ibayo Estacion</option>
+                                                    <option value="Ibayo Silangan"
+                                                        {{ old('barangay', request('barangay')) == 'Ibayo Silangan' ? 'selected' : '' }}>
+                                                        Ibayo Silangan</option>
+                                                    <option value="Kanluran Rizal"
+                                                        {{ old('barangay', request('barangay')) == 'Kanluran Rizal' ? 'selected' : '' }}>
+                                                        Kanluran Rizal</option>
+                                                    <option value="Latoria"
+                                                        {{ old('barangay', request('barangay')) == 'Latoria' ? 'selected' : '' }}>
+                                                        Latoria</option>
+                                                    <option value="Labac"
+                                                        {{ old('barangay', request('barangay')) == 'Labac' ? 'selected' : '' }}>
+                                                        Labac</option>
+                                                    <option value="Mabolo"
+                                                        {{ old('barangay', request('barangay')) == 'Mabolo' ? 'selected' : '' }}>
+                                                        Mabolo</option>
+                                                    <option value="Malainen Bago"
+                                                        {{ old('barangay', request('barangay')) == 'Malainen Bago' ? 'selected' : '' }}>
+                                                        Malainen Bago</option>
+                                                    <option value="Malainen Luma"
+                                                        {{ old('barangay', request('barangay')) == 'Malainen Luma' ? 'selected' : '' }}>
+                                                        Malainen Luma</option>
+                                                    <option value="Maquina"
+                                                        {{ old('barangay', request('barangay')) == 'Maquina' ? 'selected' : '' }}>
+                                                        Maquina</option>
+                                                    <option value="Molino"
+                                                        {{ old('barangay', request('barangay')) == 'Molino' ? 'selected' : '' }}>
+                                                        Molino</option>
+                                                    <option value="Munting Mapino"
+                                                        {{ old('barangay', request('barangay')) == 'Munting Mapino' ? 'selected' : '' }}>
+                                                        Munting Mapino</option>
+                                                    <option value="Muzon"
+                                                        {{ old('barangay', request('barangay')) == 'Muzon' ? 'selected' : '' }}>
+                                                        Muzon</option>
+                                                    <option value="Palangue 2"
+                                                        {{ old('barangay', request('barangay')) == 'Palangue 2' ? 'selected' : '' }}>
+                                                        Palangue 2</option>
+                                                    <option value="Palangue 3"
+                                                        {{ old('barangay', request('barangay')) == 'Palangue 3' ? 'selected' : '' }}>
+                                                        Palangue 3</option>
+                                                    <option value="Palangue Central"
+                                                        {{ old('barangay', request('barangay')) == 'Palangue Central' ? 'selected' : '' }}>
+                                                        Palangue Central</option>
+                                                    <option value="Sabang"
+                                                        {{ old('barangay', request('barangay')) == 'Sabang' ? 'selected' : '' }}>
+                                                        Sabang</option>
+                                                    <option value="San Roque"
+                                                        {{ old('barangay', request('barangay')) == 'San Roque' ? 'selected' : '' }}>
+                                                        San Roque</option>
+                                                    <option value="Santulan"
+                                                        {{ old('barangay', request('barangay')) == 'Santulan' ? 'selected' : '' }}>
+                                                        Santulan</option>
+                                                    <option value="Sapa"
+                                                        {{ old('barangay', request('barangay')) == 'Sapa' ? 'selected' : '' }}>
+                                                        Sapa</option>
+                                                    <option value="Timalan Balsahan"
+                                                        {{ old('barangay', request('barangay')) == 'Timalan Balsahan' ? 'selected' : '' }}>
+                                                        Timalan Balsahan</option>
+                                                    <option value="Timalan Concepcion"
+                                                        {{ old('barangay', request('barangay')) == 'Timalan Concepcion' ? 'selected' : '' }}>
+                                                        Timalan Concepcion</option>
+                                                </select>
+                                                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                            </form>
+                                        </div>
+
+                                        <!-- Total Donors Card -->
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3>Total Donors Within Naic</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4>Total Donors</h4>
+                                                    <p>{{ $totalActiveDonors }}</p> <!-- Total Donors -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Total Male Donors Card -->
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3>Total Male Donors</h3>
+
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4>Total Male Donors</h4>
+                                                    <p> {{ $totalMaleDonors }}</p> <!-- Total Male Donors Card -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Total Female Donors Card -->
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3>Total Female Donors</h3>
+
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4>Total Female Donors</h4>
+                                                    <p> {{ $totalFemaleDonors }}</p> <!-- Total Female Donors -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="container mt-4">
+                                    <div class="row">
+                                        <!-- Blood Type Distribution Chart -->
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3>Total Blood Type Distribution</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <canvas id="bloodTypeChart"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Age Distribution Chart -->
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3>Total Age Distribution of Donors</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <canvas id="ageDistributionChart"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- /.card-body -->
+
+
+                                {{-- ADD NEW SECTIONS HERE --}}
+                            </div>
+                            {{-- card shadow ANALYTIC REPORT  --}}
+                        </div>
+                        <!-- /.col anayltic report -->
+
+
+
+
                         <div class="col-lg-10 offset-lg-1">
                             {{-- NEW BLOOD DONATION SECTION --}}
                             <div class="card shadow">
@@ -529,147 +736,7 @@
                         <!-- /.col FAQ SECTION -->
 
 
-                        <!-- ANALYTIC REPORTS -->
-                        <div class="col-lg-10 offset-lg-1">
-                            <!-- ANALYTIC REPORTS -->
 
-                            <div class="card shadow mt-4">
-                                <!-- /.card-header -->
-                                <div id="bloodanalytic" class="card-header bg-info text-white">
-                                    <h3 class="card-title"><i class="fas fa-chart-bar"></i> Blood Donation Analytics
-                                    </h3>
-                                </div>
-
-
-
-
-
-                                <div class="container mt-4">
-                                    <div class="row">
-                                        <h1 class="text-center mby-4"><strong>Barangay Analytics</strong></h1>
-                                        <div class="form-group">
-                                            <label for="barangayDropdown">Select Barangay:</label>
-                                            <form action="{{ route('welcome') }}" method="GET">
-                                                <select class="form-control" id="barangayDropdown" name="barangay">
-                                                    {{-- <option value="">-- Select Barangay --</option> --}}
-                                                    <option value="">All</option>
-                                                    <option value="Bagong Kalsada">Bagong Kalsada</option>
-                                                    <option value="Balsahan">Balsahan</option>
-                                                    <option value="Bancaan">Bancaan</option>
-                                                    <option value="Bucana Malaki">Bucana Malaki</option>
-                                                    <option value="Bucana Sasahan">Bucana Sasahan</option>
-                                                    <option value="Calubcob">Calubcob</option>
-                                                    <option value="Capt. C. Nazareno (Poblacion)">Capt. C. Nazareno (Poblacion)</option>
-                                                    <option value="Gombalza(Poblacion)">Gombalza (Poblacion)</option>
-                                                    <option value="Halang">Halang</option>
-                                                    <option value="Humbac">Humbac</option>
-                                                    <option value="Ibayo Estacion">Ibayo Estacion</option>
-                                                    <option value="Ibayo Silangan">Ibayo Silangan</option>
-                                                    <option value="Kanluran Rizal">Kanluran Rizal</option>
-                                                    <option value="Latoria">Latoria</option>
-                                                    <option value="Labac">Labac</option>
-                                                    <option value="Mabolo">Mabolo</option>
-                                                    <option value="Malainen Bago">Malainen Bago</option>
-                                                    <option value="Malainen Luma">Malainen Luma</option>
-                                                    <option value="Maquina">Maquina</option>
-                                                    <option value="Molino">Molino</option>
-                                                    <option value="Munting Mapino">Munting Mapino</option>
-                                                    <option value="Muzon">Muzon</option>
-                                                    <option value="Palangue 2">Palangue 2</option>
-                                                    <option value="Palangue 3">Palangue 3</option>
-                                                    <option value="Palangue Central">Palangue Central</option>
-                                                    <option value="Sabang">Sabang</option>
-                                                    <option value="San Roque">San Roque</option>
-                                                    <option value="Santulan">Santulan</option>
-                                                    <option value="Sapa">Sapa</option>
-                                                    <option value="Timalan Balsahan">Timalan Balsahan</option>
-                                                    <option value="Timalan Concepcion">Timalan Concepcion</option>
-                                                </select>
-                                                <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                                            </form>
-                                        </div>
-
-                                        <!-- Total Donors Card -->
-                                        <div class="col-md-4">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h3>Total Donors Within Naic</h3>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4>Total Donors</h4>
-                                                    <p>{{ $totalActiveDonors }}</p> <!-- Total Donors -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Total Male Donors Card -->
-                                        <div class="col-md-4">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h3>Total Male Donors</h3>
-
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4>Total Male Donors</h4>
-                                                    <p> {{ $totalMaleDonors }}</p> <!-- Total Male Donors Card -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Total Female Donors Card -->
-                                        <div class="col-md-4">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h3>Total Female Donors</h3>
-
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4>Total Female Donors</h4>
-                                                    <p> {{ $totalFemaleDonors }}</p> <!-- Total Female Donors -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="container mt-4">
-                                    <div class="row">
-                                        <!-- Blood Type Distribution Chart -->
-                                        <div class="col-md-6">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h3>Total Blood Type Distribution</h3>
-                                                </div>
-                                                <div class="card-body">
-                                                    <canvas id="bloodTypeChart"></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Age Distribution Chart -->
-                                        <div class="col-md-6">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h3>Total Age Distribution of Donors</h3>
-                                                </div>
-                                                <div class="card-body">
-                                                    <canvas id="ageDistributionChart"></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <!-- /.card-body -->
-
-
-                                {{-- ADD NEW SECTIONS HERE --}}
-                            </div>
-                            {{-- card shadow ANALYTIC REPORT  --}}
-                        </div>
-                        <!-- /.col anayltic report -->
 
                         {{-- ADD NEW SECTIONS HERE --}}
 
