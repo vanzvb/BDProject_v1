@@ -57,23 +57,108 @@
 
                 <div class="card mt-4 d-none" id="questionnaireCard">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        {{ __('Yes/No Questionnaire') }}
+                        <div>
+                            <strong>Yes or No Questionnaire</strong><br>
+                            <small>(READ BEFORE ANSWERING)</small><br>
+                            The form will be disabled in 10 seconds and your answers will be cleared if you are not eligible to donate.
+                        </div>
                         <button type="button" class="btn btn-link" id="changeEventButton">{{ __('Change Event') }}</button>
                     </div>
+
                     <div class="card-body">
+                        <!-- Initial Instruction for the First Few Questions -->
+                        <div class="card-header d-flex">
+                            {{ __('Ikaw ba ay: ') }}
+                        </div>
                         <form method="POST" action="{{ route('register') }}" id="questionnaireForm">
                             @csrf
 
                             @php
                                 $questions = [
-                                    'Do you like coding?' => 'question1',
-                                    'Have you ever attended a coding bootcamp?' => 'question2',
-                                    'Do you work as a software developer?' => 'question3',
-                                    'Have you contributed to open source projects?' => 'question4',
+                                    '1. Nasa mabuting pangangatawan at kalusugan ngayon?' => 'question1',
+                                    '2. Nasa pangangalaga ng anumang gamot / Umiinom ng gamot araw-araw?' =>
+                                        'question2',
+                                    '3. Nakatanggap ng kahit anong bakuna?' => 'question3',
+                                    '4. Sa nakalipas na tatlong araw, uminom kaba ng aspirin o kahit anong gamut na kauri nito?' =>
+                                        'question4',
+                                    '5. Nakapagbigay o nakapag-donate ng dugo?' => 'question5', // Fifth question with a new instruction
+                                    '6. Nasalinan ng dugo?' => 'question6', // Sixth question with a new instruction
+                                    '7. Na-operahan o nag pa-bunot ng ngipin?' => 'question7',
+                                    '8. Nagpalagay ng tattoo, nagpa-butas ng tainga, nagpa-acupuncture, naturukan ng karayom ng hindi sinasadya, o nadikit sa dugo ng ibang tao?' =>
+                                        'question8',
+                                    '9. Nagkaroon ng karanasan ng makipagtalik sa kapwa mo kauri (lalaki sa lalaki, o babae sa babae), at sa taong naturukan ng gamot na walang pahintulot ng doktor?' =>
+                                        'question9',
+                                    '10. Nakipagtalik sa kahit kanina, kapalit ng pera o kahit anong bagay?' =>
+                                        'question10',
+                                    '11. Nakipagtalik sa taong nanggaling sa ibang bansa?' => 'question11',
+                                    '12. Nakaranas ng kaswal na pakikipagtalik o one-night stand?' => 'question12',
+                                    '13. May kasama sa bahay o may taong nakahalubilo na may sakit sa atay o Hepatitis?' =>
+                                        'question13',
+                                    '14. Nakulong na?' => 'question14',
+                                    '15. May kamag-anak na may Creutzfeldt-Jakob (Mad Cow) disease?' => 'question15',
+                                    '16. Nanirahan sa ibang lugar bukod sa tinitirahan mo ngayon?' => 'question16', // 16th question with a new instruction
+                                    '17. Nanirahan sa ibang bansa?' => 'question17',
+                                    '18. Naturukan na ang gamit ay karayom para sa gamot tulad steroid o kahit anong gamot na walang pahintulot ng doktor?' =>
+                                        'question18',
+                                    '19. Nasalinan ng kahit na anong clotting factor concentrates?' => 'question19',
+                                    '20. Nagpositibo sa eksaminasyon para sa mga sakit na HIV/AIDS, Syphilis o Malaria?' =>
+                                        'question20',
+                                    '21. Nagkaroon ng Hepatitis?' => 'question21',
+                                    '22. Nagkaroon ng Malaria?' => 'question22',
+                                    '23. Nasabihan na may sakit o pinainom ng gamot para sa genital wart, Syphilis, Gonorrhea, o kahit anong Sexually Transmissible Infections?' =>
+                                        'question23',
+                                    '24. Mayroong sakit anong uri ng kanser tulad ng Leukemia?' => 'question24',
+                                    '25. Mayroong problema o sakit sa puso at baga?' => 'question25',
+                                    '26. Nakaranas ng malubhang pagdurugo o kahit anong sakit sa dugo?' => 'question26',
+                                    '27. Ikaw ba ay magbibigay ng dugo dahil gusto mong masuri sa HIV o AIDS virus?' =>
+                                        'question27',
+                                    '28. Sa nakalipas na dalawampu’t walong araw (28 days), ikaw ba ay lumabas ng ating bansa?' =>
+                                        'question28',
+                                    '29. Sa nakalipas na dalawampu’t walong araw (28 days), ikaw ba ay nagkaroon ng close contact (nanirahan kasama sa bahay, ka-trabaho, kasamang mamasyal, o nag-alaga) sa pasyenteng nag-positibo sa COVID-19 o sa taong naggaling sa bansang may COVID-19 Local Transmission?' =>
+                                        'question29',
+                                    '30. Ikaw ba ay nagkaroon ng close contact sa taong may simtomas na nanikip ang dibdib, at nahirapang huminga?' =>
+                                        'question30',
+                                    '31. Alam mo ba na kung meron kang AIDS/Hepatitis virus maibibigay mo ito sa iba kahit wala ka nang nararamdaman o negatibo parin sa AIDS/Hepatitis virus?' =>
+                                        'question31',
+                                    '32. Sa kasalukuyan, ikaw ba ay may karamdaman, pangangati (allergy), nakakawalang sakit, sipon, ubo o trangkaso, pananakit ng lalamunan?' =>
+                                        'question32',
+                                    '33. Buntis ka ba ngayon?' => 'question33',
                                 ];
                             @endphp
 
                             @foreach ($questions as $text => $name)
+                                <!-- Add a special instruction before the 5th question -->
+                                @if ($loop->index == 4)
+                                    <!-- 6th question is at index 5 -->
+                                    <div class="card-header d-flex">
+                                        {{ __('Sa nakaraang tatlong buwan, ikaw ba ay:') }}
+                                    </div>
+                                @endif
+
+                                <!-- Add a special instruction before the 6th question -->
+                                @if ($loop->index == 5)
+                                    <!-- 16th question is at index 15 -->
+                                    <div class="card-header d-flex">
+                                        {{ __('Sa nakaraang labindalawang buwan, ikaw ba ay:') }}
+                                    </div>
+                                @endif
+
+                                <!-- Add a special instruction before the 16th question -->
+                                @if ($loop->index == 15)
+                                    <!-- 33rd question is at index 32 -->
+                                    <div class="card-header d-flex">
+                                        {{ __('Ikaw ba ay:') }}
+                                    </div>
+                                @endif
+
+                                <!-- Add a special instruction before the 33rd question -->
+                                @if ($loop->index == 32)
+                                    <!-- 33rd question is at index 32 -->
+                                    <div class="card-header d-flex">
+                                        {{ __('FOR FEMALE DONORS ONLY') }}
+                                    </div>
+                                @endif
+
                                 <div class="card mb-3">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ __($text) }}</h5>
@@ -117,20 +202,10 @@
                             </div>
 
                             <div class="row mb-0">
-
-                                {{-- @if ($event->id)
-                                    <form action=""
-                                        method="GET">
-                                        @csrf
-                                        <button type="submit" class="btn btn-primary">Apply</button>
-                                    </form>
-                                @else --}}
                                 <div class="col-md-6 offset-md-3">
                                     <button type="submit" class="btn btn-primary w-100"
                                         id="submitButton">{{ __('Submit') }}</button>
                                 </div>
-                                {{-- @endif --}}
-
                             </div>
                         </form>
                     </div>
@@ -146,13 +221,13 @@
 
             if (cooldownTimestamp) {
                 var remainingTime = Math.max(0, Math.ceil((10 * 1000 - (now - cooldownTimestamp)) /
-                1000)); // 10 seconds cooldown for testing
+                    1000)); // 10 seconds cooldown for testing
 
                 if (remainingTime > 0) {
                     // Show cooldown message and disable form
                     document.getElementById('cooldownSection').classList.remove('d-none');
                     document.getElementById('questionnaireForm').classList.add(
-                    'disabled'); // Add a class to disable form elements
+                        'disabled'); // Add a class to disable form elements
                     updateCooldownMessage(remainingTime);
                     setTimeout(updateCooldownTimer, 1000);
                 } else {
@@ -160,7 +235,7 @@
                     localStorage.removeItem('cooldownTimestamp');
                     document.getElementById('cooldownSection').classList.add('d-none');
                     document.getElementById('questionnaireForm').classList.remove(
-                    'disabled'); // Remove the class to re-enable form elements
+                        'disabled'); // Remove the class to re-enable form elements
                 }
             }
         });
@@ -175,7 +250,7 @@
             var cooldownTimestamp = localStorage.getItem('cooldownTimestamp');
             var now = new Date().getTime();
             var remainingTime = Math.max(0, Math.ceil((10 * 1000 - (now - cooldownTimestamp)) /
-            1000)); // 10 seconds cooldown for testing
+                1000)); // 10 seconds cooldown for testing
 
             if (remainingTime > 0) {
                 updateCooldownMessage(remainingTime);
