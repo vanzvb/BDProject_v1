@@ -97,6 +97,8 @@
 
         .card {
             margin-bottom: 1.5rem;
+            
+            
             /* Space between cards */
         }
 
@@ -130,12 +132,12 @@
         }
 
         .card-img-top {
-            width: 100%;
-            /* Full width of the card */
-            height: 450px;
-            /* Fixed height */
-            object-fit: cover;
-            /* Cover the area, cropping if necessary */
+           
+    height: 330px; /* Fixed height for the image */
+    object-fit: cover; /* Ensures the image covers the area */
+    max-width: 490px; /* Max width constraint */
+    display: block; /* Removes inline spacing */
+    margin: 0 auto; /* Centers the image horizontally */
         }
 
         #bloodTypeChart {
@@ -185,7 +187,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card shadow">
-                                <img src="{{ asset('images/welcome_img/blood_donate1.jpg') }}" class="card-img-top"
+                                <img src="{{ asset('images/welcome_img/bd_rafiki.png') }}" class="card-img-top"
                                     alt="Card Image 1">
                                 <div class="card-body">
                                     <h5 class="card-title"> Guide to Blood Donation</h5>
@@ -198,7 +200,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow">
-                                <img src="images\welcome_img\doctor_guide.jpg" class="card-img-top" alt="Card Image 2">
+                                <img src="images\welcome_img\question_rafiki.png" class="card-img-top" alt="Card Image 2">
                                 <div class="card-body">
                                     <h5 class="card-title">Frequently Asked Questions</h5>
                                     <p class="card-text">Discover key information about blood donation with answers to
@@ -210,7 +212,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow">
-                                <img src="images\welcome_img\analytic_report.jpg" class="card-img-top"
+                                <img src="images\welcome_img\analytic_rafiki.png" class="card-img-top"
                                     alt="Card Image 3">
                                 <div class="card-body">
                                     <h5 class="card-title">Blood Donation Analytics </h5>

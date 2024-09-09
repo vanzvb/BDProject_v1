@@ -30,9 +30,10 @@ class HomeController extends Controller
     {
 
         $donationHistorys = Event::all();
+        
 
 
-
+        
         // dd($donationHistorys);
         $user = Auth::user();
         $myEvents = EventDetail::where('userID', $user->id)->get();

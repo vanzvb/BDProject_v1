@@ -85,27 +85,23 @@
                                                 @endforeach
                                             @endif
                                         </td>
-
                                         <td>
-                                            @include('Users.modal.show')
                                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-show{{ $users->id }}">
                                                 Show
                                             </button>
-                                            {{-- <a class="btn btn-info" href="{{ route('users.show', $user->id) }}">Show</a> --}}
                                             
                                             <a class="btn btn-primary" href="{{ route('users.edit', $users->id) }}">Edit</a>
-            
-                                            @include('Users.modal.delete')
+                                            
                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete{{ $users->id }}">
                                                 Delete
                                             </button>
-                                            {{-- <a class="btn btn-danger" href="{{ route('users.destroy', $user->id) }}">Delete</a> --}}
-                                            {{-- {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
-                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                            {!! Form::close() !!}  --}}
                                         </td>
-                                        
                                     </tr>
+                    
+                                    <!-- Modals are placed outside the table but inside the loop -->
+                                    @include('Users.modal.show', ['users' => $users])
+                                    @include('Users.modal.delete', ['users' => $users])
+                                    
                                 @endforeach 
                             </tbody>
                             <tfoot>
@@ -126,8 +122,93 @@
                                 </tr>
                             </tfoot>
                         </table>
-
                     </div>
+                    
+                    <!-- Modals Outside the Table Structure -->
+                    @foreach ($data as $users)
+                        <!-- Show User Modal -->
+                        <div class="modal fade" id="modal-show{{ $users->id }}" tabindex="-1" role="dialog" aria-labelledby="modalShowLabel{{ $users->id }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal content here -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"><b>User Profile</b></h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <strong>Name:</strong> {{ $users->full_name }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Blood Type:</strong> {{ $users->blood_type }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Age:</strong> {{ $users->age }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Gender:</strong> {{ $users->gender }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Civil Status:</strong> {{ $users->civil_status }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Nationality:</strong> {{ $users->nationality }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Occupation:</strong> {{ $users->occupation }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Address:</strong> {{ $users->address }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Contact Information:</strong> {{ $users->contact_info }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Email:</strong> {{ $users->email }}
+                                        </div>
+                                        <div class="form-group">
+                                            <strong>Roles:</strong>
+                                            @if(!empty($users->getRoleNames()))
+                                                @foreach($users->getRoleNames() as $v)
+                                                    <label class="badge badge-success">{{ $v }}</label>
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Delete User Modal -->
+                        <div class="modal fade" id="modal-delete{{ $users->id }}" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel{{ $users->id }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal content here -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"><b>Delete User</b></h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete this user?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <form action="{{ route('users.destroy', $users->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    
+                    
                     <!-- /.card-body -->
                 </div>
 
@@ -138,5 +219,4 @@
         <!-- /.row -->
     </div><!-- /.container-fluid -->
     <!-- Add DataTables scripts -->
-
 @endsection

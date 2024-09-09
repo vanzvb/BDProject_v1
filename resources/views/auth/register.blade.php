@@ -129,11 +129,11 @@
 
                 
                         <div class="row mb-3">
-                            <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('Sex') }}</label>
                         
                             <div class="col-md-6">
                                 <select id="gender" class="form-control @error('gender') is-invalid @enderror" name="gender" required>
-                                    <option value="" disabled selected>Select your gender</option>
+                                    <option value="" disabled selected>Select your Sex</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
