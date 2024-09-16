@@ -43,7 +43,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('questions', QuestionController::class);
 
-
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', App\Http\Controllers\RoleController::class);
     Route::resource('users', App\Http\Controllers\UserController::class);

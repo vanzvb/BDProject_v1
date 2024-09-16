@@ -68,7 +68,7 @@
         @endcanany
         @can('Admin-view')
         <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
-        <li><a class="nav-link" href="{{ route('auth.form') }}">Manage Donor Form</a></li>
+        <li><a class="nav-link" href="{{ route('questions.index') }}">Manage Donor Form</a></li>
         @endcan
         
       

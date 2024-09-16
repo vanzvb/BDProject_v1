@@ -18,7 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->string('question_text');  // For storing the actual question
             $table->string('category')->nullable();  // Optional category (e.g., health, personal history, etc.)
             $table->enum('type', ['text', 'checkbox', 'radio', 'textarea'])->default('text');  // Define question type
-            $table->boolean('is_mandatory')->default(true);  // Whether the question is required or not
+            $table->boolean('is_mandatory')->default(false)->change();
             $table->integer('order')->nullable();  // For ordering questions in the form
             $table->timestamps();
         });

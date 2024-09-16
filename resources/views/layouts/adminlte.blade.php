@@ -224,7 +224,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 
                 <a href="{{ route('questions.index') }}" class="nav-link {{ (request()->is('questions')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Donor Form</p>
+                  <p>Questionnaire</p>
                 </a>
               </li>
               @endcan

@@ -12,11 +12,11 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
+    <table id="example1" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Question</th>
+                <th>Question Text</th>
                 <th>Category</th>
                 <th>Type</th>
                 <th>Mandatory</th>
@@ -34,6 +34,9 @@
                     <td>{{ $question->is_mandatory ? 'Yes' : 'No' }}</td>
                     <td>{{ $question->order }}</td>
                     <td>
+                        {{-- @php
+                        dd($questions)
+                        @endphp --}}
                         <a href="{{ route('questions.show', $question) }}" class="btn btn-info btn-sm">View</a>
                         <a href="{{ route('questions.edit', $question) }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="{{ route('questions.destroy', $question) }}" method="POST" style="display:inline;">

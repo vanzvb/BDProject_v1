@@ -14,9 +14,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        // Retrieve all questions
-        $questions = Question::all();
-        return view('questions.index', compact('questions'));
+        $questions = Question::all(); // Fetch all questions
+        return view('questions.index', compact('questions')); // Pass variable to view
     }
 
     /**
@@ -37,17 +36,19 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-         // Validate and store the question
-         $request->validate([
+        $request->validate([
             'question_text' => 'required|string|max:255',
             'category' => 'nullable|string|max:255',
             'type' => 'required|in:text,checkbox,radio,textarea',
-            'is_mandatory' => 'required|boolean',
+            'is_mandatory' => 'nullable|boolean', // Change to nullable
             'order' => 'nullable|integer',
         ]);
-
-        Question::create($request->all());
-
+    
+        $data = $request->all();
+        $data['is_mandatory'] = $request->has('is_mandatory'); // Ensure checkbox state
+    
+        Question::create($data);
+    
         return redirect()->route('questions.index')
                          ->with('success', 'Question created successfully.');
     }
@@ -60,7 +61,8 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        return view('questions.show', compact('question'));
+        $question = Question::findOrFail($id); // Fetch the question by ID
+    return view('questions.show', compact('question')); // Pass the question to the view
     }
 
     /**
@@ -69,9 +71,10 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id)   
     {
-        return view('questions.edit', compact('question'));
+        $question = Question::findOrFail($id); // Fetch the question by ID
+        return view('questions.edit', compact('question')); // Pass the question to the view
     }
 
     /**
@@ -83,17 +86,19 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-         // Validate and update the question
-         $request->validate([
+        $request->validate([
             'question_text' => 'required|string|max:255',
             'category' => 'nullable|string|max:255',
             'type' => 'required|in:text,checkbox,radio,textarea',
-            'is_mandatory' => 'required|boolean',
+            'is_mandatory' => 'nullable|boolean', // Change to nullable
             'order' => 'nullable|integer',
         ]);
-
-        $question->update($request->all());
-
+    
+        $data = $request->all();
+        $data['is_mandatory'] = $request->has('is_mandatory'); // Ensure checkbox state
+    
+        $question->update($data);
+    
         return redirect()->route('questions.index')
                          ->with('success', 'Question updated successfully.');
     }
