@@ -84,14 +84,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-// dd($data['eventID']);
+// dd($data);
         // Create the user
         $user = User::create([
             'first_name' => $data['first_name'],
             'middle_name' => $data['middle_name'],
             'last_name' => $data['last_name'],
             'blood_type' => $data['blood_type'],
-            'age' => $data['age'],
+            // 'age' => $data['age'],
+            'birthdate' => $data['birthdate'],
             'gender' => $data['gender'],
             'civil_status' => $data['civil_status'],
             'nationality' => $data['nationality'],

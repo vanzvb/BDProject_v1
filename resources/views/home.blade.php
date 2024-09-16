@@ -80,7 +80,7 @@
                       <div class="col-md-6">
                           <p><strong>Email :</strong> {{ $email }}</p>
                           <p><strong>Blood Type :</strong> {{ $bloodType }}</p>
-                          <p><strong>Age :</strong> {{ $age }}</p>
+                          <p><strong>Age :</strong> {{ $user->calculated_age }}</p>
                           <p><strong>Gender :</strong> {{ $gender }}</p>
                           <p><strong>Donor Status :</strong> {{ $donorStatus }} </p>
                       </div>
@@ -146,7 +146,7 @@
               <div class="card">
 
                 <div class="card-header">
-                  <h3 class="card-title"><strong>Donation Events</strong></h3>
+                  <h3 class="card-title"><strong>Available Donation Events</strong></h3>
                 </div>
         
                       <div class="row mt-4">

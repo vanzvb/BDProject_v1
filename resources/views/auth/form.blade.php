@@ -50,17 +50,14 @@
                     </div>
                 </div>
 
-                <!-- Cooldown Section -->
-                <div id="cooldownSection" class="d-none">
-                    <p id="cooldownMessage"></p>
-                </div>
+             
 
                 <div class="card mt-4 d-none" id="questionnaireCard">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <div>
                             <strong>Yes or No Questionnaire</strong><br>
-                            <small>(READ BEFORE ANSWERING)</small><br>
-                            The form will be disabled in 10 seconds and your answers will be cleared if you are not eligible to donate.
+                            
+                            Your answers will be cleared if you are not eligible to donate.
                         </div>
                         <button type="button" class="btn btn-link" id="changeEventButton">{{ __('Change Event') }}</button>
                     </div>
@@ -219,52 +216,9 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var cooldownTimestamp = localStorage.getItem('cooldownTimestamp');
-            var now = new Date().getTime();
+       
 
-            if (cooldownTimestamp) {
-                var remainingTime = Math.max(0, Math.ceil((10 * 1000 - (now - cooldownTimestamp)) /
-                    1000)); // 10 seconds cooldown for testing
-
-                if (remainingTime > 0) {
-                    // Show cooldown message and disable form
-                    document.getElementById('cooldownSection').classList.remove('d-none');
-                    document.getElementById('questionnaireForm').classList.add(
-                        'disabled'); // Add a class to disable form elements
-                    updateCooldownMessage(remainingTime);
-                    setTimeout(updateCooldownTimer, 1000);
-                } else {
-                    // Cooldown expired
-                    localStorage.removeItem('cooldownTimestamp');
-                    document.getElementById('cooldownSection').classList.add('d-none');
-                    document.getElementById('questionnaireForm').classList.remove(
-                        'disabled'); // Remove the class to re-enable form elements
-                }
-            }
-        });
-
-        function updateCooldownMessage(remainingTime) {
-            var seconds = remainingTime;
-            var message = `You need to wait ${seconds} seconds before trying again.`;
-            document.getElementById('cooldownMessage').textContent = message;
-        }
-
-        function updateCooldownTimer() {
-            var cooldownTimestamp = localStorage.getItem('cooldownTimestamp');
-            var now = new Date().getTime();
-            var remainingTime = Math.max(0, Math.ceil((10 * 1000 - (now - cooldownTimestamp)) /
-                1000)); // 10 seconds cooldown for testing
-
-            if (remainingTime > 0) {
-                updateCooldownMessage(remainingTime);
-                setTimeout(updateCooldownTimer, 1000);
-            } else {
-                localStorage.removeItem('cooldownTimestamp');
-                document.getElementById('cooldownSection').classList.add('d-none');
-                document.getElementById('questionnaireForm').classList.remove('disabled');
-            }
-        }
+        
 
         document.getElementById('proceedButton').addEventListener('click', function() {
             var eventSelect = document.getElementById('event');
@@ -317,14 +271,11 @@
                 // Set cooldown if not eligible
                 if (!cooldownTimestamp || now - cooldownTimestamp >= 10 * 1000) { // 10 seconds for testing
                     // User is not eligible, apply cooldown
-                    alert('You are not eligible to proceed. Please wait 10 seconds before trying again.');
+                    alert('You are not eligible to proceed.');
                     localStorage.setItem('cooldownTimestamp', now); // Set cooldown timestamp
                     document.getElementById('questionnaireForm').reset();
                     location.reload(); // Reload the page to show the cooldown message
-                } else {
-                    var remainingTime = Math.ceil((10 * 1000 - (now - cooldownTimestamp)) / 1000);
-                    alert(`You need to wait ${remainingTime} seconds before trying again.`);
-                }
+                } 
             } else {
                 // If confirmed, proceed to registration form with event ID
                 var eventID = document.getElementById('selected_event_id').value;

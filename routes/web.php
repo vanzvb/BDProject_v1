@@ -54,6 +54,7 @@ Route::get('event-details/change-status/{id}', [EventDetailController::class, 'c
 
 Route::get('forms', [App\Http\Controllers\Auth\CustomRedirectController::class, 'redirectToBlade'])->name('auth.form');
 
+Route::post('forms', [App\Http\Controllers\Auth\CustomRedirectController::class, 'handleFormSubmit'])->name('form.submit');
 
 
 

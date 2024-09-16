@@ -112,8 +112,30 @@
                                 @enderror
                             </div>
                         </div>
-                
+
                         <div class="row mb-3">
+                            <label for="birthdate" class="col-md-4 col-form-label text-md-end">{{ __('Birthdate') }}</label>
+                        
+                            <div class="col-md-6">
+                                <input id="birthdate" type="date" class="form-control @error('age') is-invalid @enderror" name="birthdate" value="{{ old('birthdate') }}" required autocomplete="bday" onchange="calculateAge()">
+                        
+                                @error('age')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        {{-- <div class="row mb-3">
+                            <label for="age" class="col-md-4 col-form-label text-md-end">{{ __('Age') }}</label>
+                        
+                            <div class="col-md-6">
+                                <input id="age" type="number" class="form-control" name="age" readonly>
+                            </div>
+                        </div> --}}
+
+                        {{-- <div class="row mb-3">
                             <label for="age" class="col-md-4 col-form-label text-md-end">{{ __('Age') }}</label>
                         
                             <div class="col-md-6">
@@ -125,7 +147,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
                 
                         <div class="row mb-3">
@@ -335,6 +357,26 @@
     </div>
 </div>
 <script>
+
+// Birhdate to Age 
+function calculateAge() {
+        const birthdate = document.getElementById('birthdate').value;
+        const birthDateObj = new Date(birthdate);
+        const today = new Date();
+        
+        let age = today.getFullYear() - birthDateObj.getFullYear();
+        const monthDifference = today.getMonth() - birthDateObj.getMonth();
+        
+        // Adjust age if the birthday hasn't occurred yet this year
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDateObj.getDate())) {
+            age--;
+        }
+        
+        document.getElementById('calculated-age').value = age;
+    }
+
+
+    
 
 document.addEventListener('DOMContentLoaded', function () {
     var togglePassword = document.getElementById('toggle-password');
