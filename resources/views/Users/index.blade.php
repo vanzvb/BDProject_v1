@@ -70,7 +70,7 @@
                                         {{-- <td>{{ ++$i }}</td> --}}
                                         <td>{{ $users->full_name }}</td>
                                         <td>{{ $users->blood_type }}</td>
-                                        <td>{{ $users->age }}</td>
+                                        <td>{{ $users->calculated_age }}</td>
                                         <td>{{ $users->gender }}</td>
                                         <td>{{ $users->civil_status }}</td>
                                         <td>{{ $users->occupation }}</td>
