@@ -124,6 +124,8 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <!-- Add a space for an error message related to age -->
+                                <span id="age-error" class="text-danger"></span>
                             </div>
                         </div>
                         
@@ -345,7 +347,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="submit-btn">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -361,18 +363,32 @@
 // Birhdate to Age 
 function calculateAge() {
         const birthdate = document.getElementById('birthdate').value;
-        const birthDateObj = new Date(birthdate);
-        const today = new Date();
+        const ageErrorElement = document.getElementById('age-error');
+        const submitButton = document.getElementById('submit-btn');
         
-        let age = today.getFullYear() - birthDateObj.getFullYear();
-        const monthDifference = today.getMonth() - birthDateObj.getMonth();
-        
-        // Adjust age if the birthday hasn't occurred yet this year
-        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDateObj.getDate())) {
-            age--;
+        if (birthdate) {
+            const today = new Date();
+            const birthDateObj = new Date(birthdate);
+            let age = today.getFullYear() - birthDateObj.getFullYear();
+            const monthDiff = today.getMonth() - birthDateObj.getMonth();
+
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+                age--;
+            }
+
+            // Check if the user is below 18
+            if (age < 18) {
+                ageErrorElement.textContent = "Minors are not allowed to donate blood.";
+                document.getElementById('birthdate').classList.add('is-invalid');
+                submitButton.disabled = true;  // Disable the submit button
+            } else {
+                ageErrorElement.textContent = ""; // Clear the error if the age is valid
+                document.getElementById('birthdate').classList.remove('is-invalid');
+                submitButton.disabled = false;  // Enable the submit button
+            }
+        } else {
+            submitButton.disabled = false; // Enable button if no date is selected yet
         }
-        
-        document.getElementById('calculated-age').value = age;
     }
 
 

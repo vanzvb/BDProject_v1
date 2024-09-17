@@ -111,11 +111,12 @@
                         <table id="example2" class="display table table-bordered table-striped w-100">
                             <thead>
                                 <tr>
-                                    <th> Status </th>
+                                    
                                     <th>Name</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th> Details </th>
+                                    <th> Status </th>
 
                                 </tr>
                             </thead>
@@ -123,12 +124,13 @@
                             <tbody>
                               @foreach ($myEvents as $myEvent)
                               <tr>
-                                <td> {{ $donorStatus }}</td>
+                                
                                 <td>{{ $myEvent->event->name }}</td>
                                 <td>{{ \Carbon\Carbon::parse($myEvent->event->start_date)->format('F j, Y') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($myEvent->event->end_date)->format('F j, Y') }}</td>
                                 
                                 <td>{{ $myEvent->event->detail }}</td>
+                                <td> {{ $donorStatus }}</td>
                             </tr>
                               @endforeach
                             </tbody>

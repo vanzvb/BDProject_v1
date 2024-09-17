@@ -539,7 +539,7 @@
                                                     <div id="collapseTwo" class="collapse"
                                                         aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                                                         <div class="card-body">
-                                                            Blood donors must be 16-65 years old <strong>(with parental consent required for minors)</strong>, weigh at least 50 kg, be in good health with normal hemoglobin and blood pressure levels, and must not have engaged in risky behaviors, with intervals of 3 months for men and 4 months for women between donations.
+                                                            Blood donors must be <strong>18-65</strong> years old, weigh at least <strong>50</strong> kg, be in good health with normal hemoglobin and blood pressure levels, and must not have engaged in risky behaviors, with intervals of 3 months for men and 4 months for women between donations.
                                                         </div>
                                                     </div>
                                                 </div>
