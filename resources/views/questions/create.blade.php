@@ -38,11 +38,11 @@
         <div class="form-group">
             <label for="type">Type</label>
             <select name="type" id="type" class="form-control" required>
-                <option value="">Select a type</option>
-                <option value="text" {{ old('type') == 'text' ? 'selected' : '' }}>Text</option>
-                <option value="checkbox" {{ old('type') == 'checkbox' ? 'selected' : '' }}>Checkbox</option>
+                {{-- <option value="">Select a type</option> --}}
+                {{-- <option value="text" {{ old('type') == 'text' ? 'selected' : '' }}>Text</option>
+                <option value="checkbox" {{ old('type') == 'checkbox' ? 'selected' : '' }}>Checkbox</option> --}}
                 <option value="radio" {{ old('type') == 'radio' ? 'selected' : '' }}>Radio</option>
-                <option value="textarea" {{ old('type') == 'textarea' ? 'selected' : '' }}>Textarea</option>
+                {{-- <option value="textarea" {{ old('type') == 'textarea' ? 'selected' : '' }}>Textarea</option> --}}
             </select>
             @error('type')
                 <div class="text-danger">{{ $message }}</div>

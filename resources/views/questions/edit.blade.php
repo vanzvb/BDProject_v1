@@ -25,10 +25,10 @@
         <div class="form-group">
             <label for="type">Type</label>
             <select name="type" id="type" class="form-control" required>
-                <option value="text" {{ $question->type == 'text' ? 'selected' : '' }}>Text</option>
-                <option value="checkbox" {{ $question->type == 'checkbox' ? 'selected' : '' }}>Checkbox</option>
+                {{-- <option value="text" {{ $question->type == 'text' ? 'selected' : '' }}>Text</option>
+                <option value="checkbox" {{ $question->type == 'checkbox' ? 'selected' : '' }}>Checkbox</option> --}}
                 <option value="radio" {{ $question->type == 'radio' ? 'selected' : '' }}>Radio</option>
-                <option value="textarea" {{ $question->type == 'textarea' ? 'selected' : '' }}>Textarea</option>
+                {{-- <option value="textarea" {{ $question->type == 'textarea' ? 'selected' : '' }}>Textarea</option> --}}
             </select>
         </div>
 
