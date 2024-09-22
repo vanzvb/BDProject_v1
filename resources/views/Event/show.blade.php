@@ -34,10 +34,10 @@
                     <tr>
                         <th width="200px">Name</th>
                         <th>Status</th>
-                        {{-- <th>Blood Type</th>
+                        <th>Blood Type</th>
                         <th>Age</th>
                         <th>Gender</th>
-                        <th>Civil Status</th>
+                        {{-- <th>Civil Status</th>
                         <th>Nationality</th>
                         <th>Occupation</th>
                         <th>Address</th>
@@ -53,7 +53,12 @@
                             <tr>
                                 <td>{{ $eventDetail->user->full_name }}</td>
                                 <td>{{ $eventDetail->donor_status }}</td>
+                                <td>{{ $eventDetail->user->blood_type }} </td>
+                                <td>{{ $eventDetail->user->calculated_age }} </td>
+                                <td>{{ $eventDetail->user->gender }} </td>
+
                                 <td>
+                                    <a class="btn btn-info" href="{{ route('users.edit', $eventDetail->user->id) }}">Edit</a>
                                     <form action="{{ route('event-details.changeStatus', $eventDetail->id) }}" method="GET">
                                         @csrf
                                         <button type="submit" class="btn btn-primary">Change Status</button>

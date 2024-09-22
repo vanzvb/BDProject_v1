@@ -91,6 +91,7 @@
                                                 'AB-' => 'AB-',
                                                 'O+' => 'O+',
                                                 'O-' => 'O-',
+                                                'Unknown' => 'Unknown',
                                             ],
                                             null,
                                             ['placeholder' => 'Select Blood Type', 'class' => 'form-control'],
