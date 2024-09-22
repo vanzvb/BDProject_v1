@@ -5,6 +5,7 @@
 <div class="container">
     <h1>Questions</h1>
     <a href="{{ route('questions.create') }}" class="btn btn-primary mb-3">Add New Question</a>
+    <a href="{{ route('preview.form') }}" class="btn btn-primary mb-3">Preview Form</a>
 
     @if(session('success'))
         <div class="alert alert-success">

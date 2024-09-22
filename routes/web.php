@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\EventDetailController;
+use App\Http\Controllers\PreviewFormController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -54,6 +56,9 @@ Route::group(['middleware' => ['auth']], function() {
 // Change EventDetail Status (for users)
 Route::get('event-details/change-status/{id}', [EventDetailController::class, 'changeStatus'])->name('event-details.changeStatus');
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::get('/preview-form', [PreviewFormController::class, 'showPreviewForm'])->name('preview.form');
+
+
 
 
 
