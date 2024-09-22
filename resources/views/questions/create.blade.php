@@ -20,11 +20,12 @@
 
         <div class="form-group">
             <label for="question_text">Question Text</label>
-            <input type="text" name="question_text" id="question_text" class="form-control" value="{{ old('question_text') }}" required>
+            <textarea name="question_text" id="question_text" class="form-control" required>{{ old('question_text') }}</textarea>
             @error('question_text')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
+        
 
         <div class="form-group">
             <label for="category">Category</label>

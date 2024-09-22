@@ -39,7 +39,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'question_text' => 'required|string|max:255',
+            'question_text' => 'required|string',
             'category' => 'nullable|string|max:255',
             'type' => 'required|in:text,checkbox,radio,textarea',
             'is_mandatory' => 'nullable|boolean', // Change to nullable

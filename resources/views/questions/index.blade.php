@@ -15,7 +15,7 @@
     <table id="example1" class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>ID</th>
+                {{-- <th>ID</th> --}}
                 <th>Question Text</th>
                 <th>Follow-Up Text</th> <!-- Added column for follow-up text -->
                 <th>Category</th>
@@ -28,7 +28,7 @@
         <tbody>
             @foreach($questions as $question)
                 <tr>
-                    <td>{{ $question->id }}</td>
+                    {{-- <td>{{ $question->id }}</td> --}}
                     <td>{{ $question->question_text }}</td>
                     <td>{{ $question->followup_question_text }}</td> <!-- Display follow-up text -->
                     <td>{{ $question->category }}</td>
