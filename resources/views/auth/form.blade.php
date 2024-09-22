@@ -118,10 +118,21 @@
                                 <input class="form-check-input" type="checkbox" id="confirmation" name="confirmation"
                                     required>
                                 <label class="form-check-label" for="confirmation">
-                                    <p>“Nagpapatunay na akong ang taong tinutukoy at ang lahat ng nakasulat dito ay nabasa
+                                    <p> “Nagpapatunay na akong ang taong tinutukoy at ang lahat ng nakasulat dito ay nabasa
                                         at naintindihan ko ng lubusan. Alam ko ang mga panganib at kahihinatnan habang at
                                         pagkatapos ng aking donasyon dahil ito ay naipaliwanag sa akin at naunawaan kong
-                                        mabuti.”</p>
+                                        mabuti.” <br>
+                                        “Pagkatapos masagutan ng buong katapatan ang mga tanong ako ay kusa at buong loob na
+                                        magbibigay ng dugo sa <em>PHO-Donor Management Area</em>. Naiintindihan ko na ang
+                                        aking dugo ay susuriin ng mabuti upang malaman ang <em>Blood Type</em>,
+                                        <em>Hemoglobin</em> at kung may sakit tulad ng <em>Malaria</em>, <em>Syphilis</em>,
+                                        <em>Hepatitis B</em>, <em>Hepatitis C</em> at <em>HIV</em>, at walang posyal na
+                                        resulta na ibibigay sakin. Kung malamang positibo ako sa mga sakit na tinukoy,
+                                        pumapayag akong isumite ang aking dugo sa <em>Research Institute for Tropical
+                                            Medicine</em> upang makumpirma. Kung makukumpirma na ako ay may sakit, ako ay
+                                        pumapayag na i-refer sa tamang institusyon para sa <em>counseling</em> at
+                                        <em>pangangalaga</em>. Aking pinapatunayan na ako ay nasa tamang pag-iisip at
+                                        sinagutan ng tapat ang mga katanungan.”</p>
                                 </label>
                             </div>
                         </div>
