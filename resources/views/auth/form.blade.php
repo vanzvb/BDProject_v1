@@ -9,7 +9,6 @@
         }
     </style>
     <div class="container">
-
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -48,17 +47,13 @@
                     </div>
                 </div>
 
-
                 <form action="{{ route('form.submit') }}" method="POST" id="questionnaireForm" style="display: none;">
-
                     <div class="card" id="questionnaireHeader" style="display: none;">
                         <div class="card-header">
                             <h5 class="mb-0">Yes or No Questionnaire</h5>
                         </div>
                         <div class="card-body">
-                            <p class="text-muted">
-                                Your answers will be cleared if you are not eligible to donate.
-                            </p>
+                            <p class="text-muted">Your answers will be cleared if you are not eligible to donate.</p>
                             <button type="button" class="btn btn-outline-primary"
                                 id="changeEventButton">{{ __('Change Event') }}</button>
                         </div>
@@ -67,8 +62,14 @@
                     @csrf
 
                     @foreach ($questions as $question)
+
+                    
                         @if ($question->followup_question_text)
-                            <p><strong>{{ $question->followup_question_text }}</strong></p>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <p class="card-text"><strong>{{ $question->followup_question_text }}</strong></p>
+                                </div>
+                            </div>
                         @endif
 
                         <div class="card mb-3">
@@ -76,7 +77,7 @@
                                 <strong>Question {{ $question->order }}:</strong>
                             </div>
                             <div class="card-body">
-                                <div class="form-group">
+                                <div class="form-group question" data-order="{{ $question->order }}">
                                     <label for="question_{{ $question->id }}">{{ $question->question_text }}</label>
                                     @if ($question->type == 'text')
                                         <input type="text" name="question_{{ $question->id }}"
@@ -89,6 +90,7 @@
                                         <select name="question_{{ $question->id }}" id="question_{{ $question->id }}"
                                             class="form-control" {{ $question->is_mandatory ? 'required' : '' }}>
                                             <option value="">-- Select --</option>
+                                            {{-- Add options here --}}
                                         </select>
                                     @elseif($question->type == 'checkbox')
                                         <input type="checkbox" name="question_{{ $question->id }}"
@@ -104,12 +106,18 @@
                                                 class="eligibility-question"> No
                                         </div>
                                     @endif
+
+                                    @if (session('success'))
+                                        <div class="alert alert-success">{{ session('success') }}</div>
+                                    @endif
+
+                                    @if (session('error'))
+                                        <div class="alert alert-danger">{{ session('error') }}</div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     @endforeach
-
-
 
                     <!-- Confirmation Statement -->
                     <div class="card mb-3">
@@ -118,21 +126,8 @@
                                 <input class="form-check-input" type="checkbox" id="confirmation" name="confirmation"
                                     required>
                                 <label class="form-check-label" for="confirmation">
-                                    <p> “Nagpapatunay na akong ang taong tinutukoy at ang lahat ng nakasulat dito ay nabasa
-                                        at naintindihan ko ng lubusan. Alam ko ang mga panganib at kahihinatnan habang at
-                                        pagkatapos ng aking donasyon dahil ito ay naipaliwanag sa akin at naunawaan kong
-                                        mabuti.” <br>
-                                        “Pagkatapos masagutan ng buong katapatan ang mga tanong ako ay kusa at buong loob na
-                                        magbibigay ng dugo sa <em>PHO-Donor Management Area</em>. Naiintindihan ko na ang
-                                        aking dugo ay susuriin ng mabuti upang malaman ang <em>Blood Type</em>,
-                                        <em>Hemoglobin</em> at kung may sakit tulad ng <em>Malaria</em>, <em>Syphilis</em>,
-                                        <em>Hepatitis B</em>, <em>Hepatitis C</em> at <em>HIV</em>, at walang posyal na
-                                        resulta na ibibigay sakin. Kung malamang positibo ako sa mga sakit na tinukoy,
-                                        pumapayag akong isumite ang aking dugo sa <em>Research Institute for Tropical
-                                            Medicine</em> upang makumpirma. Kung makukumpirma na ako ay may sakit, ako ay
-                                        pumapayag na i-refer sa tamang institusyon para sa <em>counseling</em> at
-                                        <em>pangangalaga</em>. Aking pinapatunayan na ako ay nasa tamang pag-iisip at
-                                        sinagutan ng tapat ang mga katanungan.”</p>
+                                    <p>“Nagpapatunay na akong ang taong tinutukoy at ang lahat ng nakasulat dito ay nabasa
+                                        at naintindihan ko ng lubusan...</p>
                                 </label>
                             </div>
                         </div>
@@ -152,64 +147,17 @@
         </div>
 
         <script>
-            // NEW YES OR NO CONDITION
-
-            document.addEventListener('DOMContentLoaded', function() {
-                const form = document.querySelector('form[action="{{ route('form.submit') }}"]');
-
-                form.addEventListener('submit', function(event) {
-                    const eligibilityQuestions = document.querySelectorAll('.eligibility-question');
-                    let isEligible = true;
-
-                    eligibilityQuestions.forEach(function(input) {
-                        if (input.checked && input.value === 'no') {
-                            isEligible = false;
-                        }
-                    });
-
-                    if (!isEligible) {
-                        event.preventDefault();
-                        alert('You are not eligible to proceed. The form will be reset.');
-                        form.reset();
-                        document.getElementById('event').value = ""; // Reset event selection
-                    } else {
-                        event.preventDefault();
-                        const selectedEventId = document.getElementById('selected_event_id')
-                            .value; // Get the selected event ID
-                        window.location.href =
-                            `{{ route('register') }}?event_id=${selectedEventId}`; // Redirect to register with event ID
-                    }
-                });
-            });
-
-
-
-
-
-            // EVENT PROCEED CONDITIONS
-
             document.addEventListener('DOMContentLoaded', function() {
                 const eventSelect = document.getElementById('event');
                 const proceedButton = document.getElementById('proceedButton');
                 const questionnaireHeader = document.getElementById('questionnaireHeader');
                 const questionnaireForm = document.getElementById('questionnaireForm');
 
-                // Function to update visibility of questionnaire header and form
-                function updateQuestionnaireVisibility() {
-                    if (eventSelect.value) {
-                        questionnaireHeader.style.display = 'flex';
-                    } else {
-                        questionnaireHeader.style.display = 'none';
-                        questionnaireForm.style.display = 'none'; // Also hide the form
-                    }
-                }
-
                 // Proceed button click event
-                document.getElementById('proceedButton').addEventListener('click', function() {
-                    const eventSelect = document.getElementById('event');
+                proceedButton.addEventListener('click', function() {
                     if (eventSelect.value) {
                         document.getElementById('selected_event_id').value = eventSelect
-                        .value; // Set the hidden input
+                            .value; // Set the hidden input
                         questionnaireHeader.style.display = 'block'; // Show the header
                         questionnaireForm.style.display = 'block'; // Show the form
                     } else {
@@ -217,33 +165,50 @@
                     }
                 });
 
-
                 // Change event button click event
                 document.getElementById('changeEventButton').addEventListener('click', function() {
-                    // Clear the form and hide the questionnaire header and form
                     questionnaireForm.reset();
                     questionnaireForm.style.display = 'none';
                     questionnaireHeader.style.display = 'none';
                     eventSelect.value = ""; // Reset event selection
-                    updateQuestionnaireVisibility(); // Update visibility
                 });
 
-                // Event listener to hide/show questionnaire based on event selection
-                eventSelect.addEventListener('change', function() {
-                    updateQuestionnaireVisibility(); // Update visibility on event change
+                // Form submission logic
+                questionnaireForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    let isEligible = true; // Start assuming the user is eligible
+
+                    const questions = document.querySelectorAll('.question'); // Get all questions
+
+                    questions.forEach(question => {
+                        const order = question.getAttribute('data-order'); // Get the question's order
+                        const selectedOption = question.querySelector(
+                            'input[type="radio"]:checked'); // Get selected radio option
+
+                        // Eligibility checks
+                        if (order == 1 && selectedOption && selectedOption.value === 'no') {
+                            isEligible = false; // Not eligible
+                        }
+                        if (order == 5 && selectedOption && selectedOption.value === 'yes') {
+                            isEligible = false; // Not eligible
+                        }
+                    });
+
+                    // If not eligible, alert the user and reset the form
+                    if (!isEligible) {
+                        alert(
+                            'You are not eligible to donate. The form will reset your answers.'
+                            ); // Alert message
+                        questionnaireForm.reset(); // Reset the form
+                    } else {
+                        // If eligible, redirect to the register page
+                        const selectedEventId = document.getElementById('selected_event_id')
+                            .value; // Get the selected event ID
+                        window.location.href =
+                            `{{ route('register') }}?event_id=${selectedEventId}`; // Redirect to register with event ID
+                    }
                 });
-            });
-
-
-            document.getElementById('changeEventButton').addEventListener('click', function() {
-                if (confirm('Changing the event will reset the form. Do you want to proceed?')) {
-                    // Clear the form and hide the questionnaire header and form
-                    const questionnaireForm = document.getElementById('questionnaireForm');
-                    questionnaireForm.reset();
-                    questionnaireForm.style.display = 'none';
-                    document.getElementById('questionnaireHeader').style.display = 'none';
-                    document.getElementById('event').value = ""; // Reset event selection
-                }
             });
         </script>
     @endsection
