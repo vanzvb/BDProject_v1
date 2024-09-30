@@ -91,30 +91,41 @@
                                                 'AB-' => 'AB-',
                                                 'O+' => 'O+',
                                                 'O-' => 'O-',
-                                                'Unknown' => 'Unknown',
+                                                'UNKNOWN' => 'UNKNOWN',
                                             ],
                                             null,
                                             ['placeholder' => 'Select Blood Type', 'class' => 'form-control'],
                                         ) !!}
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <strong>Age:</strong>
-                                        {!! Form::text('age', null, [
-                                            'placeholder' => 'Age',
-                                            'class' => 'form-control',
-                                            'maxlength' => '3',
-                                            'oninput' => 'this.value = this.value.replace(/[^0-9]/g, "")',
-                                        ]) !!}
-                                    </div>
-                                </div>
+
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Gender:</strong>
-                                        {!! Form::select('gender', ['Male' => 'Male', 'Female' => 'Female'], null, [
-                                            'placeholder' => 'Select Gender',
+                                        <strong>Birthdate:</strong>
+                                        {!! Form::date('birthdate', old('birthdate'), [
+                                            'class' => 'form-control' . ($errors->has('birthdate') ? ' is-invalid' : ''),
+                                            'required' => true,
+                                            'autocomplete' => 'bday',
+                                            'onchange' => 'calculateAge()',
+                                        ]) !!}
+                                        @error('birthdate')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <!-- Add a space for an error message related to age -->
+                                        <span id="age-error" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Sex:</strong>
+                                        {!! Form::select('gender', ['MALE' => 'MALE', 'FEMALE' => 'FEMALE'], null, [
+                                            'placeholder' => 'Select Sex',
                                             'class' => 'form-control',
                                         ]) !!}
                                     </div>
@@ -125,11 +136,11 @@
                                         {!! Form::select(
                                             'civil_status',
                                             [
-                                                'Single' => 'Single',
-                                                'Married' => 'Married',
-                                                'Divorced' => 'Divorced',
-                                                'Legally Separated' => 'Legally Separated',
-                                                'Widowed' => 'Widowed',
+                                                'SINGLE' => 'SINGLE',
+                                                'MARRIED' => 'MARRIED',
+                                                'DIVORCED' => 'DIVORCED',
+                                                'LEGALLY SEPARATED' => 'LEGALLY SEPARATED',
+                                                'WIDOWED' => 'WIDOWED',
                                             ],
                                             null,
                                             ['placeholder' => 'Select Civil Status', 'class' => 'form-control'],
@@ -148,12 +159,98 @@
                                         {!! Form::text('occupation', null, ['placeholder' => 'Occupation', 'class' => 'form-control']) !!}
                                     </div>
                                 </div>
+
+
+
                                 <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Barangay:</strong>
+                                        {!! Form::select(
+                                            'address', // Keep the name as 'address'
+                                            [
+                                                'BAGONG KALSADA' => 'BAGONG KALSADA',
+                                                'BALSAHAN' => 'BALSAHAN',
+                                                'BANCAAN' => 'BANCAAN',
+                                                'BUCANA MALAKI' => 'BUCANA MALAKI',
+                                                'BUCANA SASAHAN' => 'BUCANA SASAHAN',
+                                                'CALUBCOB' => 'CALUBCOB',
+                                                'CAPT. C. NAZARENO (POBLACION)' => 'CAPT. C. NAZARENO (POBLACION)',
+                                                'GOMBALZA (POBLACION)' => 'GOMBALZA (POBLACION)',
+                                                'HALANG' => 'HALANG',
+                                                'HUMBAC' => 'HUMBAC',
+                                                'IBAYO ESTACION' => 'IBAYO ESTACION',
+                                                'IBAYO SILANGAN' => 'IBAYO SILANGAN',
+                                                'KANLURAN RIZAL' => 'KANLURAN RIZAL',
+                                                'LATORIA' => 'LATORIA',
+                                                'LABAC' => 'LABAC',
+                                                'MABOLO' => 'MABOLO',
+                                                'MALAINEN BAGO' => 'MALAINEN BAGO',
+                                                'MALAINEN LUMA' => 'MALAINEN LUMA',
+                                                'MAQUINA' => 'MAQUINA',
+                                                'MOLINO' => 'MOLINO',
+                                                'MUNTING MAPINO' => 'MUNTING MAPINO',
+                                                'MUZON' => 'MUZON',
+                                                'PALANGUE 2' => 'PALANGUE 2',
+                                                'PALANGUE 3' => 'PALANGUE 3',
+                                                'PALANGUE CENTRAL' => 'PALANGUE CENTRAL',
+                                                'SABANG' => 'SABANG',
+                                                'SAN ROQUE' => 'SAN ROQUE',
+                                                'SANTULAN' => 'SANTULAN',
+                                                'SAPA' => 'SAPA',
+                                                'TIMALAN BALSAHAN' => 'TIMALAN BALSAHAN',
+                                                'TIMALAN CONCEPCION' => 'TIMALAN CONCEPCION',
+                                                'OTHER' => 'OTHER (PLEASE SPECIFY)',
+                                            ],
+                                            old('address'), // Use old address for pre-selected value
+                                            [
+                                                'id' => 'barangay',
+                                                'class' => 'form-control' . ($errors->has('address') ? ' is-invalid' : ''),
+                                                'onchange' => 'handleBarangayChange()',
+                                            ],
+                                        ) !!}
+                                        @error('address')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <!-- Other Address Field -->
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Other Address:</strong>
+                                        {!! Form::text('address', old('address'), [
+                                            'id' => 'other_address',
+                                            'placeholder' => 'Other Address (if applicable)',
+                                            'class' => 'form-control',
+                                            'style' => 'text-transform: uppercase;',
+                                            'oninput' => 'this.value = this.value.toUpperCase()',
+                                        ]) !!}
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <!-- Hidden input to store the actual address -->
+                                {{-- <input type="hidden" name="address_hidden" id="address_hidden"
+                                    value="{{ old('address') }}"> --}}
+
+
+
+
+                                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Address:</strong>
                                         {!! Form::text('address', null, ['placeholder' => 'Address', 'class' => 'form-control']) !!}
                                     </div>
-                                </div>
+                                </div> --}}
+
+
+
+
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Contact Information:</strong>
@@ -263,6 +360,31 @@
                 passwordFields.style.display = "none";
                 passwordInput.removeAttribute('required');
                 confirmPasswordInput.removeAttribute('required');
+            }
+        });
+
+
+
+        function handleBarangayChange() {
+            var barangaySelect = document.getElementById('barangay');
+            var otherAddressInput = document.getElementById('other_address');
+
+            if (barangaySelect.value === 'OTHER') {
+                // If 'OTHER (PLEASE SPECIFY)' is selected, do not change the input
+                otherAddressInput.value = ''; // Clear input for clarity
+            } else {
+                // If a barangay is selected, set the other address input
+                otherAddressInput.value = barangaySelect.value;
+            }
+        }
+
+        // Update the barangay select based on the other address input
+        document.getElementById('other_address').addEventListener('input', function() {
+            var barangaySelect = document.getElementById('barangay');
+            if (this.value) {
+                barangaySelect.value = 'OTHER'; // Set barangay select to 'OTHER'
+            } else {
+                barangaySelect.value = ''; // Reset barangay select if input is empty
             }
         });
     </script>
