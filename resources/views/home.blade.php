@@ -77,20 +77,20 @@
               
               <div class="profile-info">
                   <div class="row">
-                      <div class="col-md-6">
-                          <p><strong>Email :</strong> {{ $email }}</p>
-                          <p><strong>Blood Type :</strong> {{ $bloodType }}</p>
-                          <p><strong>Age :</strong> {{ $user->calculated_age }}</p>
-                          <p><strong>Gender :</strong> {{ $gender }}</p>
-                          <p><strong>Donor Status :</strong> {{ $donorStatus }} </p>
-                      </div>
-                      <div class="col-md-6">
-                          <p><strong>Civil Status :</strong> {{ $civilStatus }}</p>
-                          <p><strong>Nationality :</strong> {{ $nationality }}</p>
-                          <p><strong>Occupation :</strong> {{ $occupation }}</p>
-                          <p><strong>Address :</strong> {{ $address }}</p>
-                          <p><strong>Contact Info :</strong> {{ $contactInfo }}</p>
-                      </div>
+                    <div class="col-md-6">
+                      <p><strong>Email :</strong> {{ $email }}</p>
+                      <p><strong>Blood Type :</strong> {{ $bloodType }}</p>
+                      <p><strong>Age :</strong> {{ $user->calculated_age }}</p>
+                      <p><strong>Gender :</strong> {{ $gender }}</p>
+                      <p><strong>Donor Status :</strong> {{ $donorStatus }} </p>
+                  </div>
+                  <div class="col-md-6">
+                      <p><strong>Civil Status :</strong> {{ $civilStatus }}</p>
+                      <p><strong>Nationality :</strong> {{ $nationality }}</p>
+                      <p><strong>Occupation :</strong> {{ $occupation }}</p>
+                      <p><strong>Address :</strong> {{ $address }}</p>
+                      <p><strong>Contact Info :</strong> {{ $contactInfo }}</p>
+                  </div>
                   </div>
                   {{-- <div class="row mt-4">
                       <div class="col-md-12">
@@ -175,7 +175,9 @@
                                         <td>{{ \Carbon\Carbon::parse($event->end_date)->format('F j, Y') }}</td>
                                         <td>{{ $event->detail }}</td>
                                         <td>
-                                          <a href="{{ route('auth.form', ['event_id' => $event->id]) }}" class="btn btn-primary">Go to Form</a>
+                                          <a href="{{ route('newform.show', ['event_id' => $event->id]) }}" class="btn btn-primary">Go to New Form</a>
+
+
                                       </td>
                                       
                                     </tr>

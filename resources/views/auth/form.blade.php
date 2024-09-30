@@ -53,7 +53,7 @@
                             <h5 class="mb-0">Yes or No Questionnaire</h5>
                         </div>
                         <div class="card-body">
-                            <p class="text-muted">Your answers will be cleared if you are not eligible to donate.</p>
+                            <p>Your answers will be cleared if you are not eligible to donate.</p>
                             <button type="button" class="btn btn-outline-primary"
                                 id="changeEventButton">{{ __('Change Event') }}</button>
                         </div>
@@ -62,15 +62,15 @@
                     @csrf
 
                     @foreach ($questions as $question)
-
-                    
                         @if ($question->followup_question_text)
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <p class="card-text"><strong>{{ $question->followup_question_text }}</strong></p>
-                                </div>
+                            <div style="border: 1px solid #000; padding: 15px; margin-bottom: 15px;">
+                                <p style="font-size: 1.2em; font-weight: bold; margin: 0;">
+                                    {{ $question->followup_question_text }}</p>
                             </div>
                         @endif
+
+
+
 
                         <div class="card mb-3">
                             <div class="card-header">
@@ -199,7 +199,7 @@
                     if (!isEligible) {
                         alert(
                             'You are not eligible to donate. The form will reset your answers.'
-                            ); // Alert message
+                        ); // Alert message
                         questionnaireForm.reset(); // Reset the form
                     } else {
                         // If eligible, redirect to the register page

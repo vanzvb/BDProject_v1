@@ -112,7 +112,7 @@ class EventDetailController extends Controller
         //                 ->with('success','Donor status updated successfully');
         $eventDetail = EventDetail::find($id);
         $eventDetail->donor_status = 'Active';
-        $eventDetail->save();
+        $eventDetail->save();   
 
         // return redirect()->route('event.show')
         //                 ->with('success','Donor status updated successfully');
