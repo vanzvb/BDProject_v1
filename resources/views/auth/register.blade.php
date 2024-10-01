@@ -317,7 +317,7 @@
                                     <input id="other_address" type="text"
                                         class="form-control @error('other_address') is-invalid @enderror"
                                         name="other_address" value="{{ old('other_address') }}"
-                                        autocomplete="other_address" style="text-transform: uppercase;" required>
+                                        autocomplete="other_address" style="text-transform: uppercase;">
 
                                     @error('other_address')
                                         <span class="invalid-feedback" role="alert">
