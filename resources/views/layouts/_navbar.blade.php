@@ -41,11 +41,14 @@
     </ul> --}}
     
   
-<a class="nav-link" href="/">
-    <h1 style="font-family: Montserrat, sans-serif; color: #004b7e;">
-        <strong>NAIC Rural Health Unit</strong>
-    </h1>
-</a>
+    <a class="nav-link" href="/" style="display: flex; align-items: center; justify-content: center;">
+        <img src="{{ asset('images/welcome_img/RHU_LOGO.png') }}" style="height: 80px; margin-right: 20px;"> <!-- Adjust height as needed -->
+        <h1 style="font-family: Montserrat, sans-serif; color: #004b7e; margin: 0;">
+            <strong>NAIC Rural Health Unit</strong>
+        </h1>
+    </a>
+    
+    
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto ">
         @guest

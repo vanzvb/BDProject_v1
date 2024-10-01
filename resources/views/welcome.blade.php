@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | DataTables</title>
+    <title>Naic Rural Health Unit</title>
+    <link rel="icon" href="{{ asset('images/welcome_img/RHU_LOGO.ico') }}" type="image/x-icon">
+
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"

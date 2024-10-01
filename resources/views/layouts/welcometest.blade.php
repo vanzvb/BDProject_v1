@@ -2,6 +2,7 @@
 
 @section('content')
 {{-- @include('layouts._navbar') <!-- Include the navbar partial --> --}}
+
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
