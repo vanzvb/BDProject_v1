@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Naic Rural Health Unit</title>
+    <link rel="icon" href="{{ asset('images/welcome_img/RHU_LOGO.ico') }}" type="image/x-icon">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -49,8 +51,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="nav-link" href="/">
-                    <h1 style="font-family: Montserrat, sans-serif; color: #004b7e;">
+                <a class="nav-link" href="/" style="display: flex; align-items: center; justify-content: center;">
+                    <img src="{{ asset('images/welcome_img/RHU_LOGO.png') }}" style="height: 80px; margin-right: 20px;"> <!-- Adjust height as needed -->
+                    <h1 style="font-family: Montserrat, sans-serif; color: #004b7e; margin: 0;">
                         <strong>NAIC Rural Health Unit</strong>
                     </h1>
                 </a>

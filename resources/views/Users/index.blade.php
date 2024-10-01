@@ -53,7 +53,7 @@
                                     <th width="200px">Name</th>
                                     <th>Blood Type</th>
                                     <th>Age</th>
-                                    <th>Gender</th>
+                                    <th>Sex</th>
                                     <th>Civil Status</th>
                                     <th>Nationality</th>
                                     <th>Occupation</th>
@@ -110,7 +110,7 @@
                                     <th width="200px">Name</th>
                                     <th>Blood Type</th>
                                     <th>Age</th>
-                                    <th>Gender</th>
+                                    <th>Sex</th>
                                     <th>Civil Status</th>
                                     <th>Nationality</th>
                                     <th>Occupation</th>
@@ -148,7 +148,7 @@
                                             <strong>Age:</strong> {{ $users->age }}
                                         </div>
                                         <div class="form-group">
-                                            <strong>Gender:</strong> {{ $users->gender }}
+                                            <strong>Sex:</strong> {{ $users->gender }}
                                         </div>
                                         <div class="form-group">
                                             <strong>Civil Status:</strong> {{ $users->civil_status }}

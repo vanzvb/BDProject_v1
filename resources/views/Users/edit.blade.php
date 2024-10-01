@@ -62,21 +62,22 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>First Name:</strong>
-                                        {!! Form::text('first_name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                        {!! Form::text('first_name', null, ['placeholder' => 'Name', 'class' => 'form-control', 'oninput' => 'this.value = this.value.toUpperCase()']) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Middle Name:</strong>
-                                        {!! Form::text('middle_name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                        {!! Form::text('middle_name', null, ['placeholder' => 'Name', 'class' => 'form-control', 'oninput' => 'this.value = this.value.toUpperCase()']) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Last Name:</strong>
-                                        {!! Form::text('last_name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                                        {!! Form::text('last_name', null, ['placeholder' => 'Name', 'class' => 'form-control', 'oninput' => 'this.value = this.value.toUpperCase()']) !!}
                                     </div>
                                 </div>
+                                
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Blood Type:</strong>
@@ -150,15 +151,16 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Nationality:</strong>
-                                        {!! Form::text('nationality', null, ['placeholder' => 'Nationality', 'class' => 'form-control']) !!}
+                                        {!! Form::text('nationality', null, ['placeholder' => 'Nationality', 'class' => 'form-control', 'oninput' => 'this.value = this.value.toUpperCase()']) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Occupation:</strong>
-                                        {!! Form::text('occupation', null, ['placeholder' => 'Occupation', 'class' => 'form-control']) !!}
+                                        {!! Form::text('occupation', null, ['placeholder' => 'Occupation', 'class' => 'form-control', 'oninput' => 'this.value = this.value.toUpperCase()']) !!}
                                     </div>
                                 </div>
+                                
 
 
 
