@@ -15,7 +15,7 @@ class WelcomeController extends Controller
         $barangay = $request->input('barangay');
     
         // Base query for EventDetails
-        $eventDetailQuery = EventDetail::where('donor_status', 'Active');
+        $eventDetailQuery = EventDetail::where('donor_status', 'Eligible');
     
         // Apply the barangay filter if it is not empty
         if (!empty($barangay)) {
