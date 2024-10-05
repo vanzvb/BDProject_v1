@@ -44,8 +44,8 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
+                        <th width="200px">ID</th>
                         <th width="200px">Name</th>
-                     
                         <th>Blood Type</th>
                         <th>Age</th>
                         <th>Sex</th>
@@ -58,6 +58,7 @@
                     @foreach ($event->eventDetails as $eventDetail)
                         @if ($eventDetail->user)
                             <tr>
+                                <td>{{ $eventDetail->user->unique_id }}</td>
                                 <td>{{ $eventDetail->user->full_name }}</td>
                           
                                 <td>{{ $eventDetail->user->blood_type }}</td>

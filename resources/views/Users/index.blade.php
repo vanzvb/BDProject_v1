@@ -49,7 +49,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    {{-- <th>No</th> --}}
+                                    <th>ID</th>
                                     <th width="200px">Name</th>
                                     <th>Blood Type</th>
                                     <th>Age</th>
@@ -67,7 +67,7 @@
                             <tbody>
                                 @foreach ($data as $users)
                                     <tr>
-                                        {{-- <td>{{ ++$i }}</td> --}}
+                                        <td>{{ $users->unique_id }}</td>
                                         <td>{{ $users->full_name }}</td>
                                         <td>{{ $users->blood_type }}</td>
                                         <td>{{ $users->calculated_age }}</td>
@@ -106,7 +106,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    {{-- <th>No</th> --}}
+                                    <th>ID</th>
                                     <th width="200px">Name</th>
                                     <th>Blood Type</th>
                                     <th>Age</th>

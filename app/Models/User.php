@@ -44,6 +44,7 @@ class User extends Authenticatable
         'address',
         'contact_info',
         'password',
+        'unique_id',
     ];
 
     /**
