@@ -28,14 +28,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        $donationHistorys = Event::all();
+         $user = Auth::user();  
+        // $donationHistorys = Event::all();
+        $joinedEventIds = EventDetail::where('userID', $user->id)->pluck('eventID')->toArray();
+        $donationHistorys = Event::whereNotIn('id', $joinedEventIds)->get();
         
 
 
         
         // dd($donationHistorys);
-        $user = Auth::user();
+       
         $myEvents = EventDetail::where('userID', $user->id)->get();
         // dd($myEvents);
         $email = Auth::user()->email;
