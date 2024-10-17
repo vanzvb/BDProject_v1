@@ -18,8 +18,8 @@ class EventController extends Controller
         //  $this->middleware('permission:event-create', ['only' => ['create','store']]);
         //  $this->middleware('permission:event-edit', ['only' => ['edit','update']]);
         //  $this->middleware('permission:event-delete', ['only' => ['destroy']]);
-        
-         
+
+
     }
     /**
      * Display a listing of the resource.
@@ -29,10 +29,10 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-         
+
         // return view('Event.index',compact('events'))
         //     ->with('i', (request()->input('page', 1) - 1) * 5);
-        return view('Event.index',compact('events')); 
+        return view('Event.index', compact('events'));
     }
 
     /**
@@ -45,7 +45,7 @@ class EventController extends Controller
         return view('Event.create');
     }
 
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -60,11 +60,11 @@ class EventController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
         ]);
-    
+
         Event::create($request->all());
-    
+
         return redirect()->route('events.index')
-                        ->with('success','Event created successfully.');
+            ->with('success', 'Event created successfully.');
     }
 
     /**
@@ -74,19 +74,19 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Event $event)
-{
-    // dd($event->id);
-    $event = Event::where('id', $event->id)->first();
+    {
+        // dd($event->id);
+        $event = Event::where('id', $event->id)->first();
 
-    // Load related event details and users
-    // $eventDetails = $event->eventDetails;
-    
-    // dd($event);
-    // Optionally, if you need to show a specific user related to the event
-    // $users = User::all(); 
+        // Load related event details and users
+        // $eventDetails = $event->eventDetails;
 
-    return view('Event.show', compact('event'));
-}
+        // dd($event);
+        // Optionally, if you need to show a specific user related to the event
+        // $users = User::all(); 
+
+        return view('Event.show', compact('event'));
+    }
 
 
 
@@ -99,7 +99,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('Event.edit',compact('event'));
+        return view('Event.edit', compact('event'));
     }
 
     /**
@@ -117,11 +117,11 @@ class EventController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
         ]);
-    
+
         $event->update($request->all());
-    
+
         return redirect()->route('events.index')
-                        ->with('success','Event updated successfully');
+            ->with('success', 'Event updated successfully');
     }
 
     /**
@@ -133,8 +133,22 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         $event->delete();
-    
+
         return redirect()->route('events.index')
-                        ->with('success','Event deleted successfully');
+            ->with('success', 'Event deleted successfully');
+    }
+
+    public function deletedEvents()
+    {
+        $deletedEvents = Event::onlyTrashed()->get();
+        return view('Event.deleted', compact('deletedEvents'));
+    }
+
+    public function showDeleted($id)
+    {
+        // Find the event including soft-deleted ones
+        $event = Event::withTrashed()->findOrFail($id);
+
+        return view('Event.show', compact('event'));
     }
 }

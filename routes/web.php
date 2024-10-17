@@ -62,6 +62,13 @@ Route::get('/preview-form', [PreviewFormController::class, 'showPreviewForm'])->
 Route::get('/newform/{event_id}', [NewFormController::class, 'showNewForm'])->name('newform.show');
 Route::post('/newform-create', [NewFormController::class, 'joinEvent'])->name('newform.create');
 
+Route::get('/events.deleted', [App\Http\Controllers\EventController::class, 'deletedEvents'])->name('events.deleted');
+Route::get('/events/deleted/{id}', [App\Http\Controllers\EventController::class, 'showDeleted'])->name('events.show.deleted');
+
+
+
+
+
 
 
 

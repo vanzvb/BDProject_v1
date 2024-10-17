@@ -11,7 +11,7 @@
                 {{-- <h2>Show Event</h2> --}}
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('events.index') }}">Back</a>
+                <a class="btn btn-primary mb-3 ml-3" href="{{ route('events.index') }}">Back</a>
             </div>
         </div>
     </div>
@@ -44,14 +44,15 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th width="200px">ID</th>
-                        <th width="200px">Name</th>
+                        <th>ID</th>
+                        <th>Name</th>
                         <th>Blood Type</th>
                         <th>Age</th>
                         <th>Sex</th>
                         <th>Birthday</th>
                         <th>Status</th>
-                        <th width="200px">Action</th>
+                        <th>Donated</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,6 +68,7 @@
                                 <td>{{ Carbon::parse($eventDetail->user->birthdate)->format('F j, Y') }}</td>
 
                                 <td>{{ $eventDetail->donor_status }}</td>
+                                <td></td>
                                 <td>
                                     <a class="btn btn-info" href="{{ route('users.edit', $eventDetail->user->id) }}">Edit</a>
                                     <form action="{{ route('event-details.changeStatus', $eventDetail->id) }}" method="GET" style="display: inline;">

@@ -56,8 +56,16 @@
                     @include('Event.modal.create')
                     {{-- @endcan --}}
 
+                    <a class="btn btn-primary" href="{{ route('events.deleted') }}">
+                        View Blood Drive History
+                    </a>
+
+                    
                     <div class="mt-2 col-md-12">
                         {{-- IM JUST A SPACE --}}
+
+                      
+                        
                     </div>
     
                     

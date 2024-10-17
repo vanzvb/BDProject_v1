@@ -59,26 +59,30 @@
                             </div>
                         </div> --}}
 
-                            <div class="row mb-3">
-                                <label for="first_name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
-                                <div class="col-md-6">
-                                    <input id="first_name" type="text"
-                                        class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                        value="{{ old('first_name') }}" required autocomplete="first_name"
-                                        style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase();">
+                        <small class="text-muted">Fields marked with <span style="color: red;">*</span> are required.</small>
 
-                                    @error('first_name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
+                        <div class="row mb-3">
+                            <label for="first_name" class="col-md-4 col-form-label text-md-end">
+                                <span style="color: red;">*</span> {{ __('First Name') }}
+                            </label>
+                            <div class="col-md-6">
+                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" 
+                                       name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name"
+                                       style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase();">
+                        
+                                @error('first_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
+                        </div>
+                        
 
                             <div class="row mb-3">
                                 <label for="middle_name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Middle Name') }}</label>
+                                    class="col-md-4 col-form-label text-md-end"> 
+                                    <span style="color: red;">*</span> {{ __('Middle Name') }}</label>
                                 <div class="col-md-6">
                                     <input id="middle_name" type="text"
                                         class="form-control @error('middle_name') is-invalid @enderror" name="middle_name"
@@ -95,7 +99,8 @@
 
                             <div class="row mb-3">
                                 <label for="last_name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Last Name') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">
+                                    <span style="color: red;">*</span> {{ __('Last Name') }}</label>
                                 <div class="col-md-6">
                                     <input id="last_name" type="text"
                                         class="form-control @error('last_name') is-invalid @enderror" name="last_name"
@@ -116,7 +121,8 @@
 
                             <div class="row mb-3">
                                 <label for="blood_type"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Blood Type') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">
+                                    <span style="color: red;">*</span> {{ __('Blood Type') }}</label>
 
                                 <div class="col-md-6">
                                     <select id="blood_type" class="form-control @error('blood_type') is-invalid @enderror"
@@ -143,7 +149,8 @@
 
                             <div class="row mb-3">
                                 <label for="birthdate"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Birthdate') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">
+                                    <span style="color: red;">*</span> {{ __('Birthdate') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="birthdate" type="date"
@@ -186,7 +193,8 @@
 
                             <div class="row mb-3">
                                 <label for="gender"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Sex') }}</label>
+                                    class="col-md-4 col-form-label text-md-end"> 
+                                    <span style="color: red;">*</span> {{ __('Sex') }}</label>
                                 <div class="col-md-6">
                                     <select id="gender"
                                         class="form-control @error('gender') is-invalid @enderror uppercase-select"
@@ -205,7 +213,8 @@
 
                             <div class="row mb-3">
                                 <label for="civil_status"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Civil Status') }}</label>
+                                    class="col-md-4 col-form-label text-md-end"> 
+                                    <span style="color: red;">*</span> {{ __('Civil Status') }}</label>
                                 <div class="col-md-6">
                                     <select id="civil_status"
                                         class="form-control @error('civil_status') is-invalid @enderror uppercase-select"
@@ -227,7 +236,8 @@
 
                             <div class="row mb-3">
                                 <label for="nationality"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Nationality') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">
+                                    <span style="color: red;">*</span> {{ __('Nationality') }}</label>
                                 <div class="col-md-6">
                                     <input id="nationality" type="text"
                                         class="form-control @error('nationality') is-invalid @enderror" name="nationality"
@@ -244,7 +254,8 @@
 
                             <div class="row mb-3">
                                 <label for="occupation"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Occupation') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">
+                                    <span style="color: red;">*</span> {{ __('Occupation') }}</label>
                                 <div class="col-md-6">
                                     <input id="occupation" type="text"
                                         class="form-control @error('occupation') is-invalid @enderror" name="occupation"
@@ -261,7 +272,8 @@
 
                             <div class="row mb-3">
                                 <label for="barangay"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Select a Barangay') }}</label>
+                                    class="col-md-4 col-form-label text-md-end"> 
+                                    <span style="color: red;">*</span> {{ __('Select a Barangay') }}</label>
                                 <div class="col-md-6">
                                     <select id="barangay" class="form-control @error('address') is-invalid @enderror"
                                         name="barangay_select" required onchange="toggleOtherAddressField()">
@@ -311,7 +323,8 @@
 
                             <div class="row mb-3" id="otherAddressField" style="display: none;">
                                 <label for="other_address"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Other Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-end"> 
+                                    <span style="color: red;">*</span> {{ __('Other Address') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="other_address" type="text"
@@ -335,7 +348,8 @@
 
                             <div class="row mb-3">
                                 <label for="contact_info"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Contact Number') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">
+                                    <span style="color: red;">*</span> {{ __('Contact Number') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="contact_info" type="number"
@@ -356,7 +370,8 @@
 
                             <div class="row mb-3">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">
+                                    <span style="color: red;">*</span> {{ __('Email Address') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -373,7 +388,8 @@
 
                             <div class="row mb-3">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-end"> 
+                                    <span style="color: red;">*</span> {{ __('Password') }}</label>
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <input id="password" type="password"
@@ -393,9 +409,12 @@
                                 </div>
                             </div>
 
+
+
                             <div class="row mb-3">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">
+                                    <span style="color: red;">*</span> {{ __('Confirm Password') }}</label>
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <input id="password-confirm" type="password" class="form-control"
@@ -407,8 +426,12 @@
                                             </span>
                                         </div>
                                     </div>
+                                    
+                            <small class="text-muted">The password must be at least 8 characters.</small>
                                 </div>
+                                
                             </div>
+
 
 
 
