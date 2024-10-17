@@ -98,49 +98,44 @@ class EventDetailController extends Controller
     private static $lastIncrementedNumber = [];
     public function changeStatus($id)
     {
-       
+
         $eventDetail = EventDetail::with('user')->findOrFail($id);
         $user = User::find($eventDetail->userID);
-        // Generate ID      
-        // Example Outputs:
-        // For user 1: NAIC-2024-0001-DONOR
-        // For user 9999: NAIC-2024-9999-DONOR
-        // For user 10000: NAIC-2024-10000-DONOR
-        // For user 100001: NAIC-2024-100001-DONOR
+    
+        // Update only the donor status without generating the unique ID
+        $eventDetail->donor_status = 'Eligible';
+        $eventDetail->save();
+    
+        return redirect()->back()->with('status', 'Donor status updated successfully!');
+    }
+    public function changeDonatedStatus($id)
+    {
+        // Find the EventDetail by ID
+    $eventDetail = EventDetail::findOrFail($id);
+
+    // Update the donated status to "Yes" (true)
+    $eventDetail->donated = true;
+
+    // Generate ID for the user associated with the event detail
+    $user = User::find($eventDetail->userID);
+    if ($user && !$user->unique_id) { // Only generate if the user doesn't already have a unique_id
         $year = now()->year;
 
-        // Check if there is already a value for this year
-        if (!isset(self::$lastIncrementedNumber[$year])) {
-            // If not, initialize with 0
-            self::$lastIncrementedNumber[$year] = 0;
-        }
-
-        // Increment the number for the current year
-        self::$lastIncrementedNumber[$year]++;
-
-        // Determine the length of the padding based on the incremented value
-        // Start with 4 digits, but increase as needed (e.g., 10000 becomes 5 digits)
-        $paddingLength = max(4, strlen(self::$lastIncrementedNumber[$year]));
-
-        // Pad the increment number to the correct length (e.g., 0001, 10000, etc.)
-        $incrementedPart = str_pad(self::$lastIncrementedNumber[$year], $paddingLength, '0', STR_PAD_LEFT);
+        // Count how many donors have donated this year to generate the next incremented ID
+        $donorCount = User::where('unique_id', 'LIKE', "NAIC-$year-%")->count();
+        $incrementedPart = str_pad($donorCount + 1, 4, '0', STR_PAD_LEFT);
 
         // Generate the final donor ID
         $customDonorId = "NAIC-$year-$incrementedPart-DONOR";
 
+        // Update the user's unique ID
         $user->unique_id = $customDonorId;
         $user->save();
+    }
 
-        $eventDetail = EventDetail::find($id);
-        $eventDetail->donor_status = 'Eligible';
-        $eventDetail->save();
+    // Save the updated eventDetail record
+    $eventDetail->save();
 
-
-        // return redirect()->route('event.show')
-        //                 ->with('success','Donor status updated successfully');
-
-        return redirect()->back()->with('status', 'Status updated successfully!');
-
-        // dd($eventDetail);
+    return redirect()->back()->with('status', 'Donated status updated successfully!');
     }
 }

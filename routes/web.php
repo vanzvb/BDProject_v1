@@ -57,6 +57,9 @@ Route::group(['middleware' => ['auth']], function() {
 
 // Change EventDetail Status (for users)
 Route::get('event-details/change-status/{id}', [EventDetailController::class, 'changeStatus'])->name('event-details.changeStatus');
+
+Route::post('/event-details/{id}/changeDonatedStatus', [EventDetailController::class, 'changeDonatedStatus'])->name('event-details.changeDonatedStatus');
+
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::get('/preview-form', [PreviewFormController::class, 'showPreviewForm'])->name('preview.form');
 Route::get('/newform/{event_id}', [NewFormController::class, 'showNewForm'])->name('newform.show');

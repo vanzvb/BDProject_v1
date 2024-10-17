@@ -40,7 +40,7 @@ class HomeController extends Controller
     
         $email = Auth::user()->email;
     
-        $donorStatus = EventDetail::where('userID', $user->id)->pluck('donor_status')->first();
+        $donorStatus = EventDetail::where('userID', $user->id)->pluck('donated')->first();
         return view('home', [
             'user' => $user,
             'email' => $user->email,

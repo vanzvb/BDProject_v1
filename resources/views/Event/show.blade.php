@@ -27,13 +27,14 @@
                 <div class="event-detail">
                     {{-- <p class="mb-2"><strong>Name:</strong> {{ $event->name }}</p> --}}
                     <p class="mb-2"><strong>Details:</strong> {{ $event->detail }}</p>
-                    <p class="mb-2"><strong>Start Date:</strong> {{ Carbon::parse($event->start_date)->format('F j, Y') }}</p>
+                    <p class="mb-2"><strong>Start Date:</strong> {{ Carbon::parse($event->start_date)->format('F j, Y') }}
+                    </p>
                     <p class="mb-2"><strong>End Date:</strong> {{ Carbon::parse($event->end_date)->format('F j, Y') }}</p>
                 </div>
             </div>
         </div>
-        
-        
+
+
     </div>
 
     <div class="card mt-3">
@@ -61,26 +62,39 @@
                             <tr>
                                 <td>{{ $eventDetail->user->unique_id }}</td>
                                 <td>{{ $eventDetail->user->full_name }}</td>
-                          
                                 <td>{{ $eventDetail->user->blood_type }}</td>
                                 <td>{{ $eventDetail->user->calculated_age }}</td>
                                 <td>{{ $eventDetail->user->gender }}</td>
                                 <td>{{ Carbon::parse($eventDetail->user->birthdate)->format('F j, Y') }}</td>
 
                                 <td>{{ $eventDetail->donor_status }}</td>
-                                <td></td>
+
+                                <!-- Show Donated Status -->
+                                <td>{{ $eventDetail->donated ? 'Yes' : 'No' }}</td>
+
                                 <td>
-                                    <a class="btn btn-info" href="{{ route('users.edit', $eventDetail->user->id) }}">Edit</a>
-                                    <form action="{{ route('event-details.changeStatus', $eventDetail->id) }}" method="GET" style="display: inline;">
+                                    <a class="btn btn-info"
+                                        href="{{ route('users.edit', $eventDetail->user->id) }}">Edit</a>
+
+                                    <!-- Button for Changing Donor Status -->
+                                    <form action="{{ route('event-details.changeStatus', $eventDetail->id) }}"
+                                        method="GET" style="display: inline;">
                                         @csrf
-                                        <button type="submit" class="btn btn-primary">Change Status</button>
+                                        <button type="submit" class="btn btn-primary">Change Donor Status</button>
+                                    </form>
+
+                                    <!-- Button for Changing Donated Status -->
+                                    <form action="{{ route('event-details.changeDonatedStatus', $eventDetail->id) }}"
+                                        method="POST" style="display: inline;">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">Mark as Donated</button>
                                     </form>
                                 </td>
                             </tr>
                         @else
-                            <tr>
-                                <td colspan="6" class="text-center">No user associated</td>
-                            </tr>
+                            {{-- <tr>
+                                <td colspan="9" class="text-center">No user associated</td>
+                            </tr> --}}
                         @endif
                     @endforeach
                 </tbody>

@@ -129,17 +129,17 @@
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Details</th>
-                                    <th>Status</th>
+                                    <th>Donated</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 @foreach ($myEvents as $myEvent)
                                 @php
-                                    $donorStatus = $myEvent->donor_status; // Ensure this field is available in your EventDetail model
+                                    $donorStatus = $myEvent->donated ? 'Yes' : 'No'; // Ensure this field is available in your EventDetail model
                                     $event = $myEvent->event; // Store the event in a variable
                                 @endphp
-                                <tr class="{{ $donorStatus === 'Eligible' ? '' : 'muted' }}">
+                                <tr class="{{ $donorStatus === 'Yes' ? '' : 'muted' }}">
                                     <td class="{{ $event ? '' : 'muted' }}">
                                         {{ $event->name ?? 'Event Not Found' }} <!-- Display event name, but without placeholders -->
                                     </td>

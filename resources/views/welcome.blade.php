@@ -451,7 +451,7 @@
                         <div class="col-lg-8 offset-lg-2"> <!-- Changed to col-lg-8 and offset-lg-2 for better centering -->
                             <div class="card shadow mt-4">
                                 <div id="trendingBarangays" class="card-header bg-info text-white">
-                                    <h3 class="card-title"><i class="fas fa-chart-line"></i> Top 10 Donated Barangays</h3>
+                                    <h3 class="card-title"><i class="fas fa-chart-line"></i> Top 10 Leading Barangays in Blood Donations</h3>
                                 </div>
                                 <div class="card-body">
                                     <table class="table table-striped text-center">

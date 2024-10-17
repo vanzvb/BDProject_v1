@@ -16,7 +16,7 @@ class WelcomeController extends Controller
         $barangay = $request->input('barangay');
 
         // Base query for EventDetails
-        $eventDetailQuery = EventDetail::where('donor_status', 'Eligible');
+        $eventDetailQuery = EventDetail::where('donated', '1');
 
         // Apply the barangay filter if it is not empty
         if (!empty($barangay)) {
@@ -79,7 +79,7 @@ class WelcomeController extends Controller
         }
 
         // Get the top 10 donated barangays
-        $topBarangays = EventDetail::where('donor_status', 'Eligible')
+        $topBarangays = EventDetail::where('donated', '1')
         ->join('users', 'event_details.userID', '=', 'users.id') // Assuming userID is the foreign key
         ->select('users.address', DB::raw('count(*) as total'))
         ->groupBy('users.address')
