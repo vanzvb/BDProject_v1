@@ -99,8 +99,8 @@
 
         .card {
             margin-bottom: 1.5rem;
-            
-            
+
+
             /* Space between cards */
         }
 
@@ -134,12 +134,17 @@
         }
 
         .card-img-top {
-           
-    height: 330px; /* Fixed height for the image */
-    object-fit: cover; /* Ensures the image covers the area */
-    max-width: 490px; /* Max width constraint */
-    display: block; /* Removes inline spacing */
-    margin: 0 auto; /* Centers the image horizontally */
+
+            height: 330px;
+            /* Fixed height for the image */
+            object-fit: cover;
+            /* Ensures the image covers the area */
+            max-width: 490px;
+            /* Max width constraint */
+            display: block;
+            /* Removes inline spacing */
+            margin: 0 auto;
+            /* Centers the image horizontally */
         }
 
         #bloodTypeChart {
@@ -202,7 +207,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow">
-                                <img src="images\welcome_img\question_rafiki.png" class="card-img-top" alt="Card Image 2">
+                                <img src="images\welcome_img\question_rafiki.png" class="card-img-top"
+                                    alt="Card Image 2">
                                 <div class="card-body">
                                     <h5 class="card-title">Frequently Asked Questions</h5>
                                     <p class="card-text">Discover key information about blood donation with answers to
@@ -440,6 +446,46 @@
 
 
 
+                      
+                        {{-- BLOOD DONATION TRENDS --}}
+                        <div class="col-lg-8 offset-lg-2"> <!-- Changed to col-lg-8 and offset-lg-2 for better centering -->
+                            <div class="card shadow mt-4">
+                                <div id="trendingBarangays" class="card-header bg-info text-white">
+                                    <h3 class="card-title"><i class="fas fa-chart-line"></i> Top 10 Donated Barangays</h3>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-striped text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Barangay</th>
+                                                <th>Total Donations</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($topBarangays as $index => $barangay)
+                                                <tr>
+                                                    <td>{{ $index + 1 }}</td>
+                                                    <td>{{ $barangay->address }}</td>
+                                                    <td>{{ $barangay->total }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+
+
+
 
                         <div class="col-lg-10 offset-lg-1">
                             {{-- NEW BLOOD DONATION SECTION --}}
@@ -455,22 +501,43 @@
                                             <h4 class="mb-3"><i class="fas fa-check-circle text-success"></i> Do's
                                                 of Blood Donation:</h4>
                                             <ul class="list-group">
-                                                <li class="list-group-item"><strong>Do stay hydrated</strong>: Drink plenty of water before and after donating to keep your body hydrated to avoid experiencing lightheadedness or fatigue.</li>
-                                                <li class="list-group-item"><strong>Do eat a healthy meal</strong>: Have a balanced meal with iron-rich foods before donating to maintain energy levels.</li>
-                                                <li class="list-group-item"><strong>Do get plenty of rest</strong>: Ensure you're well-rested and relaxed before donating to avoid feeling lightheaded, faint, or weak during or after the process.</li>
-                                                <li class="list-group-item"><strong>Do wear comfortable clothing</strong>: Wear a shirt with sleeves that can be easily rolled up for the donation process.</li>
-                                                <li class="list-group-item"><strong>Do follow post-donation care</strong>: Rest for a few minutes after donating, avoid heavy lifting, and have a snack to replenish your energy</li>
+                                                <li class="list-group-item"><strong>Do stay hydrated</strong>: Drink
+                                                    plenty of water before and after donating to keep your body hydrated
+                                                    to avoid experiencing lightheadedness or fatigue.</li>
+                                                <li class="list-group-item"><strong>Do eat a healthy meal</strong>:
+                                                    Have a balanced meal with iron-rich foods before donating to
+                                                    maintain energy levels.</li>
+                                                <li class="list-group-item"><strong>Do get plenty of rest</strong>:
+                                                    Ensure you're well-rested and relaxed before donating to avoid
+                                                    feeling lightheaded, faint, or weak during or after the process.
+                                                </li>
+                                                <li class="list-group-item"><strong>Do wear comfortable
+                                                        clothing</strong>: Wear a shirt with sleeves that can be easily
+                                                    rolled up for the donation process.</li>
+                                                <li class="list-group-item"><strong>Do follow post-donation
+                                                        care</strong>: Rest for a few minutes after donating, avoid
+                                                    heavy lifting, and have a snack to replenish your energy</li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6">
                                             <h4 class="mb-3"><i class="fas fa-times-circle text-danger"></i> Don'ts
                                                 of Blood Donation:</h4>
                                             <ul class="list-group">
-                                                <li class="list-group-item"><strong>Don’t donate on an empty stomach</strong>: Skipping meals before donating can lead to dizziness or fainting.</li>
-                                                <li class="list-group-item"><strong>Don’t smoke or drink alcohol</strong>: Avoid smoking and alcohol consumption before and immediately after donating.</li>
-                                                <li class="list-group-item"><strong>Don’t engage in strenuous activities:</strong> Refrain from heavy exercise or physical labor for at least 24 hours after donating.</li>
-                                                <li class="list-group-item"><strong>Don’t hide medical conditions</strong>: Be honest about your health history and any medications you're taking.</li>
-                                                <li class="list-group-item"><strong>Don’t donate if you're feeling unwell</strong>: If you feel sick, tired, or have a recent infection, postpone your donation until you're fully recovered.</li>
+                                                <li class="list-group-item"><strong>Don’t donate on an empty
+                                                        stomach</strong>: Skipping meals before donating can lead to
+                                                    dizziness or fainting.</li>
+                                                <li class="list-group-item"><strong>Don’t smoke or drink
+                                                        alcohol</strong>: Avoid smoking and alcohol consumption before
+                                                    and immediately after donating.</li>
+                                                <li class="list-group-item"><strong>Don’t engage in strenuous
+                                                        activities:</strong> Refrain from heavy exercise or physical
+                                                    labor for at least 24 hours after donating.</li>
+                                                <li class="list-group-item"><strong>Don’t hide medical
+                                                        conditions</strong>: Be honest about your health history and any
+                                                    medications you're taking.</li>
+                                                <li class="list-group-item"><strong>Don’t donate if you're feeling
+                                                        unwell</strong>: If you feel sick, tired, or have a recent
+                                                    infection, postpone your donation until you're fully recovered.</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -541,7 +608,11 @@
                                                     <div id="collapseTwo" class="collapse"
                                                         aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                                                         <div class="card-body">
-                                                            Blood donors must be <strong>18-65</strong> years old, weigh at least <strong>50</strong> kg, be in good health with normal hemoglobin and blood pressure levels, and must not have engaged in risky behaviors, with intervals of 3 months for men and 4 months for women between donations.
+                                                            Blood donors must be <strong>18-65</strong> years old, weigh
+                                                            at least <strong>50</strong> kg, be in good health with
+                                                            normal hemoglobin and blood pressure levels, and must not
+                                                            have engaged in risky behaviors, with intervals of 3 months
+                                                            for men and 4 months for women between donations.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -607,7 +678,8 @@
                                                     <div id="collapseFive" class="collapse"
                                                         aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
                                                         <div class="card-body">
-                                                            The whole process of blood donation, from the registration up to the recovery, will only take an average of 30 minutes.
+                                                            The whole process of blood donation, from the registration
+                                                            up to the recovery, will only take an average of 30 minutes.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -619,14 +691,17 @@
                                                         <div class="accordion-header collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#collapseSix"
                                                             aria-expanded="false" aria-controls="collapseSix">
-                                                            <span class="accordion-title">Can a person who has tattoo or body piercing still donate blood?</span>
+                                                            <span class="accordion-title">Can a person who has tattoo
+                                                                or body piercing still donate blood?</span>
                                                             <i class="fas fa-plus accordion-icon"></i>
                                                         </div>
                                                     </div>
                                                     <div id="collapseSix" class="collapse"
                                                         aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
                                                         <div class="card-body">
-                                                            If the tattooing procedure or the piercing was done a year ago, he/she may donate. This is also applicable to acupuncture, and other procedures involving needles.
+                                                            If the tattooing procedure or the piercing was done a year
+                                                            ago, he/she may donate. This is also applicable to
+                                                            acupuncture, and other procedures involving needles.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -641,14 +716,20 @@
                                                         <div class="accordion-header collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#collapseSeven"
                                                             aria-expanded="false" aria-controls="collapseSeven">
-                                                            <span class="accordion-title">Will donating blood make a person weak?</span>
+                                                            <span class="accordion-title">Will donating blood make a
+                                                                person weak?</span>
                                                             <i class="fas fa-plus accordion-icon"></i>
                                                         </div>
                                                     </div>
                                                     <div id="collapseSeven" class="collapse"
                                                         aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
                                                         <div class="card-body">
-                                                            No, it will not make you weak. Donating 450cc will not cause any ill effects or weakness. The human body has the capacity to compensate with the new fluid volume. Further, the bone marrow is stimulated to produce new blood cells which in turn makes the blood forming organs function more effectively.
+                                                            No, it will not make you weak. Donating 450cc will not cause
+                                                            any ill effects or weakness. The human body has the capacity
+                                                            to compensate with the new fluid volume. Further, the bone
+                                                            marrow is stimulated to produce new blood cells which in
+                                                            turn makes the blood forming organs function more
+                                                            effectively.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -660,7 +741,8 @@
                                                         <div class="accordion-header collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#collapseEight"
                                                             aria-expanded="false" aria-controls="collapseEight">
-                                                            <span class="accordion-title">Will I contract disease through blood donation?</span>
+                                                            <span class="accordion-title">Will I contract disease
+                                                                through blood donation?</span>
                                                             <i class="fas fa-plus accordion-icon"></i>
                                                         </div>
                                                     </div>
@@ -679,14 +761,17 @@
                                                         <div class="accordion-header collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#collapseNine"
                                                             aria-expanded="false" aria-controls="collapseNine">
-                                                            <span class="accordion-title">What should I do before donating blood?</span>
+                                                            <span class="accordion-title">What should I do before
+                                                                donating blood?</span>
                                                             <i class="fas fa-plus accordion-icon"></i>
                                                         </div>
                                                     </div>
                                                     <div id="collapseNine" class="collapse"
                                                         aria-labelledby="headingNine" data-bs-parent="#faqAccordion">
                                                         <div class="card-body">
-                                                            Drink plenty of water, eat a balanced meal rich in iron, get a good night's sleep, and avoid alcohol or smoking before donating.
+                                                            Drink plenty of water, eat a balanced meal rich in iron, get
+                                                            a good night's sleep, and avoid alcohol or smoking before
+                                                            donating.
                                                         </div>
                                                     </div>
                                                 </div>

@@ -28,20 +28,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-         $user = Auth::user();  
-        // $donationHistorys = Event::all();
+        $user = Auth::user();
+    
         $joinedEventIds = EventDetail::where('userID', $user->id)->pluck('eventID')->toArray();
         $donationHistorys = Event::whereNotIn('id', $joinedEventIds)->get();
         
-
-
-        
-        // dd($donationHistorys);
-       
-        $myEvents = EventDetail::where('userID', $user->id)->get();
-        // dd($myEvents);
+        // Eager load deleted events
+        $myEvents = EventDetail::with(['event' => function($query) {
+            $query->withTrashed(); // Include soft deleted events
+        }])->where('userID', $user->id)->get();
+    
         $email = Auth::user()->email;
-
+    
         $donorStatus = EventDetail::where('userID', $user->id)->pluck('donor_status')->first();
         return view('home', [
             'user' => $user,

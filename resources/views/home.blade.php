@@ -96,7 +96,7 @@
                                 <p><strong>Blood Type :</strong> {{ $bloodType }}</p>
                                 <p><strong>Age :</strong> {{ $user->calculated_age }}</p>
                                 <p><strong>Gender :</strong> {{ $gender }}</p>
-                                <p><strong>Donor Status :</strong> {{ $donorStatus }} </p>
+                                {{-- <p><strong>Donor Status :</strong> {{ $donorStatus }} </p> --}}
                             </div>
                             <div class="col-md-6">
                                 <p><strong>Civil Status :</strong> {{ $civilStatus }}</p>
@@ -135,17 +135,36 @@
 
                             <tbody>
                                 @foreach ($myEvents as $myEvent)
-                                    @php
-                                        $donorStatus = $myEvent->donor_status; // Ensure this field is available in your EventDetail model
-                                    @endphp
-                                    <tr class="{{ $donorStatus === 'Eligible' ? '' : 'muted' }}">
-                                        <td>{{ $myEvent->event->name }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($myEvent->event->start_date)->format('F j, Y') }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($myEvent->event->end_date)->format('F j, Y') }}</td>
-                                        <td>{{ $myEvent->event->detail }}</td>
-                                        <td>{{ $donorStatus }}</td>
-                                    </tr>
-                                @endforeach
+                                @php
+                                    $donorStatus = $myEvent->donor_status; // Ensure this field is available in your EventDetail model
+                                    $event = $myEvent->event; // Store the event in a variable
+                                @endphp
+                                <tr class="{{ $donorStatus === 'Eligible' ? '' : 'muted' }}">
+                                    <td class="{{ $event ? '' : 'muted' }}">
+                                        {{ $event->name ?? 'Event Not Found' }} <!-- Display event name, but without placeholders -->
+                                    </td>
+                                    <td class="{{ $event ? '' : 'muted' }}">
+                                        {{ $event->start_date ? \Carbon\Carbon::parse($event->start_date)->format('F j, Y') : 'N/A' }} <!-- Display start date -->
+                                    </td>
+                                    <td class="{{ $event ? '' : 'muted' }}">
+                                        {{ $event->end_date ? \Carbon\Carbon::parse($event->end_date)->format('F j, Y') : 'N/A' }} <!-- Display end date -->
+                                    </td>
+                                    <td class="{{ $event ? '' : 'muted' }}">
+                                        {{ $event->detail ?? 'No Details Available' }} <!-- Display event detail -->
+                                    </td>
+                                    <td>{{ $donorStatus }}</td>
+                                </tr>
+                            @endforeach
+                            
+
+
+
+
+
+
+
+
+
                             </tbody>
                         </table>
 
