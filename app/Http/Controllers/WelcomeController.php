@@ -7,6 +7,7 @@ use App\Models\EventDetail;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class WelcomeController extends Controller
 {
@@ -87,6 +88,12 @@ class WelcomeController extends Controller
         ->limit(10)
         ->get();
 
-        return view('welcome', compact('totalActiveDonors', 'totalMaleDonors', 'totalFemaleDonors', 'bloodTypeCounts', 'ageGroupCounts', 'topBarangays'));
+        // API brgy
+
+        $response = Http::get('https://psgc.gitlab.io/api//cities-municipalities/042115000/barangays');
+        $APIbarangays = $response->json();
+
+        // dd($APIbarangays);
+        return view('welcome', compact('totalActiveDonors', 'totalMaleDonors', 'totalFemaleDonors', 'bloodTypeCounts', 'ageGroupCounts', 'topBarangays', 'APIbarangays'));
     }
 }

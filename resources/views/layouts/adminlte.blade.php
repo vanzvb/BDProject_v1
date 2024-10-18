@@ -9,6 +9,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Naic Rural Health Unit</title>
+
+
    <link rel="icon" href="{{ asset('images/welcome_img/RHU_LOGO.ico') }}" type="image/x-icon">
 
 
@@ -365,6 +367,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Page specific script -->
     <script>
         $(function() {
+            // Assuming the logged-in user is stored in the 'loggedInUser' variable from Laravel
+            var loggedInUser = "{{ Auth::user()->full_name }}"; // Pass the user's name here
+    
             $("#example1").DataTable({
                 responsive: {
                     details: {
@@ -375,17 +380,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                "buttons": [
+                    "copy", "csv", "excel", 
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        title: 'Custom Report Title',
+                        orientation: 'portrait',
+                        pageSize: 'A4',
+                        customize: function(doc) {
+                            // Adding "Prepared By" section to the PDF
+                            doc.content.splice(0, 0, {
+                                text: 'Prepared By: ' + loggedInUser, 
+                                alignment: 'left',
+                                margin: [0, 10, 0, 10],
+                                style: 'preparedBy' // Custom style
+                            });
+    
+                            // Custom style for "Prepared By"
+                            doc.styles.preparedBy = {
+                                fontSize: 10,
+                                italic: true,
+                                margin: [0, 0, 0, 10]
+                            };
+    
+                            // Add your other customizations here (like headers, footers, etc.)
+                            doc.footer = function(currentPage, pageCount) {
+                                return {
+                                    text: currentPage.toString() + ' of ' + pageCount,
+                                    alignment: 'center',
+                                    margin: [10, 0]
+                                };
+                            };
+                        }
+                    },
+                    "print", "colvis"
+                ]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
         });
     </script>
 </body>

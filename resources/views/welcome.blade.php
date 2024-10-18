@@ -262,7 +262,7 @@
                                         <div class="form-group">
                                             <label for="barangayDropdown">Select Barangay:</label>
                                             <form action="{{ route('welcome') }}" method="GET">
-                                                <select class="form-control" id="barangayDropdown" name="barangay">
+                                                {{-- <select class="form-control" id="barangayDropdown" name="barangay">
                                                     <option value="">All</option>
                                                     <option value="Bagong Kalsada"
                                                         {{ old('barangay', request('barangay')) == 'Bagong Kalsada' ? 'selected' : '' }}>
@@ -357,7 +357,18 @@
                                                     <option value="Timalan Concepcion"
                                                         {{ old('barangay', request('barangay')) == 'Timalan Concepcion' ? 'selected' : '' }}>
                                                         Timalan Concepcion</option>
+                                                </select> --}}
+
+                                                <select class="form-control" id="barangayDropdown" name="barangay">
+                                                    <option value="">All</option>
+                                                    @foreach($APIbarangays as $barangay)
+                                                        <option value="{{ $barangay['name'] }}">
+                                                            {{ $barangay['name'] }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
+
+
                                                 <button type="submit" class="btn btn-primary mt-2">Submit</button>
                                             </form>
                                         </div>
