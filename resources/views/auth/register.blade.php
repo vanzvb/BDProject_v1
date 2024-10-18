@@ -59,29 +59,30 @@
                             </div>
                         </div> --}}
 
-                        <small class="text-muted">Fields marked with <span style="color: red;">*</span> are required.</small>
-
-                        <div class="row mb-3">
-                            <label for="first_name" class="col-md-4 col-form-label text-md-end">
-                                <span style="color: red;">*</span> {{ __('First Name') }}
-                            </label>
-                            <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" 
-                                       name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name"
-                                       style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase();">
-                        
-                                @error('first_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        
+                            <small class="text-muted">Fields marked with <span style="color: red;">*</span> are
+                                required.</small>
 
                             <div class="row mb-3">
-                                <label for="middle_name"
-                                    class="col-md-4 col-form-label text-md-end"> 
+                                <label for="first_name" class="col-md-4 col-form-label text-md-end">
+                                    <span style="color: red;">*</span> {{ __('First Name') }}
+                                </label>
+                                <div class="col-md-6">
+                                    <input id="first_name" type="text"
+                                        class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                        value="{{ old('first_name') }}" required autocomplete="first_name"
+                                        style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase();">
+
+                                    @error('first_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="row mb-3">
+                                <label for="middle_name" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Middle Name') }}</label>
                                 <div class="col-md-6">
                                     <input id="middle_name" type="text"
@@ -98,8 +99,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="last_name"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="last_name" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Last Name') }}</label>
                                 <div class="col-md-6">
                                     <input id="last_name" type="text"
@@ -120,8 +120,7 @@
 
 
                             <div class="row mb-3">
-                                <label for="blood_type"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="blood_type" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Blood Type') }}</label>
 
                                 <div class="col-md-6">
@@ -148,8 +147,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="birthdate"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="birthdate" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Birthdate') }}</label>
 
                                 <div class="col-md-6">
@@ -192,8 +190,7 @@
 
 
                             <div class="row mb-3">
-                                <label for="gender"
-                                    class="col-md-4 col-form-label text-md-end"> 
+                                <label for="gender" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Sex') }}</label>
                                 <div class="col-md-6">
                                     <select id="gender"
@@ -212,8 +209,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="civil_status"
-                                    class="col-md-4 col-form-label text-md-end"> 
+                                <label for="civil_status" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Civil Status') }}</label>
                                 <div class="col-md-6">
                                     <select id="civil_status"
@@ -235,8 +231,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="nationality"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="nationality" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Nationality') }}</label>
                                 <div class="col-md-6">
                                     <input id="nationality" type="text"
@@ -253,8 +248,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="occupation"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="occupation" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Occupation') }}</label>
                                 <div class="col-md-6">
                                     <input id="occupation" type="text"
@@ -271,45 +265,12 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="barangay"
-                                    class="col-md-4 col-form-label text-md-end"> 
+                                <label for="barangay" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Select a Barangay') }}</label>
                                 <div class="col-md-6">
                                     <select id="barangay" class="form-control @error('address') is-invalid @enderror"
-                                        name="barangay_select" required onchange="toggleOtherAddressField()">
+                                        name="barangay_select" required>
                                         <option value="">{{ __('Select a barangay') }}</option>
-                                        <option value="BAGONG KALSADA">BAGONG KALSADA</option>
-                                        <option value="BALSAHAN">BALSAHAN</option>
-                                        <option value="BANCAAN">BANCAAN</option>
-                                        <option value="BUCANA MALAKI">BUCANA MALAKI</option>
-                                        <option value="BUCANA SASAHAN">BUCANA SASAHAN</option>
-                                        <option value="CALUBCOB">CALUBCOB</option>
-                                        <option value="CAPT. C. NAZARENO (POBLACION)">CAPT. C. NAZARENO (POBLACION)
-                                        </option>
-                                        <option value="GOMBALZA (POBLACION)">GOMBALZA (POBLACION)</option>
-                                        <option value="HALANG">HALANG</option>
-                                        <option value="HUMBAC">HUMBAC</option>
-                                        <option value="IBAYO ESTACION">IBAYO ESTACION</option>
-                                        <option value="IBAYO SILANGAN">IBAYO SILANGAN</option>
-                                        <option value="KANLURAN RIZAL">KANLURAN RIZAL</option>
-                                        <option value="LATORIA">LATORIA</option>
-                                        <option value="LABAC">LABAC</option>
-                                        <option value="MABOLO">MABOLO</option>
-                                        <option value="MALAINEN BAGO">MALAINEN BAGO</option>
-                                        <option value="MALAINEN LUMA">MALAINEN LUMA</option>
-                                        <option value="MAQUINA">MAQUINA</option>
-                                        <option value="MOLINO">MOLINO</option>
-                                        <option value="MUNTING MAPINO">MUNTING MAPINO</option>
-                                        <option value="MUZON">MUZON</option>
-                                        <option value="PALANGUE 2">PALANGUE 2</option>
-                                        <option value="PALANGUE 3">PALANGUE 3</option>
-                                        <option value="PALANGUE CENTRAL">PALANGUE CENTRAL</option>
-                                        <option value="SABANG">SABANG</option>
-                                        <option value="SAN ROQUE">SAN ROQUE</option>
-                                        <option value="SANTULAN">SANTULAN</option>
-                                        <option value="SAPA">SAPA</option>
-                                        <option value="TIMALAN BALSAHAN">TIMALAN BALSAHAN</option>
-                                        <option value="TIMALAN CONCEPCION">TIMALAN CONCEPCION</option>
                                         <option value="OTHER">OTHER (PLEASE SPECIFY)</option>
                                     </select>
                                     @error('address')
@@ -320,18 +281,14 @@
                                 </div>
                             </div>
 
-
                             <div class="row mb-3" id="otherAddressField" style="display: none;">
-                                <label for="other_address"
-                                    class="col-md-4 col-form-label text-md-end"> 
+                                <label for="other_address" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Other Address') }}</label>
-
                                 <div class="col-md-6">
                                     <input id="other_address" type="text"
                                         class="form-control @error('other_address') is-invalid @enderror"
                                         name="other_address" value="{{ old('other_address') }}"
                                         autocomplete="other_address" style="text-transform: uppercase;">
-
                                     @error('other_address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -340,15 +297,11 @@
                                 </div>
                             </div>
 
-
                             <!-- Hidden input to store the actual address -->
                             <input type="hidden" name="address" id="address" value="{{ old('address') }}">
 
-
-
                             <div class="row mb-3">
-                                <label for="contact_info"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="contact_info" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Contact Number') }}</label>
 
                                 <div class="col-md-6">
@@ -369,8 +322,7 @@
 
 
                             <div class="row mb-3">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="email" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Email Address') }}</label>
 
                                 <div class="col-md-6">
@@ -387,8 +339,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-end"> 
+                                <label for="password" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Password') }}</label>
                                 <div class="col-md-6">
                                     <div class="input-group">
@@ -412,8 +363,7 @@
 
 
                             <div class="row mb-3">
-                                <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-end">
                                     <span style="color: red;">*</span> {{ __('Confirm Password') }}</label>
                                 <div class="col-md-6">
                                     <div class="input-group">
@@ -426,10 +376,10 @@
                                             </span>
                                         </div>
                                     </div>
-                                    
-                            <small class="text-muted">The password must be at least 8 characters.</small>
+
+                                    <small class="text-muted">The password must be at least 8 characters.</small>
                                 </div>
-                                
+
                             </div>
 
 
@@ -506,33 +456,50 @@
         });
 
         // Address Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const barangaySelect = document.getElementById('barangay');
+            const otherAddressField = document.getElementById('otherAddressField');
+            const addressInput = document.getElementById('address');
 
-        function toggleOtherAddressField() {
-            var barangaySelect = document.getElementById('barangay');
-            var otherAddressField = document.getElementById('otherAddressField');
-            var addressInput = document.getElementById('address');
+            // Fetch barangays from the API
+            fetch('https://psgc.gitlab.io/api//cities-municipalities/042115000/barangays')
+                .then(response => response.json())
+                .then(data => {
+                    // Append barangays to the dropdown
+                    data.forEach(barangay => {
+                        const option = document.createElement('option');
+                        option.value = barangay.name.toUpperCase(); // Convert to uppercase
+                        option.text = barangay.name.toUpperCase();
+                        barangaySelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching barangays:', error));
 
-            if (barangaySelect.value === 'OTHER') {
-                otherAddressField.style.display = 'flex';
-            } else {
-                otherAddressField.style.display = 'none';
-                addressInput.value = barangaySelect.value;
-            }
-        }
+            // Toggle 'Other Address' field when 'OTHER' is selected
+            barangaySelect.addEventListener('change', function() {
+                if (this.value === 'OTHER') {
+                    otherAddressField.style.display = 'block';
+                    addressInput.value = ''; // Clear the hidden address input
+                } else {
+                    otherAddressField.style.display = 'none';
+                    addressInput.value = this.value; // Set the address to the selected barangay
+                }
+            });
 
-        // Update the hidden address input when the other address field changes
-        document.getElementById('other_address').addEventListener('input', function() {
-            var addressInput = document.getElementById('address');
-            var barangaySelect = document.getElementById('barangay');
-
-            if (barangaySelect.value === 'OTHER') {
-                addressInput.value = this.value;
-            }
+            // Update the hidden address input when the other address field changes
+            document.getElementById('other_address').addEventListener('input', function() {
+                if (barangaySelect.value === 'OTHER') {
+                    addressInput.value = this.value.toUpperCase(); // Use the other address input value
+                }
+            });
         });
 
         // Call the function on page load to set the initial state
         document.addEventListener('DOMContentLoaded', function() {
-            toggleOtherAddressField();
+            // Check if 'OTHER' is already selected
+            if (document.getElementById('barangay').value === 'OTHER') {
+                document.getElementById('otherAddressField').style.display = 'block';
+            }
         });
     </script>
 @endsection

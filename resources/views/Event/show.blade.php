@@ -16,6 +16,7 @@
         </div>
     </div>
 
+
     <div class="card">
         <div class="card">
             <div class="card-header">
@@ -80,7 +81,7 @@
                                     <form action="{{ route('event-details.changeStatus', $eventDetail->id) }}"
                                         method="GET" style="display: inline;">
                                         @csrf
-                                        <button type="submit" class="btn btn-primary">Change Donor Status</button>
+                                        <button type="submit" class="btn btn-primary">Mark as Eligible</button>
                                     </form>
 
                                     <!-- Button for Changing Donated Status -->

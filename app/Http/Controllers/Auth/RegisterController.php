@@ -10,6 +10,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -34,6 +35,9 @@ class RegisterController extends Controller
         // $events = Event::all(); // Fetch all events (adjust this query as per your application's needs)
         // dd($request->event_id);
         $event = Event::findOrFail($request->event_id);
+
+       
+
 
         return view('auth.register', compact('event'));
     }

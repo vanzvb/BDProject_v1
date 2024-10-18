@@ -1,3 +1,18 @@
+@php
+    // Get the path of the logo
+    $logoPath = public_path('images/welcome_img/RHU_LOGO.png'); // Change the file extension if needed
+    $logoType = pathinfo($logoPath, PATHINFO_EXTENSION);
+
+    // Get the image content and encode it to base64
+    if (file_exists($logoPath)) {
+        $logoData = file_get_contents($logoPath);
+        $logoBase64 = 'data:image/' . $logoType . ';base64,' . base64_encode($logoData);
+    } else {
+        $logoBase64 = ''; // Fallback in case the file doesn't exist
+    }
+@endphp
+
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -11,7 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Naic Rural Health Unit</title>
 
 
-   <link rel="icon" href="{{ asset('images/welcome_img/RHU_LOGO.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/welcome_img/RHU_LOGO.ico') }}" type="image/x-icon">
 
 
 
@@ -369,7 +384,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $(function() {
             // Assuming the logged-in user is stored in the 'loggedInUser' variable from Laravel
             var loggedInUser = "{{ Auth::user()->full_name }}"; // Pass the user's name here
-    
+            var logoUrl = "{{ isset($logoBase64) ? $logoBase64 : '' }}"; // Get the logo base64 string
+
             $("#example1").DataTable({
                 responsive: {
                     details: {
@@ -381,29 +397,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 "lengthChange": false,
                 "autoWidth": false,
                 "buttons": [
-                    "copy", "csv", "excel", 
+                    "copy", "csv", "excel",
                     {
                         extend: 'pdfHtml5',
                         text: 'PDF',
-                        title: 'Custom Report Title',
+                        title: 'Naic Rural Health Unit',
                         orientation: 'portrait',
                         pageSize: 'A4',
                         customize: function(doc) {
+                            // Add the logo at the top of the PDF
+                            if (logoUrl) {
+                                doc.content.unshift({
+                                    image: logoUrl,
+                                    width: 70, // Adjust width as needed
+                                    margin: [5, 5, 5, 25], // [left, top, right, bottom]
+                                    absolutePosition: {
+                                        x: 5,
+                                        y: 5
+                                    } // Position at the top left corner
+                                    
+                                });
+                            }
+
                             // Adding "Prepared By" section to the PDF
-                            doc.content.splice(0, 0, {
-                                text: 'Prepared By: ' + loggedInUser, 
+                            doc.content.push({ // Use push to add to the end
+                                text: 'Prepared By: ' + loggedInUser,
                                 alignment: 'left',
                                 margin: [0, 10, 0, 10],
                                 style: 'preparedBy' // Custom style
                             });
-    
+
                             // Custom style for "Prepared By"
                             doc.styles.preparedBy = {
                                 fontSize: 10,
                                 italic: true,
                                 margin: [0, 0, 0, 10]
                             };
-    
+
                             // Add your other customizations here (like headers, footers, etc.)
                             doc.footer = function(currentPage, pageCount) {
                                 return {
@@ -419,6 +449,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
     </script>
+
 </body>
 
 </html>
