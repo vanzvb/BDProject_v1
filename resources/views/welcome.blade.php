@@ -360,12 +360,15 @@
                                                 </select> --}}
 
                                                 <select class="form-control" id="barangayDropdown" name="barangay">
+                                                  
                                                     <option value="">All</option>
+                                                    <option value="Others">Others</option>
                                                     @foreach($APIbarangays as $barangay)
                                                         <option value="{{ $barangay['name'] }}">
                                                             {{ $barangay['name'] }}
                                                         </option>
                                                     @endforeach
+                                                  
                                                 </select>
 
 
@@ -377,7 +380,7 @@
                                         <div class="col-md-4">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h3>Total Donors Within Naic</h3>
+                                                    <h3>Total Donors</h3>
                                                 </div>
                                                 <div class="card-body">
                                                     <h4>Total Donors</h4>
